@@ -1,0 +1,69 @@
+# Text File
+# AUTHOR:   robin_arch
+# FILE:     seance1.mkd
+# ROLE:     TODO (some explanation)
+# CREATED:  2014-04-03 19:16:40
+# MODIFIED: 2014-04-03 20:04:07
+
+## Type de données
+
+fourmis
+m           nombre total de fourmis de l'algorithme
+n = |X|     nombre de villes dans le graphe G
+tabu_k      Liste des villes déjà parcourues par la fourmi k
+d_ij        Distance entre les villes i et j
+τ_j         Quantité de phéromones sur l'arc a
+η_ij = 1/d_ij                       Visibilité de la ville j quand une fourmi se trouve dans la ville i
+ρ \in [0,1] Coefficient d'évaporation des phéromones
+α \in R     Coefficient régulant l'importance des phéromones pour le choix d'une ville
+β \in R     Coefficient régulant l'importance de la visibilité pour le choix d'une ville
+ε > 0       Valeur initiale non nulle de phéromones sur les arcs
+Q > 0       Constante servant à calculer la quantité de phéromones à déposer pour chaque fourmi
+MAX_CYCLE   Constante, nombre maximum de cycles autorisés.
+L_k = Σ_aij \in solution_k_dij      Longueur d'un chemin, somme des longueurs de chaque arc constituant le ch
+
+## Modules
+
+- fourmis
+- voyageur
+
+## Prototypes
+
+### Structures de données
+
+fourmis
+- solution : ensemble des arcs formant la solution de la fourmi. Pour stocker l'ensemble, on choisira d’utiliser une file d’arcs. Ce choix permettra de représenter non seulement la solution de la fourmi mais aussi la liste tabu des villes déjà visitées.
+- ville_départ et ville_courante: indice des sommets de départ et courant de la fourmi
+
+Graphe
+- numéro : le numéro du sommet
+- nom : le nom du sommet
+- x, y : positions du sommet (pour la représentation graphique du graphe)
+- voisins : la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce som
+
+### Fonctions
+
+voyageur
+- création du graphe (ville + contraintes)
+- initialisation des paramètres de la simulation (nombre de fourmis, taux d'évaporation, …)
+- lancement de la simulation
+
+fourmis
+- Initialisation (ville de départ + paramètres)
+- Parcourt
+    + Choix de la prochaine ville
+        * importances de la visibilité
+        * importances de la phéromones
+    + Mise à jour des phéromones sur le graphe
+        * nouveau phéromones
+        * évaporation
+    + meilleur parcourt
+
+## Tests
+
+- choix de la ville suivante
+- parcourt valide
+- mise à jour des phéromones
+- meilleur parcourt toujours le meilleur lors de la simu
+
+## Répartition du travail + planning

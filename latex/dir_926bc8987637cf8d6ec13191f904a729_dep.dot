@@ -1,0 +1,10 @@
+digraph "robin_arch" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_926bc8987637cf8d6ec13191f904a729 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_926bc8987637cf8d6ec13191f904a729.html"];
+    dir_926bc8987637cf8d6ec13191f904a729 [shape=plaintext label="robin_arch"];
+    dir_cc35d4081a02d436786e27237031b5eb [shape=box label="cour" color="red" fillcolor="white" style="filled" URL="dir_cc35d4081a02d436786e27237031b5eb.html"];
+  }
+}
