@@ -8,30 +8,32 @@
 // CREATED:  2014-04-04 08:04:06
 // MODIFIED: 2014-04-04 08:04:06
 
-typedef int graph[];
+typedef struct {
+    int d;              /// < Distance entre les villes i et j
+    int visibilite;     /// < Quantité de phéromones sur l'arc a
+} Arc;
 
+typedef struct {
+    Arc *arc;           /// < Liste des ville que l'on peut atteindre depuis la ville
+} Ville;
+
+typedef Ville *graph;
+
+// paramètres de la simutation
 int m;          /// < nombre total de fourmis de l'algorithme
 int n;          /// < nombre de villes dans le graphe G
 graph tabu;     /// < Liste des villes déjà parcourues par la fourmi k
 float alpha;    /// < Coefficient régulant l'importance des phéromones pour le choix d'une ville
 float beta;     /// < Coefficient régulant l'importance de la visibilité pour le choix d'une ville
 float epsilon;  /// < Valeur initiale non nulle de phéromones sur les arcs
+float rho;      /// < Coefficient d'évaporation des phéromones
 float Q;        /// < Constante servant à calculer la quantité de phéromones à déposer pour chaque fourmi
 
 /// < Constante, nombre maximum de cycles autorisés.
-#define MAX_C
+#define MAX_C   200
 
-int L;          /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le ch
+int L;          /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
 
 
 
-typedef struct {
-    int d[];            /// < Distance entre les villes i et j
-    int visibilite[];   /// < Quantité de phéromones sur l'arc a
-} Ville;
-
-ρ \in [0,1]                         /// < Coefficient d'évaporation des phéromones
-L_k = Σ_aij \in solution_k_dij      /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le ch
-
-η_ij = 1/d_ij                       /// < Visibilité de la ville j quand une fourmi se trouve dans la ville i
 #endif /* MAIN_H */
