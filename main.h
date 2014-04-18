@@ -12,8 +12,8 @@ struct Sommet;
 typedef struct {
     float d;            /// < Distance entre les villes i et j
     float visibilite;   /// < Quantité de phéromones sur l'arc a
-    struct Sommet *depart      /// < Sommet de départ (ville i)
-    struct Sommet *arrivee     /// < Sommet d'arrivée (ville j)
+    struct Sommet *depart;      /// < Sommet de départ (ville i)
+    struct Sommet *arrivee;  /// < Sommet d'arrivée (ville j)
 } Arc;
 
 typedef struct {
@@ -23,6 +23,7 @@ typedef struct {
 	Arc *voisins[];		/// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
     const char nom[64]; /// < Nom de la ville
 } Sommet;
+
 typedef Ville Sommet;
 
 typedef Ville Graph;  /// < Un graph est un tableau de ville
@@ -57,7 +58,7 @@ typedef struct {
 /** Initialise le graph à partir des données contenu dans le fichier data_graph.
  * \param n out : Nombre de ville contenu dans le graph (indiqué dans le fichier data_graph)
  */
-Graph creation_graph(FILE data_graph, int *n);
+Graph *creation_graph(FILE *data_graph, Parametres parametres);
 
 /** Initialise les paramètres de la simulation
  */
