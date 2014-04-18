@@ -41,6 +41,12 @@ typedef struct {
     float L;           /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le cheminemin
 } Fourmi;
 
+typedef struct{
+	
+	
+	
+
+} graph;
 ///////////
 // graph //
 ///////////
