@@ -8,24 +8,24 @@
 // CREATED:  2014-04-04 08:04:06
 // MODIFIED: 2014-04-04 08:04:06
 
+struct Sommet;
+typedef struct {
+    float d;            /// < Distance entre les villes i et j
+    float visibilite;   /// < Quantité de phéromones sur l'arc a
+    struct Sommet *depart      /// < Sommet de départ (ville i)
+    struct Sommet *arrivee     /// < Sommet d'arrivée (ville j)
+} Arc;
+
 typedef struct {
 	int numero;			/// le numéro du sommet
 	int nom;            /// le nom du sommet
 	float x,y;          /// positions du sommet (pour la representation graphique du graphe).
 	Arc *voisins[];		/// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
-} Graph;
-
-typedef struct {
-    float d;            /// < Distance entre les villes i et j
-    float visibilite;   /// < Quantité de phéromones sur l'arc a
-} Arc;
-
-typedef struct {
-    Arc *arc;           /// < Liste des ville que l'on peut atteindre depuis la ville
     const char nom[64]; /// < Nom de la ville
-} Ville;
+} Sommet;
+typedef Ville Sommet;
 
-typedef Ville *Graph;
+typedef Ville Graph[];
 
 // paramètres de la simulation
 typedef struct {
@@ -71,6 +71,7 @@ void run_simu(Parametres *p, Graph g);
 /////////////
 
 /** Fabrique une nouvelle fourmis
+ * \param param Les paramètres de la fonction
  */
 Fourmi init_fourmi(Parametres *param);
 
