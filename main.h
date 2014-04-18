@@ -26,12 +26,13 @@ typedef struct {
 
 typedef Ville Sommet;
 
-typedef Ville Graph[];
+typedef Ville Graph;  /// < Un graph est un tableau de ville
 
 // paramètres de la simulation
 typedef struct {
     int m;          /// < nombre total de fourmis de l'algorithme
-    int n;          /// < nombre de villes dans le graphe G
+    int n;          /// < nombre de villes dans le graphe
+    Graph graph[];  /// < L'ensemble des villes
     float alpha;    /// < Coefficient régulant l'importance des phéromones pour le choix d'une ville
     float beta;     /// < Coefficient régulant l'importance de la visibilité pour le choix d'une ville
     float epsilon;  /// < Valeur initiale non nulle de phéromones sur les arcs
@@ -45,7 +46,7 @@ Graph meilleur_parcourt;
 #define MAX_C   200
 
 typedef struct {
-    Graph tabu;        /// < Liste des villes déjà parcourues par la fourmi k
+    Graph tabu[];      /// < Liste des villes déjà parcourues par la fourmi k
     float L;           /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
 	Parametres *param; /// < Pointeur sur les paramètres de la simulation
 } Fourmi;
@@ -72,13 +73,13 @@ void run_simu(Parametres *p, Graph g);
 /////////////
 
 /** Fabrique une nouvelle fourmis
- * \param param Les paramètres de la fonction
+ * \param param const Les paramètres de la fonction
  */
 Fourmi init_fourmi(Parametres *param);
 
 /** Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc
  * \param f La fourmi en train d'effectuer son voyage
- * \param p Les paramètres de la simulation
+ * \param p const Les paramètres de la simulation
  * \return 0 si le graph est totalement visité
  * \return +1 si il reste des villes non visitées
  * \return -1 si il reste des villes non visitées, mais qu'il n'y a plus aucun chemin possible
@@ -86,17 +87,19 @@ Fourmi init_fourmi(Parametres *param);
 void ville_suivante(Fourmi f, Parametres *p);
 
 /** Valide le parcourt d'une fourmi
+ * \param p const Les paramètres de la simulation
  * \return true si le parcourt est valide
  */
-bool parcourt_valide(Fourmi f, Parametres p);
+bool parcourt_valide(Fourmi f, Parametres *p);
 
 /** Met à jour le meilleur parcourt si celui de la fourmi est meilleur
+ * \param p const Les paramètres de la simulation
  */
-void (Fourmi f, Graph meilleur_parcourt);
+void (Fourmi f, Graph *meilleur_parcourt);
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
  */
-void graph_update(Fourmi f, Graph g);
+void graph_update(Fourmi f, Graph *g);
 
 
 #endif /* MAIN_H */
