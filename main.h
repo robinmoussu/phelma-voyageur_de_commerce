@@ -9,6 +9,13 @@
 // MODIFIED: 2014-04-04 08:04:06
 
 typedef struct {
+	int numero;			/// le numéro du sommet
+	int nom;            /// le nom du sommet
+	float x,y;          /// positions du sommet (pour la representation graphique du graphe).
+	Arc *voisins[];		/// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
+} Graph;
+
+typedef struct {
     float d;            /// < Distance entre les villes i et j
     float visibilite;   /// < Quantité de phéromones sur l'arc a
 } Arc;
@@ -33,12 +40,13 @@ typedef struct {
 
 Graph meilleur_parcourt;
 
-/// < Constante, nombre maximum de cycles autorisés.
+/// Constante, nombre maximum de cycles autorisés.
 #define MAX_C   200
 
 typedef struct {
     Graph tabu;        /// < Liste des villes déjà parcourues par la fourmi k
     float L;           /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
+	Parametres *param; /// < Pointeur sur les paramètres de la simulation
 } Fourmi;
 
 ///////////
@@ -64,7 +72,7 @@ void run_simu(Parametres *p, Graph g);
 
 /** Fabrique une nouvelle fourmis
  */
-Fourmi init_fourmi();
+Fourmi init_fourmi(Parametres *param);
 
 /** Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc
  * \param f La fourmi en train d'effectuer son voyage
