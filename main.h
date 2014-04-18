@@ -20,7 +20,7 @@ typedef struct {
 
 typedef Ville *Graph;
 
-// paramètres de la simutation
+// paramètres de la simulation
 typedef struct {
     int m;          /// < nombre total de fourmis de l'algorithme
     int n;          /// < nombre de villes dans le graphe G
@@ -38,7 +38,7 @@ Graph meilleur_parcourt;
 
 typedef struct {
     Graph tabu;        /// < Liste des villes déjà parcourues par la fourmi k
-    float L;           /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le cheminemin
+    float L;           /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
 } Fourmi;
 
 ///////////
@@ -50,7 +50,7 @@ typedef struct {
  */
 Graph creation_graph(FILE data_graph, int *n);
 
-/** Initialise les paramètres de la simutation
+/** Initialise les paramètres de la simulation
  */
 Parametres init_param(int m, float alpha, float beta, float epsilon, float rho, float Q);
 
@@ -68,7 +68,7 @@ Fourmi init_fourmi();
 
 /** Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc
  * \param f La fourmi en train d'effectuer son voyage
- * \param p Les parametres de la simulation
+ * \param p Les paramètres de la simulation
  * \return 0 si le graph est totalement visité
  * \return +1 si il reste des villes non visitées
  * \return -1 si il reste des villes non visitées, mais qu'il n'y a plus aucun chemin possible
