@@ -1,7 +1,9 @@
 #include "main.h"
+#include <stdio.h>
 
-Graph *creation_graph (File *data_graph, int n)
+Graph *creation_graph (FILE *data_graph, int n)
 {
+  FILE *f1;
   
 
 

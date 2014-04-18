@@ -12,8 +12,8 @@ struct Sommet;
 typedef struct {
     float d;            /// < Distance entre les villes i et j
     float visibilite;   /// < Quantité de phéromones sur l'arc a
-    struct Sommet *depart      /// < Sommet de départ (ville i)
-    struct Sommet *arrivee     /// < Sommet d'arrivée (ville j)
+    struct Sommet *depart;      /// < Sommet de départ (ville i)
+    struct Sommet *arrivee;  /// < Sommet d'arrivée (ville j)
 } Arc;
 
 typedef struct {
