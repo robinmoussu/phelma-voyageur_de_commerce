@@ -49,12 +49,6 @@ typedef struct {
 	Parametres *param; /// < Pointeur sur les paramètres de la simulation
 } Fourmi;
 
-typedef struct{
-	
-	
-	
-
-} graph;
 ///////////
 // graph //
 ///////////
