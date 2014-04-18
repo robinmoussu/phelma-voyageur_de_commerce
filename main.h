@@ -29,8 +29,8 @@ typedef Ville Graph;  /// < Un graph est un tableau de ville
 
 // paramètres de la simulation
 typedef struct {
-    int m;          /// < nombre total de fourmis de l'algorithme
-    int n;          /// < nombre de villes dans le graphe
+    int nb_fourmi;  /// < nombre total de fourmis de l'algorithme
+    int nb_villes;  /// < nombre de villes dans le graphe
     Graph graph[];  /// < L'ensemble des villes
     float alpha;    /// < Coefficient régulant l'importance des phéromones pour le choix d'une ville
     float beta;     /// < Coefficient régulant l'importance de la visibilité pour le choix d'une ville
