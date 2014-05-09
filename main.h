@@ -21,6 +21,7 @@ typedef struct {
 	int nom;            /// le nom du sommet
 	float x,y;          /// positions du sommet (pour la representation graphique du graphe).
 	Arc *voisins[];		/// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
+    int nb_voisins;
     const char nom[64]; /// < Nom de la ville
 } Sommet;
 
