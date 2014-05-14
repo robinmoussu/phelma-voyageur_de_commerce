@@ -8,10 +8,8 @@
 // CREATED:  2014-04-04 08:04:06
 // MODIFIED: 2014-04-04 08:04:06
 
-struct Sommet;
 typedef struct {
-    float d;            /// < Distance entre les villes i et j
-    float visibilite;   /// < Quantité de phéromones sur l'arc a
+    double d;            /// < Distance entre les villes i et j
     struct Sommet *depart;      /// < Sommet de départ (ville i)
     struct Sommet *arrivee;  /// < Sommet d'arrivée (ville j)
 } Arc;
@@ -19,7 +17,7 @@ typedef struct {
 typedef struct {
 	int numero;			/// le numéro du sommet
 	int nom;            /// le nom du sommet
-	float x,y;          /// positions du sommet (pour la representation graphique du graphe).
+	double x,y;          /// positions du sommet (pour la representation graphique du graphe).
 	Arc *voisins[];		/// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
     const char nom[64]; /// < Nom de la ville
 } Sommet;
