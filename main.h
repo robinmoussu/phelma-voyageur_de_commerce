@@ -8,12 +8,10 @@
 // CREATED:  2014-04-04 08:04:06
 // MODIFIED: 2014-04-04 08:04:06
 
-<<<<<<< HEAD
-=======
 typedef enum {false,true} bool;
 
 struct Sommet;
->>>>>>> 85f8215fae11e13292d3f019cae111f576f48394
+
 typedef struct {
     double d;            /// < Distance entre les villes i et j
     struct Sommet *depart;      /// < Sommet de départ (ville i)
@@ -43,9 +41,6 @@ typedef struct {
     float rho;      /// < Coefficient d'évaporation des phéromones
     float Q;        /// < Constante servant à calculer la quantité de phéromones à déposer pour chaque fourmi
 } Parametres;
-//Graph graph[];  /// < L'ensemble des villes (a mettre dans main.c
-
-Graph meilleur_parcourt;
 
 /// Constante, nombre maximum de cycles autorisés.
 #define MAX_C   200
@@ -100,11 +95,6 @@ void ville_suivante(Fourmi f, Parametres *p);
  * \return true si le parcourt est valide
  */
 bool parcourt_valide(Fourmi f, Parametres *p);
-
-/** Met à jour le meilleur parcourt si celui de la fourmi est meilleur
- * \param p const Les paramètres de la simulation
- */
-void meilleur_parcourt(Fourmi f, Graph *meilleur_parcourt);
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
  */

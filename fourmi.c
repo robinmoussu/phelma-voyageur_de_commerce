@@ -96,10 +96,10 @@ bool parcourt_valide(Fourmi f, Graph list_villes, int nb_villes)
         for (ville_courante = f->tabu[i = 0]; i < nb_villes; ville_courante = f->tabu[i++]) {
             // On s'assure que la fourmi n'était pas déjà passé par cette ville
             for (j = 0; j < nb_villes; j++) {
-                if (ville_courante == list_villes[i]) { // comparaison par adresse
-                    if (ville_visitees[j]) { // comparaison par adresse
+                if (ville_courante == list_villes[i]) { // nb : comparaison par adresse
+                    if (ville_visitees[j] ) { // si la ville était déjà visitée
                         retour = false;
-                        goto fin_parcourt; // inutile de continuer plus loin le parcourt. Vu qu'il y a deux boucles imbriquées, un break ne suffit pas. L'utilisation du goto est donc justifié pour des raisons de performances
+                        goto fin_parcourt; // inutile de continuer plus loin le parcourt. Vu qu'il y a deux boucles imbriquées, un break ne suffit pas. L'utilisation du goto est donc justifié pour des raisons de performances. NB : si on commente cette ligne, l'agorithme reste fonctionnel, mais sera inutilement plus long.
                     } else {
                         ville_visitees[j] = true;
                     }
@@ -116,7 +116,14 @@ fin_parcourt:
 
 /** Met à jour le meilleur parcourt si celui de la fourmi est meilleur
 */
-void (Fourmi f, Graph meilleur_parcourt);
+void meilleur_parcourt(Fourmi f, Graph *meilleur_parcourt[], int distance meilleur parcourt, int nb_villes)
+{
+    int i;
+
+    for (i = 0; i < nb_villes; i++) {
+
+    }
+}
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
 */
