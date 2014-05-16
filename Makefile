@@ -3,7 +3,7 @@
 
 CFLAGS=-g -c -O2 -Wall -Wextra
 LDFLAGS= 
-CIBLE=test
+CIBLE=voyageur_de_commerce
 
 run : ${CIBLE}
 	./${CIBLE}
