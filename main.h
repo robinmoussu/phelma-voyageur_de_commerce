@@ -14,6 +14,7 @@ struct Ville;
 
 typedef struct {
     double d;            /// < Distance entre les villes i et j
+    double pheromones;    /// La quantitée de phéromone actuelement sur l'arc
     struct Ville *depart;      /// < Sommet de départ (ville i)
     struct Ville *arrivee;  /// < Sommet d'arrivée (ville j)
 } Arc;
