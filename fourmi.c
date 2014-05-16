@@ -1,6 +1,6 @@
 #include <stdlib.h>     /* srand, rand */
 #include <math.h>
-# include "main.h"
+# include "fourmi.h"
 
 //// #include <time.h>       /* time */
 //// TO DO: srand(time(NULL)); // dans le main
@@ -10,7 +10,7 @@
  */
 void init_fourmi(Fourmi *f, Ville *point_depart)
 {
-    f->tabu[0] = point_depart;
+    f->tabu[0] = (Ville*) point_depart;
     f->L = 0;
 }
 
@@ -53,7 +53,7 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta)
     for (i = 0; i < nb_villes; i++) {
         Arc *voisin_courant = ville_courante->voisins[i];
 
-        if (deja_visite(voisin_courant->arrivee, f->tabu, f->nb_villes_deja_visite)) {
+        if (deja_visite((Ville*) voisin_courant->arrivee, (Ville**) f->tabu, f->nb_villes_deja_visite)) {
             proba_ville[i] = 0;
         } else {
             // TODO verrifier la formule
@@ -70,7 +70,7 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta)
         fx += proba_ville[i];
         if (tirage < fx) {
             // C'est cette ville qui a été selectionnée
-            f->tabu[f->nb_villes_deja_visite++] = ville_courante->voisins[i]->arrivee;
+            f->tabu[f->nb_villes_deja_visite++] = (Ville*) ville_courante->voisins[i]->arrivee;
             break;
         }
     }
@@ -80,7 +80,7 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta)
 /** Valide le parcourt d'une fourmi
  * \return true si le parcourt est valide
  */
-bool parcourt_valide(Fourmi *f, Ville list_villes[], int nb_villes)
+bool parcourt_valide(Fourmi *f, Ville *list_villes, int nb_villes)
 {
     bool retour = true;
 

@@ -1,6 +1,7 @@
-#include "graphe.h"
+#include "sommet.h"
 #include <stdio.h>
-//Dans ce fichier on crée une graphe en lisant des texts GRAPHE donnés et ajouter des donner dans le tableau alloué
+
+//Dans ce fichier on créer un graph en lisant des texts GRAPHE donnés et ajouté des données dans le tableau alloué
 GRAPH *creation_graph (char *data_graph, int *nb_villes)
 {
     int nbarc,c,noeud1,noeud2;//nbarc est le nombre d'arrete a lire,noeud1 et noeud2 les deux ville d'une arrete
@@ -26,10 +27,11 @@ GRAPH *creation_graph (char *data_graph, int *nb_villes)
         som[i].nom=nom_sommet;
     }
 
-    fgets(mot,256,fp);//lire les mots"Ar�tes du graphe�: noeud1 noeud2 valeur"
+    fgets(mot,256,fp);//lire les mots"Arètes du graphe : noeud1 noeud2 valeur"
 
-    for (i=0, i<nbarc, i++)//lire tous les info dans "Ar�tes du graphe"
+    for (i=0, i<nbarc, i++)//lire tous les info dans "Arètes du graphe"
     {   fscanf(fp,"%d %d %lf",&noeud1,&noeud2,&distance);
-        som[i].voisin=arrete(noeud1, noeud2, Distance, som[i].voisin);    }
+        som[i].voisin=arrete(noeud1, noeud2, Distance, som[i].voisin);
+    }
     return som;
 }
