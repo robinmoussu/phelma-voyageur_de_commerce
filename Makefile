@@ -1,22 +1,26 @@
 #DIRSDL=/users/prog1a/C/librairie/2011
 #DIRSDL=/home/robin_arch/cour/1ere_annee_phelma/info/sdl_phelma/
 
-CFLAGS=-g -c -O2 -Wall -fdiagnostics-color=auto
-LDFLAGS= -fdiagnostics-color=auto
-CIBLE=voyageur_de_commerce
+CFLAGS= -c -Wall -fdiagnostics-color=auto -ggdb
+CFLAGS_NO_DEBUG= -c -Wall -fdiagnostics-color=auto -O2 
+LDFLAGS= -fdiagnostics-color=auto -lm -ggdb
+CIBLE=voyageur
+OPTION=graphe11.txt 
+
+cible : $(CIBLE)
 
 run : ${CIBLE}
-	./${CIBLE}
+	./${CIBLE} $(OPTION)
 
-all : voyageur_de_commerce
+all : voyageur
 
-voyageur_de_commerce: fourmi.c sommet.c arrete.c graphe.c main.c
+voyageur: fourmi.c sommet.c graph.c main.c
 	gcc -o $@  $^  $(LDFLAGS)
 
 %.o:%.c
 	gcc $(CFLAGS) $< -o $@
 
 clean:
-	rm *.o voyageur_de_commerce
+	rm *.o voyageur
 
 

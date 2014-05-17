@@ -1,25 +1,39 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef SOMMET_H
+#define SOMMET_H
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "arrete.h"
+
+#include "main.h"
+
+struct Ville;
+
+typedef struct {
+    double distance;            /// < Distance entre les villes i et j
+    double pheromones;          /// La quantitée de phéromone actuelement sur l'arc
+    struct Ville *depart;       /// < Sommet de départ (ville i)
+    struct Ville *arrivee;      /// < Sommet d'arrivée (ville j)
+} Arc;
+
+typedef struct {
+    int     id_sommet;      /// identifiant du sommet
+    double  x,y;            /// positions du sommet (pour la representation graphique du graphe).
+    char    nom[64];        /// < Nom de la ville
+    int     nb_voisins;     /// Les sommets reliés à ce sommet
+    Arc     *voisins[];     /// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
+} Sommet;   
+
+typedef Sommet Ville;
 
 
-typedef struct SOMMET{
-	int numero;		 /// le numéro du sommet
-	char nom[256];           /// le nom du sommet
-	double x,y;              /// positions du sommet (pour la representation graphique du graphe).
-	Arc *voisin[];	 /// la liste d'adjacence, liste de pointeurs vers les arcs sortant de ce sommet
-} Sommet;
+Arc*   get_in_arcs(Arc arcs[], int i);
+Ville* get_in_villes(Ville villes[], int i, int nb_ville);
 
 
-typedef Sommet* GRAPH;//un tableau de sommet
+Arc* get_arc(Ville *depart, Ville *arrivee);
 
-
-/** Initialise le graph à partir des données contenu dans le fichier data_graph.
- * \param nb_villes out : Nombre de ville contenu dans le graph (indiqué dans le fichier data_graph)
+/** Lance la simulation
  */
-GRAPH *creation_graph(char *data_graph, int *nb_villes)
+void run_simu(Parametres *p, Ville g[]);
 
-#endif
+#endif // SOMMET_H

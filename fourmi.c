@@ -1,5 +1,6 @@
 #include <stdlib.h>     /* srand, rand */
 #include <math.h>
+
 # include "fourmi.h"
 
 //// #include <time.h>       /* time */
@@ -10,8 +11,9 @@
  */
 void init_fourmi(Fourmi *f, Ville *point_depart)
 {
-    f->tabu[0] = (Ville*) point_depart;
     f->L = 0;
+    f->nb_villes_deja_visite = 0;
+    f->tabu[0] = (Ville*) point_depart;
 }
 
 bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visite)
@@ -53,11 +55,11 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta)
     for (i = 0; i < nb_villes; i++) {
         Arc *voisin_courant = ville_courante->voisins[i];
 
-        if (deja_visite((Ville*) voisin_courant->arrivee, (Ville**) f->tabu, f->nb_villes_deja_visite)) {
+        if (deja_visite((Ville*) voisin_courant->arrivee, f->tabu, f->nb_villes_deja_visite)) {
             proba_ville[i] = 0;
         } else {
             // TODO verrifier la formule
-            proba_ville[i] = pow(1/voisin_courant->d,alpha) / pow(voisin_courant->d,beta);
+            proba_ville[i] = pow(1/voisin_courant->distance,alpha) / pow(voisin_courant->distance,beta);
         }
 
         cumul_proba += proba_ville[i];
@@ -77,59 +79,115 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta)
 
 }
 
-/** Valide le parcourt d'une fourmi
- * \return true si le parcourt est valide
- */
-bool parcourt_valide(Fourmi *f, Ville *list_villes, int nb_villes)
-{
-    bool retour = true;
 
-    // on s'assure que la fourmi à visite toutes les villes
-    if (f->nb_villes_deja_visite != nb_villes) {
-        retour = false;
-    } else {
-
-        // On s'assure que toutes ces villes sont bien uniques
-        bool *ville_visitees = malloc(nb_villes * sizeof(*ville_visitees));
-        Ville *ville_courante = f->tabu[0];
-        int i, j;
-
-
-        // On refait le parcourt de la fourmi
-        for (ville_courante = f->tabu[i = 0]; i < nb_villes; ville_courante = f->tabu[i++]) {
-            // On s'assure que la fourmi n'était pas déjà passé par cette ville
-            for (j = 0; j < nb_villes; j++) {
-                if (ville_courante == &list_villes[i]) { // nb : comparaison par adresse
-                    if (ville_visitees[j] ) { // si la ville était déjà visitée
-                        retour = false;
-                        goto fin_parcourt; // inutile de continuer plus loin le parcourt. Vu qu'il y a deux boucles imbriquées, un break ne suffit pas. L'utilisation du goto est donc justifié pour des raisons de performances. NB : si on commente cette ligne, l'agorithme reste fonctionnel, mais sera inutilement plus long.
-                    } else {
-                        ville_visitees[j] = true;
-                    }
-                }
-            }
-        }
-fin_parcourt:
-        free(ville_visitees);
-
-    }
-
-    return retour;
-}
-
-/** Met à jour le meilleur parcourt si celui de la fourmi est meilleur
- */
-void meilleur_parcourt(Fourmi f, Graph *meilleur_parcourt[], int distance_meilleur_parcourt, int nb_villes)
+void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta)
 {
     int i;
 
     for (i = 0; i < nb_villes; i++) {
-
+        ville_suivante(fourmi_actuelle, nb_villes, alpha, beta);
+        fourmi_actuelle = graph_update(fourmi_actuelle, meilleure_fourmi, villes, nb_villes, ville_visitees);
     }
+}
+
+/** Valide le parcourt d'une fourmi
+ * \return true si le parcourt est valide
+ */
+bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])
+{
+    Ville *ville_courante;
+    int i, j;
+    double distance = 0;
+
+    // on s'assure que la fourmi semble avoir visiter toutes les villes
+    if (f->nb_villes_deja_visite != nb_villes) {
+        fprintf(stderr, "Error : All cities are not visited (%d cities visited instead of %d)\n",f->nb_villes_deja_visite, nb_villes);
+        return false;
+    }
+
+    // On s'assure que toutes ces villes sont bien uniques
+    for (i = 0; i < nb_villes; ++i) {
+        ville_visitees = false;
+    }
+
+    // On refait le parcourt de la fourmi
+    for (i = 0; i < nb_villes; i++) {
+        ville_courante = f->tabu[i];
+
+        // On s'assure que la fourmi n'était pas déjà passé par cette ville
+        for (j = 0; j < nb_villes; j++) {
+            if (ville_courante == get_in_villes(villes, i, nb_villes)) { // nb : comparaison par adresse
+                if (ville_visitees[j] ) { // si la ville était déjà visitée
+                    fprintf(stderr, "Error : City visited twice (%s)\ville_courante", ville_courante->nom);
+                    return false;
+                } else {
+                    ville_visitees[j] = true;
+                }
+            }
+        }
+
+        // on calcule la distance jusqu'à la prochaine ville
+        distance += get_arc(ville_courante, get_in_villes(villes, i + 1, nb_villes))->distance;
+    }
+
+    // on vérifie que la distance était correctement calculée
+    if (distance != f->L) {
+        return false;
+    }
+
+    return true;
 }
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
 */
-void graph_update(Fourmi f, Graph *g)
-{}
+Fourmi* graph_update(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[])
+{
+    Ville *depart, *arrivee;
+    int i;
 
+    // on s'assure que le parcourt de la fourmi est valide
+    if (!parcourt_valide(fourmi_actuelle, villes, nb_villes, ville_visitees)) {
+        fprintf(stderr, "Error : Invalid path.\n");
+        return;
+    }
+
+    depart  = get_in_villes(villes, 0, nb_villes);
+    for(i = 1; i < (nb_villes - 1); i++) { // nb : on commence avec la ville numéro 1 (arc de la ville 0 vers la ville 1)
+        arrivee = get_in_villes(villes, i , nb_villes);
+
+        // on met à jour les phéromones sur les arcs
+        get_arc(depart, arrivee
+            )->pheromones += PARCOURT_PHEROMONES;
+
+        // on actualise la ville de départ
+        depart = arrivee;
+    }
+
+    // On regarde si la nouvelle fourmi a un trajet plus performant que l'ancienne (et que l'ancien était initialisé)
+    if ((fourmi_actuelle->L < meilleure_fourmi->L) || (meilleure_fourmi->L != 0)) {
+        meilleure_fourmi = fourmi_actuelle;
+        return meilleure_fourmi;
+    } else {
+        return fourmi_actuelle;
+    }
+}
+
+void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])
+{
+    Ville *ville_courante;
+    int i;
+
+    // on s'assure que le parcourt de la fourmi est valide
+    if (!parcourt_valide(f, villes, nb_villes, ville_visitees)) {
+        fprintf(stderr, "Error : Invalid path.\n");
+        return;
+    }
+
+    printf("That ant have made a travel of %d km throught :\n", f->L);
+    for(i = 1; i < (nb_villes - 1); i++) {
+        ville_courante = get_in_villes(villes, i , nb_villes);
+
+        printf("\t%s\n", ville_courante->nom);
+    }
+    printf("\n");
+}
