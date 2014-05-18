@@ -9,14 +9,14 @@
 struct Ville;
 
 typedef struct {
-    double distance;            /// < Distance entre les villes i et j
-    double pheromones;          /// La quantitée de phéromone actuelement sur l'arc
-    struct Ville *depart;       /// < Sommet de départ (ville i)
-    struct Ville *arrivee;      /// < Sommet d'arrivée (ville j)
+    double distance;        /// < Distance entre les villes i et j
+    double pheromones;      /// La quantitée de phéromone actuelement sur l'arc
+    struct Ville *depart;   /// < Sommet de départ (ville i)
+    struct Ville *arrivee;  /// < Sommet d'arrivée (ville j)
 } Arc;
 
 typedef struct {
-    int     id_sommet;      /// identifiant du sommet
+    int     id_ville;       /// identifiant de la ville
     double  x,y;            /// positions du sommet (pour la representation graphique du graphe).
     char    nom[64];        /// < Nom de la ville
     int     nb_voisins;     /// Les sommets reliés à ce sommet
@@ -32,8 +32,6 @@ Ville* get_in_villes(Ville villes[], int i, int nb_ville);
 
 Arc* get_arc(Ville *depart, Ville *arrivee);
 
-/** Lance la simulation
- */
-void run_simu(Parametres *p, Ville g[]);
+Ville* get_arrivee(Ville *depart, Arc *arc);
 
 #endif // SOMMET_H

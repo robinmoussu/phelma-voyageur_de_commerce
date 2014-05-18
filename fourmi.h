@@ -6,7 +6,7 @@
 
 #define EPSILON_PHEROMONES 0.00001 /// < Valeur initiale non nulle de phéromones sur les arcs
 
-#define PARCOURT_PHEROMONES 0.00001 /// < Valeur initiale non nulle de phéromones sur les arcs
+#define PARCOURT_PHEROMONES 1      /// < Valeur initiale non nulle de phéromones sur les arcs
 
 typedef struct {
     float L;            /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
@@ -23,6 +23,7 @@ void init_fourmi(Fourmi *f, Ville *point_depart);
  */
 bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visite);
 
+
 /** Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc
  * \param f La fourmi en train d'effectuer son voyage
  * \param p const Les paramètres de la simulation
@@ -30,10 +31,9 @@ bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visi
  * \return +1 si il reste des villes non visitées
  * \return -1 si il reste des villes non visitées, mais qu'il n'y a plus aucun chemin possible
  */
-void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta);
+void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_ville[], bool deja_visite[]);
 
-void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta);
-
+void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[]);
 /** Valide le parcourt d'une fourmi
  * \param p const Les paramètres de la simulation
  * \return true si le parcourt est valide
@@ -43,7 +43,7 @@ bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visite
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
  */
-Fourmi* graph_update(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[]);
+void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[]);
 
 void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[]);
 

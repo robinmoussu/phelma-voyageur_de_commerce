@@ -1,12 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-// C/C++ File
-// AUTHOR:   robin_arch
-// FILE:     main.h
-// ROLE:     TODO (some explanation)
-// CREATED:  2014-04-04 08:04:06
-// MODIFIED: 2014-04-04 08:04:06
+// chose one of the folowing statement
+#define ON_DEBUG(instruction) 
+//#define ON_DEBUG(instruction) instruction
 
 typedef enum {false,true} bool;
 
@@ -23,7 +20,8 @@ typedef struct {
 
 /// Constante, nombre maximum de cycles autorisés.
 #define MAX_C   200
-#define ALPHA   100
-#define BETA    100
+
+#define ALPHA   1
+#define BETA    2
 
 #endif /* MAIN_H */

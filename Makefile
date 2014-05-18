@@ -21,6 +21,6 @@ voyageur: fourmi.c sommet.c graph.c main.c
 	gcc $(CFLAGS) $< -o $@
 
 clean:
-	rm *.o voyageur
+	rm voyageur
 
 
