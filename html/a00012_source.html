@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>Voyageur de commerce:  Fichier source de graph.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="phelma_logo_petit.jpg"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Voyageur de commerce
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="annotated.html"><span>Structures&#160;de&#160;données</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Variables&#160;globale</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Structures de données</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Définitions de type</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Énumérations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs énumérées</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">graph.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="a00012.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> *    Voyageur de commerce</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *    Copyright (C) 2014 Robin Moussu - Jingbo Su</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> *    This program is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> *    it under the terms of the GNU General Public License as published by</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *    the Free Software Foundation, either version 3 of the License, or</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *    (at your option) any later version.</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *    This program is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> *    but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *    GNU General Public License for more details.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *    You should have received a copy of the GNU General Public License</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef SOMMET_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define SOMMET_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00014.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">struct </span><a class="code" href="a00005.html">Ville</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00003.html">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">   36</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">distance</a>;        </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="a00003.html#a15ec8c17c3ffac83d28810673d43398d">   37</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="a00003.html#a15ec8c17c3ffac83d28810673d43398d">pheromones</a>;      </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00003.html#aca4eb5963d7f0d25c0890b73b0d90348">   38</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a00005.html">Ville</a> *<a class="code" href="a00003.html#aca4eb5963d7f0d25c0890b73b0d90348">depart</a>;   </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00003.html#a1fe7bc832c0d13299e4e4746ffa408d6">   39</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="a00005.html">Ville</a> *<a class="code" href="a00003.html#a1fe7bc832c0d13299e4e4746ffa408d6">arrivee</a>;  </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <a class="code" href="a00003.html">Arc</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00005.html">   45</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00005.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">   46</a></span>&#160;    <span class="keywordtype">int</span>     <a class="code" href="a00005.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">id_ville</a>;       </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a00005.html#ab927965981178aa1fba979a37168db2a">   47</a></span>&#160;    <span class="keywordtype">double</span>  <a class="code" href="a00005.html#af88b946fb90d5f08b5fb740c70e98c10">x</a>,<a class="code" href="a00005.html#ab927965981178aa1fba979a37168db2a">y</a>;            </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="a00005.html#a4cde2f9aa497984732f03935cb5de70f">   48</a></span>&#160;    <span class="keywordtype">char</span>    <a class="code" href="a00005.html#a4cde2f9aa497984732f03935cb5de70f">nom</a>[64];        </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="a00005.html#a6667b830a665da501a163301fec6323d">   49</a></span>&#160;    <span class="keywordtype">int</span>     <a class="code" href="a00005.html#a6667b830a665da501a163301fec6323d">nb_voisins</a>;     </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="a00005.html#a6c84e8994c2213870441265291b1f48b">   50</a></span>&#160;    <a class="code" href="a00003.html">Arc</a>     *<a class="code" href="a00005.html#a6c84e8994c2213870441265291b1f48b">voisins</a>[];     </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <a class="code" href="a00005.html">Sommet</a>;   </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">   53</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="a00005.html">Sommet</a> <a class="code" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<a class="code" href="a00003.html">Arc</a>* <a class="code" href="a00012.html#a52d808c750faefa77883b665d40bb46a">get_arc</a>(<a class="code" href="a00005.html">Ville</a> *depart, <a class="code" href="a00005.html">Ville</a> *arrivee);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<a class="code" href="a00005.html">Ville</a>* <a class="code" href="a00012.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a>(<a class="code" href="a00005.html">Ville</a> *depart, <a class="code" href="a00003.html">Arc</a> *arc);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#endif // SOMMET_H</span></div>
+<div class="ttc" id="a00003_html_a1fe7bc832c0d13299e4e4746ffa408d6"><div class="ttname"><a href="a00003.html#a1fe7bc832c0d13299e4e4746ffa408d6">Arc::arrivee</a></div><div class="ttdeci">struct Ville * arrivee</div><div class="ttdoc">< Sommet de départ (ville i) </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00039">graph.h:39</a></div></div>
+<div class="ttc" id="a00003_html"><div class="ttname"><a href="a00003.html">Arc</a></div><div class="ttdoc">Contient les données relative à un arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00035">graph.h:35</a></div></div>
+<div class="ttc" id="a00005_html_af88b946fb90d5f08b5fb740c70e98c10"><div class="ttname"><a href="a00005.html#af88b946fb90d5f08b5fb740c70e98c10">Sommet::x</a></div><div class="ttdeci">double x</div><div class="ttdoc">Identifiant de la ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00047">graph.h:47</a></div></div>
+<div class="ttc" id="a00012_html_a295b1c44b26fe1ed9f477b9958d051e5"><div class="ttname"><a href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a></div><div class="ttdeci">Sommet Ville</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00053">graph.h:53</a></div></div>
+<div class="ttc" id="a00005_html_ab927965981178aa1fba979a37168db2a"><div class="ttname"><a href="a00005.html#ab927965981178aa1fba979a37168db2a">Sommet::y</a></div><div class="ttdeci">double y</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00047">graph.h:47</a></div></div>
+<div class="ttc" id="a00012_html_accbee5a502a3adca2de7e0d8236f1dd6"><div class="ttname"><a href="a00012.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a></div><div class="ttdeci">Ville * get_arrivee(Ville *depart, Arc *arc)</div><div class="ttdoc">Donne la ville d&#39;arrivée, en partant de la ville départ, et en passant par l&#39;arc arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00038">graph.c:38</a></div></div>
+<div class="ttc" id="a00005_html_a6667b830a665da501a163301fec6323d"><div class="ttname"><a href="a00005.html#a6667b830a665da501a163301fec6323d">Sommet::nb_voisins</a></div><div class="ttdeci">int nb_voisins</div><div class="ttdoc">Nom de la ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00049">graph.h:49</a></div></div>
+<div class="ttc" id="a00014_html"><div class="ttname"><a href="a00014.html">main.h</a></div><div class="ttdoc">contient les paramètres de la simulation </div></div>
+<div class="ttc" id="a00005_html"><div class="ttname"><a href="a00005.html">Sommet</a></div><div class="ttdoc">Contient les données relative à une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00045">graph.h:45</a></div></div>
+<div class="ttc" id="a00012_html_a52d808c750faefa77883b665d40bb46a"><div class="ttname"><a href="a00012.html#a52d808c750faefa77883b665d40bb46a">get_arc</a></div><div class="ttdeci">Arc * get_arc(Ville *depart, Ville *arrivee)</div><div class="ttdoc">Ronvoie l&#39;arc qui permet de relier la ville départ avec la ville d&#39;arrivée. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00023">graph.c:23</a></div></div>
+<div class="ttc" id="a00005_html_a4c1c9a651ee416d8fc83f3f8089a4dd9"><div class="ttname"><a href="a00005.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">Sommet::id_ville</a></div><div class="ttdeci">int id_ville</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00046">graph.h:46</a></div></div>
+<div class="ttc" id="a00005_html_a6c84e8994c2213870441265291b1f48b"><div class="ttname"><a href="a00005.html#a6c84e8994c2213870441265291b1f48b">Sommet::voisins</a></div><div class="ttdeci">Arc * voisins[]</div><div class="ttdoc">Les sommets reliés à ce sommet. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00050">graph.h:50</a></div></div>
+<div class="ttc" id="a00003_html_a15ec8c17c3ffac83d28810673d43398d"><div class="ttname"><a href="a00003.html#a15ec8c17c3ffac83d28810673d43398d">Arc::pheromones</a></div><div class="ttdeci">double pheromones</div><div class="ttdoc">< Distance entre les villes i et j </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00037">graph.h:37</a></div></div>
+<div class="ttc" id="a00005_html_a4cde2f9aa497984732f03935cb5de70f"><div class="ttname"><a href="a00005.html#a4cde2f9aa497984732f03935cb5de70f">Sommet::nom</a></div><div class="ttdeci">char nom[64]</div><div class="ttdoc">Positions du sommet (pour la representation graphique du graphe). </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00048">graph.h:48</a></div></div>
+<div class="ttc" id="a00003_html_aca4eb5963d7f0d25c0890b73b0d90348"><div class="ttname"><a href="a00003.html#aca4eb5963d7f0d25c0890b73b0d90348">Arc::depart</a></div><div class="ttdeci">struct Ville * depart</div><div class="ttdoc">La quantitée de phéromone actuelement sur l&#39;arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00038">graph.h:38</a></div></div>
+<div class="ttc" id="a00003_html_a79b8e036dca6911e3295a47d99f21f43"><div class="ttname"><a href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">Arc::distance</a></div><div class="ttdeci">double distance</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00036">graph.h:36</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi 19 Mai 2014 00:26:16 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.7
+</small></address>
+</body>
+</html>
