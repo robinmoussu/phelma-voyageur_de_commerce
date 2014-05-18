@@ -1,15 +1,29 @@
+/*
+ *    Voyageur de commerce
+ *    Copyright (C) 2014 Robin Moussu - Jingbo Su
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
 #include <stdlib.h>     /* srand, rand */
 #include <math.h>
 #include <string.h>
+#include <stdio.h>
 
 # include "fourmi.h"
 
-//// #include <time.h>       /* time */
-//// TO DO: srand(time(NULL)); // dans le main
 
-/** Initialise la structure fourmi
- *  \param point_depart la ville de depart pour la fourmi
- */
 void init_fourmi(Fourmi *f, Ville *point_depart)
 {
     f->L = 0;
@@ -30,16 +44,6 @@ bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visi
     return false;
 }
 
-/** Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc
- * \param f La fourmi en train d'effectuer son voyage
- * \param nb_villes nombre de villes dans la simulation
- * \param alpha Coefficient régulant l'importance des phéromones pour le choix d'une ville
-   \param beta :Coefficient régulant l'importance de la visibilité pour le choix d'une ville
-   \param proba_ville : tableau aloué, non initialisé servant à calculer la la probabilité de chaque ville d'être tirée.
- * \return 0 si le graph est totalement visité
- * \return +1 si il reste des villes non visitées
- * \return -1 si il reste des villes non visitées, mais qu'il n'y a plus aucun chemin possible
- */
 void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_ville[], bool deja_visite[])
 {
     float tirage;
@@ -50,7 +54,7 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_v
 
     ville_courante = f->tabu[f->nb_villes_deja_visite - 1];
 
-    // On calule la probabilité de tirer chacune des ville à visiter
+    // On calule la probabilitée de tirer chacune des ville à visiter
     cumul_proba = 0;
     for (i = 0; i < ville_courante->nb_voisins; i++) {
         Arc   *arc_courant  = ville_courante->voisins[i];
@@ -75,25 +79,12 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_v
     for (i = 0; i < ville_courante->nb_voisins; i++) {
         fx += proba_ville[i];
         if ((tirage < fx) && (proba_ville[i] != 0)) {
-            Ville *a0;
-            Ville *a1;
-            Ville *a2;
-            Ville *a3;
-            Ville *a4;
-            Ville *a5;
             // C'est cette ville qui a été selectionnée
             Ville *ville_arrivee = get_arrivee(ville_courante, ville_courante->voisins[i]);
 
             f->tabu[f->nb_villes_deja_visite++] = ville_arrivee;
             f->L += get_arc(ville_courante, ville_arrivee)->distance; // On actualise la distance parcouru
             deja_visite[ville_arrivee->id_ville] = true;
-
-            a0 = (Ville*) f->tabu[0];
-            a1 = (Ville*) f->tabu[1];
-            a2 = (Ville*) f->tabu[2];
-            a3 = (Ville*) f->tabu[3];
-            a4 = (Ville*) f->tabu[4];
-            a5 = (Ville*) f->tabu[5];
             ON_DEBUG(printf("City chosen : %s\n", ville_arrivee->nom);)
             break;
         }
@@ -117,9 +108,6 @@ void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[],
     }
 }
 
-/** Valide le parcourt d'une fourmi
- * \return true si le parcourt est valide
- */
 bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])
 {
     int i, j;
@@ -163,8 +151,6 @@ bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visite
     return true;
 }
 
-/** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
-*/
 void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[])
 {
     Ville *depart, *arrivee;

@@ -1,34 +1,64 @@
-#ifndef GRAPH
-#define GRAPH
+/*
+ *    Voyageur de commerce
+ *    Copyright (C) 2014 Robin Moussu - Jingbo Su
+ *
+ *    This program is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    This program is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+ 
+#ifndef SOMMET_H
+#define SOMMET_H
 
-#include <stdio.h>
+
+/** \file graph.h
+ * \brief Contient les définitions des stuctures Ville et Arc, ainsi que les fonctions perméttant de manipuler les arcs
+ */
 
 #include "main.h"
-#include "fourmi.h"
-#include "sommet.h"
 
+struct Ville;
 
-void   flush_line(FILE *fp);
-size_t sizeof_one_ville(int nb_ville);
-size_t sizeof_one_arc(int nb_arc);
-size_t sizeof_ville_visitees(int nb_ville);
-size_t sizeof_fourmi(int nb_ville);
-size_t sizeof_proba_ville(int nb_voisins_max);
-
-
-void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle,
-    bool *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc);
-
-void swap(void **p1, void **p2);
-
-void read_villes(FILE *fp, Ville villes[], int nb_ville);
-
-void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_ville, int nb_arc);
-
-/** Initialise le graph à partir des données contenu dans le fichier data_graph.
- * \param nb_villes out : Nombre de ville contenu dans le graph (indiqué dans le fichier data_graph)
+/** Contient les données relative à un arc
+ *  \note Un arc relie deux villes entre elles
+ *  \note Un arc est bi-directionnel, et donc la ville de départ et d'arrivée est arbitraire
  */
-void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc);
-void print_arc(Arc *p_arc);
-void print_graph(Sommet villes[], Arc arcs[], int nb_villes, int nb_voisins);
-#endif // GRAPH
+typedef struct {
+    double distance;        /// < Distance entre les villes i et j
+    double pheromones;      /// La quantitée de phéromone actuelement sur l'arc
+    struct Ville *depart;   /// < Sommet de départ (ville i)
+    struct Ville *arrivee;  /// < Sommet d'arrivée (ville j)
+} Arc;
+
+/** Contient les données relative à une ville
+ *  \note La liste des arcs reliant cette ville à la suivante est engistrée sous forme d'un tableau
+ */
+typedef struct {
+    int     id_ville;       /// Identifiant de la ville
+    double  x,y;            /// Positions du sommet (pour la representation graphique du graphe).
+    char    nom[64];        /// Nom de la ville
+    int     nb_voisins;     /// Les sommets reliés à ce sommet
+    Arc     *voisins[];     /// La liste d'adjacence, liste de pointeurs vers les arcs sortant de cette ville
+} Sommet;   
+
+typedef Sommet Ville;
+
+/** Ronvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée
+ */
+Arc* get_arc(Ville *depart, Ville *arrivee);
+
+/** Donne la ville d'arrivée, en partant de la ville départ, et en passant par l'arc arc.
+ *  \note Les arcs sont bi-directionels
+ */
+Ville* get_arrivee(Ville *depart, Arc *arc);
+
+#endif // SOMMET_H
