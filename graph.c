@@ -30,6 +30,7 @@ Arc* get_arc(Ville *depart, Ville *arrivee)
 			return depart->voisins[i];
 		}
 	}
+	fprintf(stderr, "error: No path found from %s to %s\n", depart->nom, arrivee->nom);
 	return 0; // la ville d'arrivee ne peux pas etre atteinte en partant de la ville de départ
 }
 
@@ -42,7 +43,7 @@ Ville* get_arrivee(Ville *depart, Arc *arc)
     } else if (depart != (Ville*) arc->arrivee) {
         return (Ville*) arc->arrivee;
     } else {
-        fprintf(stderr, "erreor : problem of cohenrence inside graph\n");
+        fprintf(stderr, "error: problem of cohenrence inside graph\n");
         return 0;
     }
 }

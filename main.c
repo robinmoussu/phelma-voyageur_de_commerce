@@ -141,8 +141,9 @@ int main (int argc, const char *argv[])
     }
 
     // affichage du meilleur parcourt
-    printf("\nThe best ant have made a travel of %lf km throught :\n", meilleure_fourmi->L);
+    printf("\nThe best ant have made a travel throught :\n");
     affiche_parcourt(meilleure_fourmi, villes, nb_villes, ville_visitees);
+    printf("That was a trip of  %lf km.\n", meilleure_fourmi->L);
 
     // On libère toute la mémoire du programme
     free(memory_pool);

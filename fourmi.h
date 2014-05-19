@@ -30,9 +30,9 @@
 /** Données relative au parcourt d'une fourmi
  */
 typedef struct {
-    float L;            /// < Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
+    float L;            ///< Longueur d'un chemin, somme des longueurs de chaque arc constituant le chemin
     int nb_villes_deja_visite;
-    Ville *tabu[];      /// < Liste des villes déjà parcourues par la fourmi k. La plus plus récente est enregistré dans tabu[nb_villes_deja_visite - 1]; La taille de ce tableau est constante et est égale au nombre de villes dans la simulation;
+    Ville *tabu[];      ///< Liste des villes déjà parcourues par la fourmi k. La plus plus récente est enregistré dans tabu[nb_villes_deja_visite - 1]; La taille de ce tableau est constante et est égale au nombre de villes dans la simulation;
 } Fourmi;
 
 /** Initialise la structure fourmi

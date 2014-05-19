@@ -33,26 +33,26 @@ struct Ville;
  *  \note Un arc est bi-directionnel, et donc la ville de départ et d'arrivée est arbitraire
  */
 typedef struct {
-    double distance;        /// < Distance entre les villes i et j
-    double pheromones;      /// La quantitée de phéromone actuelement sur l'arc
-    struct Ville *depart;   /// < Sommet de départ (ville i)
-    struct Ville *arrivee;  /// < Sommet d'arrivée (ville j)
+    double distance;        ///< Distance entre les villes i et j
+    double pheromones;      ///< La quantitée de phéromone actuelement sur l'arc
+    struct Ville *depart;   ///< Sommet de départ (ville i)
+    struct Ville *arrivee;  ///< Sommet d'arrivée (ville j)
 } Arc;
 
 /** Contient les données relative à une ville
  *  \note La liste des arcs reliant cette ville à la suivante est engistrée sous forme d'un tableau
  */
 typedef struct {
-    int     id_ville;       /// Identifiant de la ville
-    double  x,y;            /// Positions du sommet (pour la representation graphique du graphe).
-    char    nom[64];        /// Nom de la ville
-    int     nb_voisins;     /// Les sommets reliés à ce sommet
-    Arc     *voisins[];     /// La liste d'adjacence, liste de pointeurs vers les arcs sortant de cette ville
+    int     id_ville;       ///< Identifiant de la ville
+    double  x,y;            ///< Positions du sommet (pour la representation graphique du graphe).
+    char    nom[64];        ///< Nom de la ville
+    int     nb_voisins;     ///< Les sommets reliés à ce sommet
+    Arc     *voisins[];     ///< La liste d'adjacence, liste de pointeurs vers les arcs sortant de cette ville
 } Sommet;   
 
 typedef Sommet Ville;
 
-/** Ronvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée
+/** Renvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée
  */
 Arc* get_arc(Ville *depart, Ville *arrivee);
 

@@ -157,17 +157,21 @@ void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville vil
     int i;
 
     // on s'assure que le parcourt de la fourmi est valide
-    if (!parcourt_valide(*fourmi_actuelle, villes, nb_villes, ville_visitees)) {
-        fprintf(stderr, "Error : Invalid path.\n");
-        return;
-    }
+    ON_DEBUG(
+        if (!parcourt_valide(*fourmi_actuelle, villes, nb_villes, ville_visitees)) {
+            fprintf(stderr, "Error : Invalid path.\n");
+            return;
+        }
+    )
 
     depart  = (*fourmi_actuelle)->tabu[0];
     for(i = 1; i < nb_villes; i++) { // nb : on commence avec la ville numéro 1 (soit l'arc de la ville 0 vers la ville 1)
+        Arc *arc_courant;
         arrivee = (*fourmi_actuelle)->tabu[i];
+        arc_courant= get_arc(depart, arrivee);
 
         // on met à jour les phéromones sur les arcs
-        get_arc(depart, arrivee)->pheromones += PARCOURT_PHEROMONES;
+        arc_courant->pheromones = EVAPORATION*(arc_courant->pheromones) + PARCOURT_PHEROMONES/((*fourmi_actuelle)->L);
 
         // on actualise la ville de départ
         depart = arrivee;

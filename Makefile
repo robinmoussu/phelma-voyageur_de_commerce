@@ -19,26 +19,38 @@
 #DIRSDL=/users/prog1a/C/librairie/2011
 #DIRSDL=/home/robin_arch/cour/1ere_annee_phelma/info/sdl_phelma/
 
-CFLAGS= -c -Wall -fdiagnostics-color=auto -ggdb
-CFLAGS_NO_DEBUG= -c -Wall -fdiagnostics-color=auto -O2
-LDFLAGS= -fdiagnostics-color=auto -lm -ggdb
-CIBLE=voyageur
-OPTION=graphe11.txt
+LDFLAGS = -fdiagnostics-color=auto -lm -ggdb
 
-cible : $(CIBLE)
+OPTION = graphe11.txt
+#OPTION = graphe12.txt
+#OPTION = graphe13.txt
+#OPTION = graphe14.txt
+#OPTION = berlin52.txt
+#OPTION = djibouti38.txt
+#OPTION = kroA100.txt
+#OPTION = Quatar194.txt
 
-run : ${CIBLE}
-	./${CIBLE} $(OPTION)
+#########################################################
 
-all : voyageur
+install: release
 
-voyageur: fourmi.c memory.c graph.c data.c main.c
-	gcc -o $@  $^  $(LDFLAGS)
+debug:   CFLAGS =-Wextra -Wall -fdiagnostics-color=auto -ggdb -DDEBUG
+debug:   voyageur
 
-%.o:%.c
-	gcc $(CFLAGS) $< -o $@
+release: CFLAGS =-fdiagnostics-color=auto -O2
+release: voyageur
+
+run:     release
+	./voyageur ${OPTION}
 
 clean:
-	rm voyageur
+	rm -f voyageur *.o
 
+#########################################################
+
+voyageur: fourmi.o memory.o graph.o data.o main.o
+	gcc -o $@  $^ $(LDFLAGS)
+
+%.o:%.c
+	gcc -c $(CFLAGS) $<
 

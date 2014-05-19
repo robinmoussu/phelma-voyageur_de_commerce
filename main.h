@@ -24,31 +24,35 @@
  * \note doit etre inclu dans tout les fichirs du projet
  */
 
-// chose one of the folowing statement
-/// MACRO to activate advanced debug message
-#define ON_DEBUG(instruction) 
-//#define ON_DEBUG(instruction) instruction
+// Les lignes suivantes permettent d'activer le débug.
+// Pour cela, on peut utiliser la commande "make debug" ou définir DEBUG à une valeur non nulle
+#if (DEBUG == 0)
+#define ON_DEBUG(instruction)
+#else
+#define ON_DEBUG(instruction) instruction
+#endif // DEBUG
 
 typedef enum {false,true} bool;
 
 /// paramètres de la simulation
 typedef struct {
-    int nb_fourmi;  /// nombre total de fourmis de l'algorithme
-    int nb_villes;  /// nombre de villes dans le graphe
-    float alpha;    /// Coefficient régulant l'importance des phéromones pour le choix d'une ville
-    float beta;     /// Coefficient régulant l'importance de la visibilité pour le choix d'une ville
-    float epsilon;  /// Valeur initiale non nulle de phéromones sur les arcs
-    float rho;      /// Coefficient d'évaporation des phéromones
-    float Q;        /// Constante servant à calculer la quantité de phéromones à déposer pour chaque fourmi
+    int nb_fourmi;  ///< nombre total de fourmis de l'algorithme
+    int nb_villes;  ///< nombre de villes dans le graphe
+    float alpha;    ///< Coefficient régulant l'importance des phéromones pour le choix d'une ville
+    float beta;     ///< Coefficient régulant l'importance de la visibilité pour le choix d'une ville
+    float epsilon;  ///< Valeur initiale non nulle de phéromones sur les arcs
+    float rho;      ///< Coefficient d'évaporation des phéromones
+    float Q;        ///< Constante servant à calculer la quantité de phéromones à déposer pour chaque fourmi
 } Parametres;
 
 
-#define MAX_C               200         /// Constante, nombre maximum de cycles autorisés
+#define MAX_C               100000      ///< Nombre maximum de cycles autorisés
 
-#define ALPHA               1           /// Coefficient régulant l'importance des phéromones pour le choix d'une ville
-#define BETA                2           /// Coefficient régulant l'importance de la visibilité pour le choix d'une ville
+#define ALPHA               1           ///< Coefficient régulant l'importance des phéromones pour le choix d'une ville
+#define BETA                2           ///< Coefficient régulant l'importance de la visibilité pour le choix d'une ville
 
-#define EPSILON_PHEROMONES  0.00001     /// Valeur initiale non nulle de phéromones sur les arc
-#define PARCOURT_PHEROMONES 1           /// Quantitée de phéromones ajoutés à chaque passage
+#define EPSILON_PHEROMONES  0.00001     ///< Valeur initiale non nulle de phéromones sur les arc (epsilon dans le sujet)
+#define PARCOURT_PHEROMONES 1           ///< Quantitée de phéromones ajoutés à chaque passage (Q dans le sujet)
+#define EVAPORATION			0.5			///< Coeficiant d'évaporation (rho dans le sujet)
 
 #endif /* MAIN_H */
