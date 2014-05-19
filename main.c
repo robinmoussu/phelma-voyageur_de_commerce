@@ -108,7 +108,6 @@ make
 int main (int argc, const char *argv[])
 {
     void    *memory_pool;
-    char    *data_graph;
     Sommet  *villes;
     Arc     *arcs;
     Fourmi  *meilleure_fourmi;
@@ -134,15 +133,15 @@ int main (int argc, const char *argv[])
     }
 
     for (i = 0; i < MAX_C; i++) {
-        parcourt(fourmi_actuelle, meilleure_fourmi, villes, nb_villes, ville_visitees, ALPHA, BETA, proba_ville);
+        parcourt(fourmi_actuelle, villes, nb_villes, ville_visitees, ALPHA, BETA, proba_ville);
         ON_DEBUG(printf("\nThat ant have made a travel of %lf km throught :\n", meilleure_fourmi->L));
-        ON_DEBUG(affiche_parcourt(fourmi_actuelle, villes, nb_villes, ville_visitees));
-        graph_update(&fourmi_actuelle, &meilleure_fourmi, villes, nb_villes, ville_visitees);
+        ON_DEBUG(affiche_parcourt(fourmi_actuelle, nb_villes, ville_visitees));
+        parcourt_update(&fourmi_actuelle, &meilleure_fourmi, nb_villes, ville_visitees);
     }
 
     // affichage du meilleur parcourt
     printf("\nThe best ant have made a travel throught :\n");
-    affiche_parcourt(meilleure_fourmi, villes, nb_villes, ville_visitees);
+    affiche_parcourt(meilleure_fourmi, nb_villes, ville_visitees);
     printf("That was a trip of  %lf km.\n", meilleure_fourmi->L);
 
     // On libère toute la mémoire du programme

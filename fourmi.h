@@ -46,17 +46,15 @@ bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visi
 
 /** Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc
  *  \param f La fourmi en train d'effectuer son voyage
- *  \param nb_villes nombre de villes dans la simulation
  *  \param alpha Coefficient régulant l'importance des phéromones pour le choix d'une ville
  *  \param beta  Coefficient régulant l'importance de la visibilité pour le choix d'une ville
  *  \param proba_ville tableau aloué, non initialisé servant à calculer la la probabilité de chaque ville d'être tirée.
  *  \param deja_visite tableau contenant la liste des villes dejà visitées durant ce parcourt
  */
-void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_ville[], bool deja_visite[]);
+void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool deja_visite[]);
 
 /** Détermine le parcourt de la fourmie fourmie actuelle, valide ce parcourt puis met à jour le graph
  *  \param fourmi_actuelle Fourmi va pantounir le graph
- *  \param meilleure_fourmi La fourmi possédant pour l'instant le meilleur parcourt
  *  \param villes tableau contenant la liste de toutes les villes du graph
  *  \param nb_villes nombre de villes contenues dans le graph
  *  \param ville_visitees tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt
@@ -67,30 +65,28 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_v
  *  \note Avant l'appel de cette fonction, le champ L (la distance du parcourt) de la meilleur fourmi doit etre initialisé
  *  \note Après l'appel de cette fonction, les données de fourmi_actuelle peuvent avoir changée et etre incohérente
  */
-void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[]);
+void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[]);
 
 /** Valide le parcourt d'une fourmi
  *  \param f Fourmi dont le parcourt est à tester
- *  \param villes tableau contenant la liste de toutes les villes du graph
  *  \param nb_villes nombre de villes contenues dans le graph
  *  \param ville_visitees tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt
  *  \return true si le parcourt est valide
  */
-bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[]);
+bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[]);
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
  *  \note avant de mettre à jour le graph, le parcourt de fourmi_actuelle est vérifié
  *
  *  \param fourmi_actuelle Fourmi qui vient de terminer sont parcourt
  *  \param meilleure_fourmi La fourmi possédant pour l'instant le meilleur parcourt
- *  \param villes tableau contenant la liste de toutes les villes du graph
  *  \param nb_villes nombre de villes contenues dans le graph
  *  \param deja_visite tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt
  *
  *  \note Avant l'appel de cette fonction, le champ L (la distance du parcourt) de la meilleur fourmi doit etre initialisé
  *  \note Après l'appel de cette fonction, les données de fourmi_actuelle peuvent avoir changée et etre incohérente
  */
-void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[]);
+void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[]);
 
 /** Affiche le parcourt d'une fourmie
  *  \note Avant de l'afficher, vérifie si le parcourt est valide
@@ -99,6 +95,6 @@ void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville vil
  *  \param nb_villes nombre de villes contenues dans le graph
  *  \param deja_visite tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt
  */
-void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[]);
+void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[]);
 
 #endif /* FOURMI_H */

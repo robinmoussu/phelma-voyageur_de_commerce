@@ -21,7 +21,8 @@
 #include <string.h>
 #include <stdio.h>
 
-# include "fourmi.h"
+#include "fourmi.h"
+#include "memory.h"
 
 
 void init_fourmi(Fourmi *f, Ville *point_depart)
@@ -44,7 +45,7 @@ bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visi
     return false;
 }
 
-void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_ville[], bool deja_visite[])
+void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool deja_visite[])
 {
     float tirage;
     float cumul_proba;  /// < valeur permettant la normalisation des probabilités
@@ -93,7 +94,7 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_v
 }
 
 
-void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])
+void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])
 {
     int i;
     init_fourmi(fourmi_actuelle, &villes[0]);
@@ -104,13 +105,13 @@ void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[],
 
     // On commence à 1, vu que la ville de départ est déjà compté
     for (i = 1; i < nb_villes; i++) {
-        ville_suivante(fourmi_actuelle, nb_villes, alpha, beta, proba_ville, ville_visitees);
+        ville_suivante(fourmi_actuelle, alpha, beta, proba_ville, ville_visitees);
     }
 }
 
-bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])
+bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])
 {
-    int i, j;
+    int i;
     double distance = 0;
 
     // on s'assure que la fourmi semble avoir visiter toutes les villes
@@ -151,14 +152,14 @@ bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visite
     return true;
 }
 
-void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[])
+void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[])
 {
     Ville *depart, *arrivee;
     int i;
 
     // on s'assure que le parcourt de la fourmi est valide
     ON_DEBUG(
-        if (!parcourt_valide(*fourmi_actuelle, villes, nb_villes, ville_visitees)) {
+        if (!parcourt_valide(*fourmi_actuelle, nb_villes, ville_visitees)) {
             fprintf(stderr, "Error : Invalid path.\n");
             return;
         }
@@ -181,17 +182,16 @@ void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville vil
     // Si c'est le cas, (plutot que de copier toutes les données de la fourmi actuelle dans la meilleure fourmi,
     // ce qui est long), on les swap.
     if ((*fourmi_actuelle)->L < (*meilleure_fourmi)->L) {
-        swap(fourmi_actuelle,meilleure_fourmi);
+        swap((void*) fourmi_actuelle, (void*) meilleure_fourmi);
     }
 }
 
-void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])
+void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[])
 {
-    Ville *ville_courante;
     int i;
 
     // on s'assure que le parcourt de la fourmi est valide
-    if (!parcourt_valide(f, villes, nb_villes, ville_visitees)) {
+    if (!parcourt_valide(f, nb_villes, ville_visitees)) {
         fprintf(stderr, "Error : Invalid path.\n");
         return;
     }
