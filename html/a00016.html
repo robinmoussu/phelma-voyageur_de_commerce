@@ -90,7 +90,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <p>Contient les fonctions relative à la gestion de la mémoire.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00014_source.html">main.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00012_source.html">graph.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00010_source.html">fourmi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00014_source.html">main.h</a>&quot;</code><br />
 </div>
 <p><a href="a00016_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
@@ -99,9 +102,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a4103efd8de1803018c128cff79ff4e98"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a4103efd8de1803018c128cff79ff4e98">sizeof_one_ville</a> (int nb_ville)</td></tr>
 <tr class="memdesc:a4103efd8de1803018c128cff79ff4e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace mémoire occupé par une seule ville NB : si le graph n'est pas complet on pourrait économiser de la mémoire car il peut y avoir moins de nombre de villes dans le graphe - 1 villes relié à chaque sommet.  <a href="#a4103efd8de1803018c128cff79ff4e98">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4103efd8de1803018c128cff79ff4e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aec76018717bd8118f73332f77c905e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a6aec76018717bd8118f73332f77c905e">sizeof_one_arc</a> (int nb_arc)</td></tr>
-<tr class="memdesc:a6aec76018717bd8118f73332f77c905e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace mémoire occupé par un arc.  <a href="#a6aec76018717bd8118f73332f77c905e">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a6aec76018717bd8118f73332f77c905e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4b8c4536f596e3faba91884aa8f865"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#aab4b8c4536f596e3faba91884aa8f865">sizeof_one_arc</a> ()</td></tr>
+<tr class="memdesc:aab4b8c4536f596e3faba91884aa8f865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace mémoire occupé par un arc.  <a href="#aab4b8c4536f596e3faba91884aa8f865">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aab4b8c4536f596e3faba91884aa8f865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d43efeb477cd7d111311edde201904"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a37d43efeb477cd7d111311edde201904">sizeof_ville_visitees</a> (int nb_ville)</td></tr>
 <tr class="memdesc:a37d43efeb477cd7d111311edde201904"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace mémoire occupé par le tableau qui contient les villes qui ont étées visitées lors du parcourt.  <a href="#a37d43efeb477cd7d111311edde201904">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a37d43efeb477cd7d111311edde201904"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,7 +120,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a843daba163423b978ef08a59e4b27909"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a843daba163423b978ef08a59e4b27909">get_in_villes</a> (<a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int i, int nb_ville)</td></tr>
 <tr class="memdesc:a843daba163423b978ef08a59e4b27909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'accéder à la ville numéro i.  <a href="#a843daba163423b978ef08a59e4b27909">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a843daba163423b978ef08a59e4b27909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f524556335e39ecd30c59d8f0e2aec"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a64f524556335e39ecd30c59d8f0e2aec">memory_allocator</a> (<a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc)</td></tr>
+<tr class="memitem:a64f524556335e39ecd30c59d8f0e2aec"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a64f524556335e39ecd30c59d8f0e2aec">memory_allocator</a> (<a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), <a class="el" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="el" href="a00004.html">Fourmi</a> **fourmi_actuelle, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc)</td></tr>
 <tr class="memdesc:a64f524556335e39ecd30c59d8f0e2aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contigue.  <a href="#a64f524556335e39ecd30c59d8f0e2aec">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a64f524556335e39ecd30c59d8f0e2aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32441c408b24566841ae6903f684c26b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a32441c408b24566841ae6903f684c26b">swap</a> (void **p1, void **p2)</td></tr>
@@ -126,6 +129,22 @@ Fonctions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Contient les fonctions relative à la gestion de la mémoire. </p>
+<p>Afin d'utiliser au mieux la mémoire, et vu que la mémoire consomé par le programme est à la fois constante et connu durant la phase d'initialisation, nous avoins regrouper toutes les données dans un pool unique. Cela permet d'allouer toute la mémoire en une seule fois, et d'avoir les données stoquées de manière contigue (ce qui est mieu pour la fragmentation mémoire du système exécutant l'algorithme).</p>
+<p>Les donées sont organisées de la manière suivante :</p><ul>
+<li>Chaque <a class="el" href="a00006.html" title="Contient les données relative à une ville. ">Sommet</a> (Ville) contient un tableau contenant des pointeurs sur les arcs voisins.</li>
+<li>L'ensemble des villes sont regroupées dans un tableau.</li>
+<li>Chaque <a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a> contient un pointeur sur la ville de départ et d'arrivée (ordre arbitraire).</li>
+<li>L'ensemble des arcs sont regroupés dans un tableau.</li>
+<li>Chaque <a class="el" href="a00004.html" title="Données relative au parcourt d&#39;une fourmi. ">Fourmi</a> contient un tableau de pointeur correspondant à liste des villes qu'elle a visitée.</li>
+<li>L'algoritme mémorise en permanace l'état de deux fourmis : celle possédant le meilleur parcout, et la fourmi courante.</li>
+<li>L'algorithme utilise également deux tableaux :<ul>
+<li>Un tableau de booléen qui correspont à la liste des villes visitée par la fourmi en cour</li>
+<li>Un tableau servant à calculer les probabilitées pour chaque ville d'etre choisie</li>
+</ul>
+</li>
+</ul>
+<p>Toute la mémoire est alloué à l'aide de la fonction <a class="el" href="a00016.html#a64f524556335e39ecd30c59d8f0e2aec" title="Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contig...">memory_allocator()</a>. Elle retourne un pointeur sur la zone mémoire allouée. Un simple free sur cette zone permet donc de libérer toute la mémoire en une fois.</p>
+<p>La validitée de cette fonction a été testé avec l'outil Valgrind qui assure qu'il n'y a aucune fuite mémoire possible. </p>
 
 <p>Définition dans le fichier <a class="el" href="a00016_source.html">memory.h</a>.</p>
 </div><h2 class="groupheader">Documentation des fonctions</h2>
@@ -162,7 +181,7 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00055">55</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00056">56</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -205,7 +224,7 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00060">60</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00061">61</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -228,13 +247,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Fourmi **&#160;</td>
+          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **&#160;</td>
           <td class="paramname"><em>meilleure_fourmi</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Fourmi **&#160;</td>
+          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **&#160;</td>
           <td class="paramname"><em>fourmi_actuelle</em>, </td>
         </tr>
         <tr>
@@ -287,7 +306,7 @@ Fonctions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00066">66</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00067">67</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -307,19 +326,18 @@ Fonctions</h2></td></tr>
 
 <p>Espace mémoire occupé par une fourmi. </p>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00040">40</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00041">41</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6aec76018717bd8118f73332f77c905e"></a>
+<a class="anchor" id="aab4b8c4536f596e3faba91884aa8f865"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">size_t sizeof_one_arc </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_arc</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -327,7 +345,7 @@ Fonctions</h2></td></tr>
 
 <p>Espace mémoire occupé par un arc. </p>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00031">31</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00032">32</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -346,9 +364,9 @@ Fonctions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Espace mémoire occupé par une seule ville NB : si le graph n'est pas complet on pourrait économiser de la mémoire car il peut y avoir moins de nombre de villes dans le graphe - 1 villes relié à chaque sommet. </p>
-<p>Comme ce n'est pas le cas ici, cela n'a pas été implémenté pour des raisons de facilitéessize_t sizeof_villes(int nb_ville) </p>
+<p>Comme ce n'est pas le cas ici, cela n'a pas été implémenté pour des raisons de facilitéessize_t sizeof_villes(int nb_ville). </p>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00023">23</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00024">24</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -368,7 +386,7 @@ Fonctions</h2></td></tr>
 
 <p>Espace mémoire occupé par le tableau qui contient la probabilitée pour chaque ville d'etre choisie. </p>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00050">50</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00051">51</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
@@ -416,14 +434,14 @@ Fonctions</h2></td></tr>
 
 <p>Échange le contenue de deux pointeurs. </p>
 
-<p>Définition à la ligne <a class="el" href="a00015_source.html#l00095">95</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00015_source.html#l00096">96</a> du fichier <a class="el" href="a00015_source.html">memory.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 00:26:16 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi 19 Mai 2014 19:37:26 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

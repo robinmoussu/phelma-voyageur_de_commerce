@@ -34,7 +34,7 @@ Arc* get_arc(Ville *depart, Ville *arrivee)
 }
 
 
-// Les arcs étant bi-directionnels, on ne sait pas si la ville courante est au début ou à la fin de l'arc
+// Les arcs étant bi-directionnels, on ne sait pas si le Sommet courant (=la Ville courante) est au début ou à la fin de l'arc
 Ville* get_arrivee(Ville *depart, Arc *arc)
 {
     if (depart != (Ville*) arc->depart) {
@@ -42,7 +42,7 @@ Ville* get_arrivee(Ville *depart, Arc *arc)
     } else if (depart != (Ville*) arc->arrivee) {
         return (Ville*) arc->arrivee;
     } else {
-        fprintf(stderr, "graph not coherent\n");
+        fprintf(stderr, "erreor : problem of cohenrence inside graph\n");
         return 0;
     }
 }

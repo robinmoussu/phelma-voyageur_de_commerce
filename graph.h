@@ -21,7 +21,7 @@
 
 
 /** \file graph.h
- * \brief Contient les définitions des stuctures Ville et Arc, ainsi que les fonctions perméttant de manipuler les arcs
+ * \brief Contient les définitions des stuctures Sommet (Ville) et Arc, ainsi que les fonctions permettant de manipuler les arcs
  */
 
 #include "main.h"

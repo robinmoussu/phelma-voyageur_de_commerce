@@ -69,7 +69,7 @@ void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_v
     }
 
     if (cumul_proba == 0) {
-        fprintf(stderr,"All cities were already visited, no path found");
+        fprintf(stderr,"error: All cities were already visited, no path found\n");
         return;
     }
 
@@ -131,7 +131,7 @@ bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visite
         // On s'assure que la fourmi n'était pas déjà passé par cette ville
 
         if (ville_visitees[ville_suivante->id_ville]) {
-            fprintf(stderr, "Error : City visited twice (%s)", ville_suivante->nom);
+            fprintf(stderr, "Error : City visited twice (%s)\n", ville_suivante->nom);
             return false;
         } else {
             ville_visitees[ville_suivante->id_ville] = true;
@@ -192,7 +192,6 @@ void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visit
         return;
     }
 
-    printf("\nThat ant have made a travel of %lf km throught :\n", f->L);
     for(i = 0; i < nb_villes; i++) {
         printf("\t%s\n", f->tabu[i]->nom);
     }

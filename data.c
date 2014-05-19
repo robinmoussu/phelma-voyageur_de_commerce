@@ -77,7 +77,7 @@ void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), 
 
     fp = fopen(data_graph,"r");
     if(!fp) { // verifie si on peut ouvrir ce fichier
-        fprintf(stderr, "can't open file\n");
+        fprintf(stderr, "error :Can't open file\n");
         return 0;
     }
 
@@ -103,32 +103,37 @@ void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), 
 
 void print_arc(Arc *p_arc)
 {
-            Ville *p_depart = (Ville*) p_arc->depart;
-            const char *nom_depart = p_depart->nom;
-            Ville *p_arrivee = (Ville*) p_arc->arrivee;
-            const char *nom_arrivee = p_arrivee->nom;
-            printf("\t %lf %lf %s %s\n", p_arc->distance, p_arc->pheromones, nom_depart, nom_arrivee);
+    Ville *p_depart = (Ville*) p_arc->depart;
+    const char *nom_depart = p_depart->nom;
+    Ville *p_arrivee = (Ville*) p_arc->arrivee;
+    const char *nom_arrivee = p_arrivee->nom;
+    printf("\t%lf\t%lf\t%s\t\t%s\n", p_arc->distance, p_arc->pheromones, nom_depart, nom_arrivee);
 }
 
 void print_graph(Sommet villes[], Arc arcs[], int nb_villes, int nb_voisins)
 {
     int i,j;
 
-    printf("Liste des Villes\n");
+    printf("\n----------------------------------------\n");
+    printf("\nList of cities in graph:\n\n");
     for (i = 0; i < nb_villes; i++) {
         Ville *p_ville = get_in_villes(villes, i, nb_villes);
-        printf("%d %lf %lf %s %d\n",p_ville->id_ville, p_ville->x, p_ville->y, p_ville->nom, p_ville->nb_voisins);
+        printf("\nid\tx\t\ty\t\tname\t\tnumber of arcs\n");
+        printf("%d\t%lf\t%lf\t%s\t\t%d\n\n",p_ville->id_ville, p_ville->x, p_ville->y, p_ville->nom, p_ville->nb_voisins);
+        printf("\tDISTANCE\tPHEROMONE\tCITY A\t\tCITY B\n");
         for (j = 0; j < p_ville->nb_voisins; j++) {
             print_arc(p_ville->voisins[j]);
         }
         printf("\n");
     }
 
+    printf("\n----------------------------------------\n");
 
-    printf("\n");
-
-    printf("Liste des Arcs\n");
+    printf("\nList of arcs in graph\n");
+    printf("\tDISTANCE\tPHEROMONE\tCITY A\t\tCITY B\n");
     for (i = 0; i < nb_voisins; i++) {
-            print_arc(get_in_arcs(arcs, i));
+        print_arc(get_in_arcs(arcs, i));
     }
+
+    printf("\n----------------------------------------\n");
 }

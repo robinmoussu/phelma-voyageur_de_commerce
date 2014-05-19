@@ -23,6 +23,30 @@
 
 /** \file memory.h
  * \brief Contient les fonctions relative à la gestion de la mémoire
+ * 
+ * Afin d'utiliser au mieux la mémoire, et vu que la mémoire consomé par le programme est à la fois constante
+ * et connu durant la phase d'initialisation, nous avoins regrouper toutes les données dans un pool unique.
+ * Cela permet d'allouer toute la mémoire en une seule fois, et d'avoir les données stoquées de manière contigue
+ * (ce qui est mieu pour la fragmentation mémoire du système exécutant l'algorithme).
+ *
+ * Les donées sont organisées de la manière suivante :
+ *  - Chaque Sommet (Ville) contient un tableau contenant des pointeurs sur les arcs voisins.
+ *  - L'ensemble des villes sont regroupées dans un tableau.
+ *  - Chaque Arc contient un pointeur sur la ville de départ et d'arrivée (ordre arbitraire).
+ *  - L'ensemble des arcs sont regroupés dans un tableau.
+ *  - Chaque Fourmi contient un tableau de pointeur correspondant à liste des villes qu'elle a visitée.
+ *  - L'algoritme mémorise en permanace l'état de deux fourmis : celle possédant le meilleur parcout, et
+ *    la fourmi courante.
+ *  - L'algorithme utilise également deux tableaux :
+ *       - Un tableau de booléen qui correspont à la liste des villes visitée par la fourmi en cour
+ *       - Un tableau servant à calculer les probabilitées pour chaque ville d'etre choisie
+ *
+ * Toute la mémoire est alloué à l'aide de la fonction memory_allocator(). Elle retourne un pointeur sur la zone
+ * mémoire allouée. Un simple free sur cette zone permet donc de libérer toute la mémoire en une fois.
+ *
+ * La validitée de cette fonction a été testé avec l'outil Valgrind qui assure qu'il n'y a aucune fuite mémoire
+ * possible.
+ *
  */
 
 #include <stdlib.h>
@@ -36,7 +60,7 @@
  *  car il peut y avoir moins de nombre de villes dans le graphe - 1 villes
  *  relié à chaque sommet.
  *  Comme ce n'est pas le cas ici, cela n'a pas été implémenté pour des raisons
- *  de facilitéessize_t sizeof_villes(int nb_ville)
+ *  de facilitéessize_t sizeof_villes(int nb_ville).
  */
 size_t sizeof_one_ville(int nb_ville);
 

@@ -76,9 +76,9 @@ void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi **meilleure_four
         + sizeof_villes_visitee(nb_ville)
         + sizeof_proba_ville(nb_arc)
             );
-    // Sous linux c'est inutile vu que malloc renvoie toujours un pointeur
+    // Sous linux c'est inutile vu que malloc renvoie toujours un pointeur valide
     if (memory_pool==NULL) {
-        fprintf(stderr, "allocation error\n");
+        fprintf(stderr, "Error : Allocation error\n");
         return 0; 
     }
 

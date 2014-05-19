@@ -19,9 +19,14 @@
 #ifndef FOURMI_H
 #define FOURMI_H
 
+/** \file fourmi.h
+ * \brief Tout ce qui relatif au parcourt des fourmis
+ * \note d
+ */
+
 #include "main.h"
 #include "graph.h"
- 
+
 /** Données relative au parcourt d'une fourmi
  */
 typedef struct {
@@ -96,4 +101,4 @@ void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville vil
  */
 void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[]);
 
-#endif // FOURMI_H
+#endif /* FOURMI_H */

@@ -24,13 +24,11 @@
  *
  * \section install_sec Installation
  *
- * \subsection tools_subsec Outils necessaire
- *
- * - git
- * - gcc
- *
  * \subsection install_subsc Téléchargement des sources
- * 
+ *
+ * Outils necessaires :
+ * - git
+ *
  * Éxécutez la commande suivante :
 
 \verbatim
@@ -39,7 +37,10 @@ git clone http://github.com/robinmoussu/voyageur_de_commerce
 
  *
  * \subsection running Éxécuter le programme
- * 
+ *
+ * Outils necessaires :
+ * - gcc
+ *
  * Éxécutez les commandes suivantes :
 
 \verbatim
@@ -119,7 +120,7 @@ int main (int argc, const char *argv[])
     int i;
 
     if (argc != 2) {
-        fprintf(stderr, "Syntax error. You have to specifie the filename of the file that contains the data");
+        fprintf(stderr, "Syntax error. You have to specifie the filename of the file that contains the data.\n");
         return EXIT_FAILURE;
     }
 
@@ -134,12 +135,14 @@ int main (int argc, const char *argv[])
 
     for (i = 0; i < MAX_C; i++) {
         parcourt(fourmi_actuelle, meilleure_fourmi, villes, nb_villes, ville_visitees, ALPHA, BETA, proba_ville);
+        ON_DEBUG(printf("\nThat ant have made a travel of %lf km throught :\n", meilleure_fourmi->L));
         ON_DEBUG(affiche_parcourt(fourmi_actuelle, villes, nb_villes, ville_visitees));
         graph_update(&fourmi_actuelle, &meilleure_fourmi, villes, nb_villes, ville_visitees);
     }
 
     // affichage du meilleur parcourt
-    affiche_parcourt(fourmi_actuelle, villes, nb_villes, ville_visitees);
+    printf("\nThe best ant have made a travel of %lf km throught :\n", meilleure_fourmi->L);
+    affiche_parcourt(meilleure_fourmi, villes, nb_villes, ville_visitees);
 
     // On libère toute la mémoire du programme
     free(memory_pool);
