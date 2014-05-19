@@ -21,6 +21,7 @@
 #include <float.h>
 
 #include "data.h"
+#include "memory.h"
 
 /// passe à la ligne suivante
 void flush_line(FILE *fp)
@@ -45,27 +46,49 @@ void read_villes(FILE *fp, Ville villes[], int nb_ville)
 
 void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_ville, int nb_arc)
 {
-    int   noeud1, noeud2;    // noeud1 et noeud2 les deux ville d'une arrete
     int   i;
 
     // lecture des Arcs
     flush_line(fp); // lire les mots"Arêtes du graphe : noeud1 noeud2 valeur"
-    for (i = 0; i < nb_arc; i++) { // lire toutes les info dans "sommets du graphe"  
-        Arc   *p_arc = get_in_arcs(arcs, i);
-        Ville *p_ville;
 
-        fscanf(fp,"%d %d %lf", &noeud1, &noeud2, &(p_arc->distance));
-        p_arc->pheromones = EPSILON_PHEROMONES;
+    // lire toutes les info dans "sommets du graphe"
+    // NB : le nombre d'arc passé en paramètre prend en compte le fait que tout les arcs sont bi-directionnels
+    for (i = 0; i < nb_arc/2; i++) { 
+        // NB : Comme les arcs sont bi-directionnels, on en alloue un pour chaque sens
+        // au niveau mémoire la première moitié du tableau correspond au sens : VilleA vers Ville B
+        // et la deuxième moitié, du sens : VilleB vers VilleA
+        Arc   *p_arcA,   *p_arcB;
+        Ville *p_villeA, *p_villeB;
+        int   noeud1, noeud2;    // noeud1 et noeud2 les deux ville d'une arrete
+        double distance;         // la distance séparant noeud1 de noeud2
+
+        p_arcA = get_in_arcs(arcs, i);
+        p_arcB = get_in_arcs(arcs, nb_arc/2 + i);
+
+        fscanf(fp,"%d %d %lf", &noeud1, &noeud2, &distance);
+        p_arcA->pheromones = p_arcB->pheromones = EPSILON_PHEROMONES;
+        p_arcA->distance   = p_arcB->distance   = distance;
 
         // on cherche la ville de départ et d'arrivée à partir de leurs identifiants
         // et on ajoute l'arc courant dans la liste des voisins
         // NB : les arcs sont supposé bi-directionnels
-        p_ville = get_in_villes(villes,noeud1,nb_ville); // ville de départ
-        p_ville->voisins[(p_ville->nb_voisins)++] = p_arc;
-        p_arc->depart = (struct Ville*) p_ville;
-        p_ville = get_in_villes(villes,noeud2,nb_ville); // ville d'arrivée
-        p_ville->voisins[(p_ville->nb_voisins)++] = p_arc;
-        p_arc->arrivee = (struct Ville*) p_ville;
+        p_villeA = get_in_villes(villes,noeud1,nb_ville);
+        p_villeB = get_in_villes(villes,noeud2,nb_ville);
+
+        // On s'assure qu'ils ne sont pas dans le mauvais sens (A vers B)
+        if (p_villeA->id_ville == noeud2) {
+            swap((void**) &p_villeA, (void**) &p_villeB);
+        }
+
+        p_villeA->voisins[(p_villeA->nb_voisins)++] = p_arcA;
+        p_villeB->voisins[(p_villeB->nb_voisins)++] = p_arcA;
+        p_arcA->depart  = (struct Ville*) p_villeA;
+        p_arcA->arrivee = (struct Ville*) p_villeB;
+
+        p_villeA->voisins[(p_villeA->nb_voisins)++] = p_arcB;
+        p_villeB->voisins[(p_villeB->nb_voisins)++] = p_arcB;
+        p_arcB->depart  = (struct Ville*) p_villeB;
+        p_arcB->arrivee = (struct Ville*) p_villeA;
     }
 }
 
@@ -82,6 +105,7 @@ void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), 
     }
 
     fscanf(fp,"%d %d", nb_villes, nb_arc); // lire le nombre du sommet et le nombre d'arc
+    *nb_arc *= 2; // Les arcs sont bi-directionnels, on en aloue donc un pour chaque sens
 
     // Désormais, on connait l'espace mémoire total à allouer
     // Du coup, on peut allouer toutes les données de manière contigues
