@@ -109,8 +109,8 @@ Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_ville);
  *  \return pointeur sur le pool de mémoire alloué
  *  \param villes pointeur sur la zone mémoire à alouer pour les villes
  *  \param arcs pointeur sur la zone mémoire à alouer pour les arcs
+ *  \param fourmis pointeur sur un tableau pointant sur les fourmis parcourant le graph
  *  \param meilleure_fourmi pointeur sur la zone mémoire à alouer pour la meilleure_fourmi
- *  \param fourmi_actuelle pointeur sur la zone mémoire à alouer pour les fourmi_actuelle
  *  \param ville_visitees pointeur sur la zone mémoire à alouer pour le tableau référançant les ville_visitees
  *  \param proba_ville pointeur sur la zone mémoire à alouer pour le tableau qui va contiendra les probabilitées de chaque ville d'etre choisie
  *  \param nb_ville nombre de ville dans le graph

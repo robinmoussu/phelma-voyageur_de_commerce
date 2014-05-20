@@ -142,7 +142,10 @@ int main (int argc, const char *argv[])
         }
         // On actualise le graph
         for (j = 0; j < NB_FOURMIS; j++) {
-            parcourt_update(&((*fourmis)[j]), &meilleure_fourmi, nb_villes, ville_visitees, EVAPORATION, DEPOT_PHEROMONES);
+            Fourmi *fourmi_courante = (*fourmis)[j];
+            if (fourmi_courante->parcourt_valide) {
+                parcourt_update(&fourmi_courante, &meilleure_fourmi, nb_villes, ville_visitees, EVAPORATION, DEPOT_PHEROMONES);
+            }
         }
     }
 

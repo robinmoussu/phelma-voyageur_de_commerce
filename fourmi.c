@@ -30,6 +30,7 @@ void init_fourmi(Fourmi *f, Ville villes[], int nb_villes, bool deja_visite[])
     int ville_depart = rand()%nb_villes;
     f->L = 0;
     f->nb_villes_deja_visite = 1;
+    f->parcourt_valide = true;
     f->tabu[0] = get_in_villes(villes, ville_depart, nb_villes);
     deja_visite[ville_depart] = true;
 }
@@ -74,6 +75,7 @@ void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool de
 
     if (cumul_proba == 0) {
         fprintf(stderr,"error: All cities were already visited, no path found\n");
+        f->parcourt_valide = false;
         return;
     }
 
@@ -107,8 +109,7 @@ void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville
     // On fabrique une nouvelle fourmi
     init_fourmi(fourmi_actuelle, villes, nb_villes, ville_visitees);
 
-    // On commence à 1, vu que la ville de départ est déjà compté
-    for (i = 1; i < nb_villes; i++) {
+    while (fourmi_actuelle->parcourt_valide && (fourmi_actuelle->nb_villes_deja_visite < nb_villes)) {
         ville_suivante(fourmi_actuelle, alpha, beta, proba_ville, ville_visitees);
     }
 }
