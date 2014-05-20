@@ -108,43 +108,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define MEMORY_H</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00011.html">graph.h</a>&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00009.html">fourmi.h</a>&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00013.html">main.h</a>&quot;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#a3f0ae73b3cea3ac81ec42f100a166e39">sizeof_one_ville</a>(<span class="keywordtype">int</span> nb_villes);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#aab4b8c4536f596e3faba91884aa8f865">sizeof_one_arc</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#a7195dc0a9c54b0988371b70106327d6c">sizeof_ville_visitees</a>(<span class="keywordtype">int</span> nb_villes);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#ab228fcb255a644bafab0b26ae5cb80d4">sizeof_one_fourmi</a>(<span class="keywordtype">int</span> nb_villes);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#a208133e18fb5a431a735be8988138907">sizeof_proba_ville</a>(<span class="keywordtype">int</span> nb_voisins_max);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<a class="code" href="a00003.html">Arc</a>*   <a class="code" href="a00015.html#a68c45bada1b080822b90220c56109384">get_in_arcs</a>(<a class="code" href="a00003.html">Arc</a> arcs[], <span class="keywordtype">int</span> i);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<a class="code" href="a00005.html">Ville</a>* <a class="code" href="a00015.html#a63ea672d5110330ac52f19474a68d3a8">get_in_villes</a>(<a class="code" href="a00005.html">Ville</a> villes[], <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> nb_villes);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<a class="code" href="a00005.html">Ville</a>* <a class="code" href="a00015.html#ad97424281e8f503ac3b091bfd6fb21eb">get_in_fourmis</a>(<a class="code" href="a00004.html">Fourmi</a> fourmis[], <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> nb_villes);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span>* <a class="code" href="a00015.html#a7d26d918dea60da8c436c8c26839d6a1">memory_allocator</a>(<a class="code" href="a00005.html">Ville</a> *(villes[]), <a class="code" href="a00003.html">Arc</a> *(arcs[]), <a class="code" href="a00004.html">Fourmi</a> *(*fourmis[]), <a class="code" href="a00004.html">Fourmi</a> **meilleure_fourmi,</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">bool</span> *(ville_visitees[]), <span class="keywordtype">float</span> *(proba_ville[]), <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">int</span> nb_arcs, <span class="keywordtype">int</span> nb_fourmis);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00015.html#a32441c408b24566841ae6903f684c26b">swap</a>(<span class="keywordtype">void</span> **p1, <span class="keywordtype">void</span> **p2);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif // MEMORY_H</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00011.html">graph.h</a>&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00009.html">fourmi.h</a>&quot;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00013.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#a3f0ae73b3cea3ac81ec42f100a166e39">sizeof_one_ville</a>(<span class="keywordtype">int</span> nb_villes);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#aab4b8c4536f596e3faba91884aa8f865">sizeof_one_arc</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#a7195dc0a9c54b0988371b70106327d6c">sizeof_ville_visitees</a>(<span class="keywordtype">int</span> nb_villes);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#ab228fcb255a644bafab0b26ae5cb80d4">sizeof_one_fourmi</a>(<span class="keywordtype">int</span> nb_villes);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="a00015.html#a208133e18fb5a431a735be8988138907">sizeof_proba_ville</a>(<span class="keywordtype">int</span> nb_voisins_max);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<a class="code" href="a00003.html">Arc</a>*   <a class="code" href="a00015.html#a68c45bada1b080822b90220c56109384">get_in_arcs</a>(<a class="code" href="a00003.html">Arc</a> arcs[], <span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<a class="code" href="a00005.html">Ville</a>* <a class="code" href="a00015.html#a63ea672d5110330ac52f19474a68d3a8">get_in_villes</a>(<a class="code" href="a00005.html">Ville</a> villes[], <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> nb_villes);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<a class="code" href="a00005.html">Ville</a>* <a class="code" href="a00015.html#ad97424281e8f503ac3b091bfd6fb21eb">get_in_fourmis</a>(<a class="code" href="a00004.html">Fourmi</a> fourmis[], <span class="keywordtype">int</span> i, <span class="keywordtype">int</span> nb_villes);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">void</span>* <a class="code" href="a00015.html#a11bd011b0322f45b45ceca1e4057942d">memory_allocator</a>(<a class="code" href="a00005.html">Ville</a> *(villes[]), <a class="code" href="a00003.html">Arc</a> *(arcs[]), <a class="code" href="a00004.html">Fourmi</a> *(*fourmis[]), <a class="code" href="a00004.html">Fourmi</a> **meilleure_fourmi,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">bool</span> *(ville_visitees[]), <span class="keywordtype">double</span> *(proba_ville[]), <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">int</span> nb_arcs, <span class="keywordtype">int</span> nb_fourmis);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00015.html#a32441c408b24566841ae6903f684c26b">swap</a>(<span class="keywordtype">void</span> **p1, <span class="keywordtype">void</span> **p2);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MEMORY_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a00015_html_ab228fcb255a644bafab0b26ae5cb80d4"><div class="ttname"><a href="a00015.html#ab228fcb255a644bafab0b26ae5cb80d4">sizeof_one_fourmi</a></div><div class="ttdeci">size_t sizeof_one_fourmi(int nb_villes)</div><div class="ttdoc">Espace mémoire occupé par une fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00041">memory.c:41</a></div></div>
 <div class="ttc" id="a00003_html"><div class="ttname"><a href="a00003.html">Arc</a></div><div class="ttdoc">Contient les données relative à un arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00035">graph.h:35</a></div></div>
 <div class="ttc" id="a00015_html_a32441c408b24566841ae6903f684c26b"><div class="ttname"><a href="a00015.html#a32441c408b24566841ae6903f684c26b">swap</a></div><div class="ttdeci">void swap(void **p1, void **p2)</div><div class="ttdoc">Échange le contenue de deux pointeurs. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00112">memory.c:112</a></div></div>
 <div class="ttc" id="a00015_html_a63ea672d5110330ac52f19474a68d3a8"><div class="ttname"><a href="a00015.html#a63ea672d5110330ac52f19474a68d3a8">get_in_villes</a></div><div class="ttdeci">Ville * get_in_villes(Ville villes[], int i, int nb_villes)</div><div class="ttdoc">Permet d&#39;accéder à la ville numéro i. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00061">memory.c:61</a></div></div>
 <div class="ttc" id="a00009_html"><div class="ttname"><a href="a00009.html">fourmi.h</a></div><div class="ttdoc">Tout ce qui relatif au parcourt des fourmis. </div></div>
-<div class="ttc" id="a00015_html_a7d26d918dea60da8c436c8c26839d6a1"><div class="ttname"><a href="a00015.html#a7d26d918dea60da8c436c8c26839d6a1">memory_allocator</a></div><div class="ttdeci">void * memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), float *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis)</div><div class="ttdoc">Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contig...</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00072">memory.c:72</a></div></div>
 <div class="ttc" id="a00005_html"><div class="ttname"><a href="a00005.html">Sommet</a></div><div class="ttdoc">Contient les données relative à une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00046">graph.h:46</a></div></div>
 <div class="ttc" id="a00015_html_a68c45bada1b080822b90220c56109384"><div class="ttname"><a href="a00015.html#a68c45bada1b080822b90220c56109384">get_in_arcs</a></div><div class="ttdeci">Arc * get_in_arcs(Arc arcs[], int i)</div><div class="ttdoc">Permet d&#39;accéder à l&#39;arc numéro i. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00056">memory.c:56</a></div></div>
+<div class="ttc" id="a00015_html_a11bd011b0322f45b45ceca1e4057942d"><div class="ttname"><a href="a00015.html#a11bd011b0322f45b45ceca1e4057942d">memory_allocator</a></div><div class="ttdeci">void * memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), double *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis)</div><div class="ttdoc">Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contig...</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00072">memory.c:72</a></div></div>
 <div class="ttc" id="a00015_html_ad97424281e8f503ac3b091bfd6fb21eb"><div class="ttname"><a href="a00015.html#ad97424281e8f503ac3b091bfd6fb21eb">get_in_fourmis</a></div><div class="ttdeci">Ville * get_in_fourmis(Fourmi fourmis[], int i, int nb_villes)</div><div class="ttdoc">Permet d&#39;accéder à la fourmi numéro i. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00066">memory.c:66</a></div></div>
 <div class="ttc" id="a00013_html"><div class="ttname"><a href="a00013.html">main.h</a></div><div class="ttdoc">Contient les paramètres de la simulation, ainsi que les options de tests. </div></div>
 <div class="ttc" id="a00011_html"><div class="ttname"><a href="a00011.html">graph.h</a></div><div class="ttdoc">Contient les définitions des stuctures Sommet (Ville) et Arc, ainsi que les fonctions permettant de m...</div></div>
@@ -156,7 +156,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 20 Mai 2014 14:18:38 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 23:26:35 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

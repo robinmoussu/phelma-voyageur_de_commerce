@@ -41,6 +41,8 @@
  *       - Un tableau de booléen qui correspont à la liste des villes visitée par la fourmi en cour
  *       - Un tableau servant à calculer les probabilitées pour chaque ville d'etre choisie
  *
+ * \image html organisation_memoire.png
+ *
  * Toute la mémoire est alloué à l'aide de la fonction memory_allocator(). Elle retourne un pointeur sur la zone
  * mémoire allouée. Un simple free sur cette zone permet donc de libérer toute la mémoire en une fois.
  *
@@ -124,4 +126,4 @@ void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), F
 void swap(void **p1, void **p2);
 
 
-#endif // MEMORY_H
+#endif /* MEMORY_H */

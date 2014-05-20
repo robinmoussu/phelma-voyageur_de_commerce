@@ -123,9 +123,9 @@ Fonctions</h2></td></tr>
 <tr class="memitem:ad97424281e8f503ac3b091bfd6fb21eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#ad97424281e8f503ac3b091bfd6fb21eb">get_in_fourmis</a> (<a class="el" href="a00004.html">Fourmi</a> fourmis[], int i, int nb_villes)</td></tr>
 <tr class="memdesc:ad97424281e8f503ac3b091bfd6fb21eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'accéder à la fourmi numéro i.  <a href="#ad97424281e8f503ac3b091bfd6fb21eb">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad97424281e8f503ac3b091bfd6fb21eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d26d918dea60da8c436c8c26839d6a1"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#a7d26d918dea60da8c436c8c26839d6a1">memory_allocator</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), <a class="el" href="a00004.html">Fourmi</a> *(*fourmis[]), <a class="el" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis)</td></tr>
-<tr class="memdesc:a7d26d918dea60da8c436c8c26839d6a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contigue.  <a href="#a7d26d918dea60da8c436c8c26839d6a1">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a7d26d918dea60da8c436c8c26839d6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11bd011b0322f45b45ceca1e4057942d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#a11bd011b0322f45b45ceca1e4057942d">memory_allocator</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), <a class="el" href="a00004.html">Fourmi</a> *(*fourmis[]), <a class="el" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), double *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis)</td></tr>
+<tr class="memdesc:a11bd011b0322f45b45ceca1e4057942d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contigue.  <a href="#a11bd011b0322f45b45ceca1e4057942d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a11bd011b0322f45b45ceca1e4057942d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32441c408b24566841ae6903f684c26b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00015.html#a32441c408b24566841ae6903f684c26b">swap</a> (void **p1, void **p2)</td></tr>
 <tr class="memdesc:a32441c408b24566841ae6903f684c26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Échange le contenue de deux pointeurs.  <a href="#a32441c408b24566841ae6903f684c26b">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a32441c408b24566841ae6903f684c26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -146,7 +146,10 @@ Fonctions</h2></td></tr>
 </ul>
 </li>
 </ul>
-<p>Toute la mémoire est alloué à l'aide de la fonction <a class="el" href="a00015.html#a7d26d918dea60da8c436c8c26839d6a1" title="Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contig...">memory_allocator()</a>. Elle retourne un pointeur sur la zone mémoire allouée. Un simple free sur cette zone permet donc de libérer toute la mémoire en une fois.</p>
+<div class="image">
+<img src="organisation_memoire.png" alt="organisation_memoire.png"/>
+</div>
+<p>Toute la mémoire est alloué à l'aide de la fonction <a class="el" href="a00015.html#a11bd011b0322f45b45ceca1e4057942d" title="Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contig...">memory_allocator()</a>. Elle retourne un pointeur sur la zone mémoire allouée. Un simple free sur cette zone permet donc de libérer toute la mémoire en une fois.</p>
 <p>La validitée de cette fonction a été testé avec l'outil Valgrind qui assure qu'il n'y a aucune fuite mémoire possible. </p>
 
 <p>Définition dans le fichier <a class="el" href="a00015_source.html">memory.h</a>.</p>
@@ -274,7 +277,7 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7d26d918dea60da8c436c8c26839d6a1"></a>
+<a class="anchor" id="a11bd011b0322f45b45ceca1e4057942d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -311,7 +314,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float *&#160;</td>
+          <td class="paramtype">double *&#160;</td>
           <td class="paramname"><em>proba_ville</em>[], </td>
         </tr>
         <tr>
@@ -493,7 +496,7 @@ Fonctions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 20 Mai 2014 14:18:38 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 23:26:35 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>
