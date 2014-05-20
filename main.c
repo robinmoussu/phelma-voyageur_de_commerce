@@ -68,8 +68,18 @@ make install
  * Un graph incomplet est un graph dans lequel certaines villes ne sont pas reliées entre elles. Le graphe graphe_11_incomplet.txt
  * est particulièrement incomplet, et ne donne pas toujours de solutions valides.
  *
+ * \section organisation_sec Organisation du projet
+ *
+ * Le projet est constitué des fichiers suivants :
+ *  - main.h contient les paramètres de la simulation, ainsi que les options de tests.
+ *  - data.h contient les fonctions relative à la lectures des données du graph et à son affichage.
+ *  - fourmi.h contient tout ce qui relatif au parcourt des fourmis.
+ *  - graph.h contient les définitions des stuctures Sommet (Ville) et Arc, ainsi que les fonctions permettant de manipuler les arcs.
+ *  - memory.h contient les fonctions relative à la gestion de la mémoire.
+ *  - main.c contient la fonction main du programme.
+ *
  * \subsection subsec_time Temps d'exécution
- * 
+ *
  * La vitesse d'exécution de cet algorithme été particulièrement travaillé. Pour le tester vous pouvez la commande suivante :
 
 \verbatim
