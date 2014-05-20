@@ -40,7 +40,7 @@ debug:   voyageur
 release: CFLAGS =-fdiagnostics-color=auto -O2
 release: voyageur
 
-run:     release
+run:	 release
 	./voyageur ${OPTION}
 
 clean:

@@ -38,7 +38,7 @@ size_t sizeof_villes_visitee(int nb_ville)
 {
     return nb_ville * sizeof(bool);
 }
-size_t sizeof_fourmi(int nb_ville)
+size_t sizeof_one_fourmi(int nb_ville)
 {
 	// taille mémoire rééle d'une fourmi =
 	//      sizeof(Fourmi)
@@ -63,16 +63,26 @@ Ville* get_in_villes(Ville villes[], int i, int nb_ville)
     return ((void*)villes) + i*sizeof_one_ville(nb_ville);
 }
 
-
-void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle,
-    bool *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc)
+Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_ville)
 {
-    void *memory_pool;
+    return ((void*)fourmis) + i*sizeof_one_fourmi(nb_ville);
+}
+
+
+void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi,
+    bool *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc, int nb_fourmis)
+{
+    void   **memory_pool;
+    Fourmi *fourmis_pool;
+    int i;
+
 
     memory_pool = malloc (
           nb_ville*sizeof_one_ville(nb_ville)
         + nb_arc*sizeof_one_arc(nb_arc)
-        + 2*sizeof_fourmi(nb_ville)
+        + nb_fourmis*sizeof(Fourmi*)
+        + nb_fourmis*sizeof_one_fourmi(nb_ville)
+        + sizeof_one_fourmi(nb_ville)
         + sizeof_villes_visitee(nb_ville)
         + sizeof_proba_ville(nb_arc)
             );
@@ -83,12 +93,18 @@ void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi **meilleure_four
     }
 
     // On fait correspondre chaque pointeur à son espace mémoire
-    *villes           = (Ville*)                                memory_pool;
-    *arcs             = (Arc*)    ( (void*)*villes             + nb_ville*sizeof_one_ville(nb_ville));
-    *fourmi_actuelle  = (Fourmi*) ( (void*)*arcs               + nb_arc*sizeof_one_arc(nb_arc));
-    *meilleure_fourmi = (Fourmi*) ( (void*)*fourmi_actuelle   + sizeof_fourmi(nb_ville));
-    *ville_visitees   = (bool*)   ( (void*)*meilleure_fourmi    + sizeof_fourmi(nb_ville));
-    *proba_ville      = (float*)  ( (void*)*ville_visitees   + sizeof_villes_visitee(nb_ville));
+    *villes           = (Ville*)                                       memory_pool;
+    *arcs             = (Arc*)         ( (void*) *villes             + nb_ville*sizeof_one_ville(nb_ville));
+    *fourmis          = (Fourmi**)      ( (void*) *arcs               + nb_arc*sizeof_one_arc(nb_arc));
+     fourmis_pool     = (Fourmi*)      ( (void*) *fourmis            + nb_fourmis*sizeof(Fourmi*));
+    *meilleure_fourmi = (Fourmi*)      ( (void*)  fourmis_pool       + nb_fourmis*sizeof_one_fourmi(nb_ville));
+    *ville_visitees   = (bool*)        ( (void*) *meilleure_fourmi   + sizeof_one_fourmi(nb_ville));
+    *proba_ville      = (float*)       ( (void*) *ville_visitees     + sizeof_villes_visitee(nb_ville));
+
+    // On initialise les pointeurs sur les fourmis
+    for (i = 0; i < NB_FOURMIS; ++i) {
+        (*fourmis)[i] = (Fourmi*) ((void*) fourmis_pool + i*sizeof_one_fourmi(nb_ville));
+    }
 
     return memory_pool;
 }

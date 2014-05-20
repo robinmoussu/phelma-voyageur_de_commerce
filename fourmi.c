@@ -25,11 +25,13 @@
 #include "memory.h"
 
 
-void init_fourmi(Fourmi *f, Ville *point_depart)
+void init_fourmi(Fourmi *f, Ville villes[], int nb_villes, bool deja_visite[])
 {
+    int ville_depart = rand()%nb_villes;
     f->L = 0;
     f->nb_villes_deja_visite = 1;
-    f->tabu[0] = (Ville*) point_depart;
+    f->tabu[0] = get_in_villes(villes, ville_depart, nb_villes);
+    deja_visite[ville_depart] = true;
 }
 
 bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visite)
@@ -63,7 +65,8 @@ void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool de
         if (deja_visite[get_arrivee(ville_courante, arc_courant)->id_ville]) {
             proba_ville[i] = 0;
         } else {
-            proba_ville[i] = pow(arc_courant->pheromones,alpha) / pow(arc_courant->distance,beta);
+            proba_ville[i] = pow(*get_pheromones(ville_courante,arc_courant),alpha) / pow(arc_courant->distance,beta);
+
         }
 
         cumul_proba += proba_ville[i];
@@ -97,11 +100,12 @@ void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool de
 void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])
 {
     int i;
-    init_fourmi(fourmi_actuelle, &villes[0]);
 
-    // seule la premiere ville est visitee
-    ville_visitees[0] = true;
-    memset(ville_visitees + 1, false, nb_villes*sizeof(bool));
+    // On réinitialise le tableau des villes visitées avant toutes choses
+    memset(ville_visitees, false, nb_villes*sizeof(bool));
+
+    // On fabrique une nouvelle fourmi
+    init_fourmi(fourmi_actuelle, villes, nb_villes, ville_visitees);
 
     // On commence à 1, vu que la ville de départ est déjà compté
     for (i = 1; i < nb_villes; i++) {
@@ -121,10 +125,10 @@ bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])
     }
 
     // On initialise la liste des villes visitées
-    ville_visitees[0] = true;
-    memset(ville_visitees + 1, false, nb_villes*sizeof(bool));
+    memset(ville_visitees, false, nb_villes*sizeof(bool));
 
     // On refait le parcourt de la fourmi (de la ville 0 à l'avant-dernière ville vu qu'on calcule la distance entre la ville n et n+1)
+    ville_visitees[f->tabu[0]->id_ville] = true;
     for (i = 0; i < (nb_villes - 1); i++) {
         Ville *ville_courante = f->tabu[i];
         Ville *ville_suivante = f->tabu[i + 1];
@@ -152,7 +156,7 @@ bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])
     return true;
 }
 
-void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[])
+void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[], float evaporation, float depot_pheromones)
 {
     Ville *depart, *arrivee;
     int i;
@@ -172,7 +176,7 @@ void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb
         arc_courant= get_arc(depart, arrivee);
 
         // on met à jour les phéromones sur les arcs
-        arc_courant->pheromones = EVAPORATION*(arc_courant->pheromones) + PARCOURT_PHEROMONES/((*fourmi_actuelle)->L);
+        *get_pheromones(depart,arc_courant) = evaporation*(arc_courant->pheromonesAB) + depot_pheromones/((*fourmi_actuelle)->L);
 
         // on actualise la ville de départ
         depart = arrivee;

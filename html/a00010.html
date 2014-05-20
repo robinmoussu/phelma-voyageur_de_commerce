@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Voyageur de commerce: Référence du fichier fourmi.h</title>
+<title>Voyageur de commerce: Référence du fichier graph.c</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,83 +82,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Structures de données</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
-<div class="title">Référence du fichier fourmi.h</div>  </div>
+<div class="title">Référence du fichier graph.c</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Tout ce qui relatif au parcourt des fourmis.  
-<a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00014_source.html">main.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00012_source.html">graph.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00011_source.html">graph.h</a>&quot;</code><br />
 </div>
 <p><a href="a00010_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Structures de données</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">Fourmi</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Données relative au parcourt d'une fourmi.  <a href="a00004.html#details">Plus de détails...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a3750aa9d8ea79aae39bdc851b1a6fd19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a3750aa9d8ea79aae39bdc851b1a6fd19">init_fourmi</a> (<a class="el" href="a00004.html">Fourmi</a> *f, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *point_depart)</td></tr>
-<tr class="memdesc:a3750aa9d8ea79aae39bdc851b1a6fd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise la structure fourmi.  <a href="#a3750aa9d8ea79aae39bdc851b1a6fd19">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a3750aa9d8ea79aae39bdc851b1a6fd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29d1912ba7ed6858ceb0a5be60eede80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a> (<a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *a_visiter, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *deja_visite[], int nb_villes_deja_visite)</td></tr>
-<tr class="memdesc:a29d1912ba7ed6858ceb0a5be60eede80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indique si la ville a déjà été visité par la fourmi.  <a href="#a29d1912ba7ed6858ceb0a5be60eede80">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a29d1912ba7ed6858ceb0a5be60eede80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26341ea71e1ae7ade0c490226c6658b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a26341ea71e1ae7ade0c490226c6658b8">ville_suivante</a> (<a class="el" href="a00004.html">Fourmi</a> *f, int nb_villes, int alpha, int beta, float proba_ville[], <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> <a class="el" href="a00010.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>[])</td></tr>
-<tr class="memdesc:a26341ea71e1ae7ade0c490226c6658b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc.  <a href="#a26341ea71e1ae7ade0c490226c6658b8">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a26341ea71e1ae7ade0c490226c6658b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacc4a9cedb86e13e01028735c141621c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#aacc4a9cedb86e13e01028735c141621c">parcourt</a> (<a class="el" href="a00004.html">Fourmi</a> *fourmi_actuelle, <a class="el" href="a00004.html">Fourmi</a> *meilleure_fourmi, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_villes, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> ville_visitees[], int alpha, int beta, float proba_ville[])</td></tr>
-<tr class="memdesc:aacc4a9cedb86e13e01028735c141621c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Détermine le parcourt de la fourmie fourmie actuelle, valide ce parcourt puis met à jour le graph.  <a href="#aacc4a9cedb86e13e01028735c141621c">Plus de détails...</a><br /></td></tr>
-<tr class="separator:aacc4a9cedb86e13e01028735c141621c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ba88ced422a1fdba2cb68dac8e9aadf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a9ba88ced422a1fdba2cb68dac8e9aadf">parcourt_valide</a> (<a class="el" href="a00004.html">Fourmi</a> *f, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_villes, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> ville_visitees[])</td></tr>
-<tr class="memdesc:a9ba88ced422a1fdba2cb68dac8e9aadf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valide le parcourt d'une fourmi.  <a href="#a9ba88ced422a1fdba2cb68dac8e9aadf">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a9ba88ced422a1fdba2cb68dac8e9aadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d89a8dbfe33427c0684b434b45c4335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a0d89a8dbfe33427c0684b434b45c4335">graph_update</a> (<a class="el" href="a00004.html">Fourmi</a> **fourmi_actuelle, <a class="el" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_villes, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> ville_visitees[])</td></tr>
-<tr class="memdesc:a0d89a8dbfe33427c0684b434b45c4335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)  <a href="#a0d89a8dbfe33427c0684b434b45c4335">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a0d89a8dbfe33427c0684b434b45c4335"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd42d5bc73f5e75a66177c974fda6dd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#acd42d5bc73f5e75a66177c974fda6dd8">affiche_parcourt</a> (<a class="el" href="a00004.html">Fourmi</a> *f, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_villes, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> ville_visitees[])</td></tr>
-<tr class="memdesc:acd42d5bc73f5e75a66177c974fda6dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche le parcourt d'une fourmie.  <a href="#acd42d5bc73f5e75a66177c974fda6dd8">Plus de détails...</a><br /></td></tr>
-<tr class="separator:acd42d5bc73f5e75a66177c974fda6dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d808c750faefa77883b665d40bb46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00003.html">Arc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a52d808c750faefa77883b665d40bb46a">get_arc</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *arrivee)</td></tr>
+<tr class="memdesc:a52d808c750faefa77883b665d40bb46a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée.  <a href="#a52d808c750faefa77883b665d40bb46a">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a52d808c750faefa77883b665d40bb46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accbee5a502a3adca2de7e0d8236f1dd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00003.html">Arc</a> *arc)</td></tr>
+<tr class="memdesc:accbee5a502a3adca2de7e0d8236f1dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne la ville d'arrivée, en partant de la ville départ, et en passant par l'arc arc.  <a href="#accbee5a502a3adca2de7e0d8236f1dd6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:accbee5a502a3adca2de7e0d8236f1dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26aaa91862251e8a76e2b5b95a5066cc"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html#a26aaa91862251e8a76e2b5b95a5066cc">get_pheromones</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00003.html">Arc</a> *arc)</td></tr>
+<tr class="memdesc:a26aaa91862251e8a76e2b5b95a5066cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie les phéromone de l'<a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a> arc partant de la Ville depart.  <a href="#a26aaa91862251e8a76e2b5b95a5066cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a26aaa91862251e8a76e2b5b95a5066cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>Tout ce qui relatif au parcourt des fourmis. </p>
-<dl class="section note"><dt>Note</dt><dd>d </dd></dl>
-
-<p>Définition dans le fichier <a class="el" href="a00010_source.html">fourmi.h</a>.</p>
-</div><h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="acd42d5bc73f5e75a66177c974fda6dd8"></a>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="a52d808c750faefa77883b665d40bb46a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void affiche_parcourt </td>
+          <td class="memname"><a class="el" href="a00003.html">Arc</a>* get_arc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> *&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramname"><em>depart</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
-          <td class="paramname"><em>villes</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_villes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td>
-          <td class="paramname"><em>ville_visitees</em>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramname"><em>arrivee</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,43 +129,27 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Affiche le parcourt d'une fourmie. </p>
-<dl class="section note"><dt>Note</dt><dd>Avant de l'afficher, vérifie si le parcourt est valide </dd></dl>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td><a class="el" href="a00004.html" title="Données relative au parcourt d&#39;une fourmi. ">Fourmi</a> dont le parcourt est à tester </td></tr>
-    <tr><td class="paramname">villes</td><td>tableau contenant la liste de toutes les villes du graph </td></tr>
-    <tr><td class="paramname">nb_villes</td><td>nombre de villes contenues dans le graph </td></tr>
-    <tr><td class="paramname">deja_visite</td><td>tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Renvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée. </p>
 
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00184">184</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00010_source.html#l00023">23</a> du fichier <a class="el" href="a00010_source.html">graph.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a29d1912ba7ed6858ceb0a5be60eede80"></a>
+<a class="anchor" id="accbee5a502a3adca2de7e0d8236f1dd6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> deja_visite </td>
+          <td class="memname"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>* get_arrivee </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
-          <td class="paramname"><em>a_visiter</em>, </td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramname"><em>depart</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
-          <td class="paramname"><em>deja_visite</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_villes_deja_visite</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00003.html">Arc</a> *&#160;</td>
+          <td class="paramname"><em>arc</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,45 +159,28 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Indique si la ville a déjà été visité par la fourmi. </p>
+<p>Donne la ville d'arrivée, en partant de la ville départ, et en passant par l'arc arc. </p>
+<dl class="section note"><dt>Note</dt><dd>Les arcs sont bi-directionels </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00034">34</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00010_source.html#l00039">39</a> du fichier <a class="el" href="a00010_source.html">graph.c</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0d89a8dbfe33427c0684b434b45c4335"></a>
+<a class="anchor" id="a26aaa91862251e8a76e2b5b95a5066cc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void graph_update </td>
+          <td class="memname">double* get_pheromones </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **&#160;</td>
-          <td class="paramname"><em>fourmi_actuelle</em>, </td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramname"><em>depart</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **&#160;</td>
-          <td class="paramname"><em>meilleure_fourmi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
-          <td class="paramname"><em>villes</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_villes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td>
-          <td class="paramname"><em>ville_visitees</em>[]&#160;</td>
+          <td class="paramtype"><a class="el" href="a00003.html">Arc</a> *&#160;</td>
+          <td class="paramname"><em>arc</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -262,267 +190,17 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones) </p>
-<dl class="section note"><dt>Note</dt><dd>avant de mettre à jour le graph, le parcourt de fourmi_actuelle est vérifié</dd></dl>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fourmi_actuelle</td><td><a class="el" href="a00004.html" title="Données relative au parcourt d&#39;une fourmi. ">Fourmi</a> qui vient de terminer sont parcourt </td></tr>
-    <tr><td class="paramname">meilleure_fourmi</td><td>La fourmi possédant pour l'instant le meilleur parcourt </td></tr>
-    <tr><td class="paramname">villes</td><td>tableau contenant la liste de toutes les villes du graph </td></tr>
-    <tr><td class="paramname">nb_villes</td><td>nombre de villes contenues dans le graph </td></tr>
-    <tr><td class="paramname">deja_visite</td><td>tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Avant l'appel de cette fonction, le champ L (la distance du parcourt) de la meilleur fourmi doit etre initialisé </dd>
-<dd>
-Après l'appel de cette fonction, les données de fourmi_actuelle peuvent avoir changée et etre incohérente </dd></dl>
+<p>Renvoie les phéromone de l'<a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a> arc partant de la Ville depart. </p>
+<dl class="section note"><dt>Note</dt><dd>Les arcs sont bi-directionels. Permet de récupérer les phéromones uniquement pour une direction donnée </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00154">154</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3750aa9d8ea79aae39bdc851b1a6fd19"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void init_fourmi </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> *&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
-          <td class="paramname"><em>point_depart</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initialise la structure fourmi. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">point_depart</td><td>la ville de depart pour la fourmi </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00027">27</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aacc4a9cedb86e13e01028735c141621c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void parcourt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> *&#160;</td>
-          <td class="paramname"><em>fourmi_actuelle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> *&#160;</td>
-          <td class="paramname"><em>meilleure_fourmi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
-          <td class="paramname"><em>villes</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_villes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td>
-          <td class="paramname"><em>ville_visitees</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>alpha</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>beta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>proba_ville</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Détermine le parcourt de la fourmie fourmie actuelle, valide ce parcourt puis met à jour le graph. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fourmi_actuelle</td><td><a class="el" href="a00004.html" title="Données relative au parcourt d&#39;une fourmi. ">Fourmi</a> va pantounir le graph </td></tr>
-    <tr><td class="paramname">meilleure_fourmi</td><td>La fourmi possédant pour l'instant le meilleur parcourt </td></tr>
-    <tr><td class="paramname">villes</td><td>tableau contenant la liste de toutes les villes du graph </td></tr>
-    <tr><td class="paramname">nb_villes</td><td>nombre de villes contenues dans le graph </td></tr>
-    <tr><td class="paramname">ville_visitees</td><td>tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt </td></tr>
-    <tr><td class="paramname">alpha</td><td>Coefficient régulant l'importance des phéromones pour le choix d'une ville </td></tr>
-    <tr><td class="paramname">beta</td><td>Coefficient régulant l'importance de la visibilité pour le choix d'une ville </td></tr>
-    <tr><td class="paramname">proba_ville</td><td>tableau aloué, non initialisé servant à calculer la la probabilité de chaque ville d'être tirée.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Avant l'appel de cette fonction, le champ L (la distance du parcourt) de la meilleur fourmi doit etre initialisé </dd>
-<dd>
-Après l'appel de cette fonction, les données de fourmi_actuelle peuvent avoir changée et etre incohérente </dd></dl>
-
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00096">96</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9ba88ced422a1fdba2cb68dac8e9aadf"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> parcourt_valide </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> *&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
-          <td class="paramname"><em>villes</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_villes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td>
-          <td class="paramname"><em>ville_visitees</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Valide le parcourt d'une fourmi. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td><a class="el" href="a00004.html" title="Données relative au parcourt d&#39;une fourmi. ">Fourmi</a> dont le parcourt est à tester </td></tr>
-    <tr><td class="paramname">villes</td><td>tableau contenant la liste de toutes les villes du graph </td></tr>
-    <tr><td class="paramname">nb_villes</td><td>nombre de villes contenues dans le graph </td></tr>
-    <tr><td class="paramname">ville_visitees</td><td>tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>true si le parcourt est valide </dd></dl>
-
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00111">111</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a26341ea71e1ae7ade0c490226c6658b8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ville_suivante </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> *&#160;</td>
-          <td class="paramname"><em>f</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_villes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>alpha</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>beta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>proba_ville</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a>&#160;</td>
-          <td class="paramname"><em>deja_visite</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l'arc. </p>
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">f</td><td>La fourmi en train d'effectuer son voyage </td></tr>
-    <tr><td class="paramname">nb_villes</td><td>nombre de villes dans la simulation </td></tr>
-    <tr><td class="paramname">alpha</td><td>Coefficient régulant l'importance des phéromones pour le choix d'une ville </td></tr>
-    <tr><td class="paramname">beta</td><td>Coefficient régulant l'importance de la visibilité pour le choix d'une ville </td></tr>
-    <tr><td class="paramname">proba_ville</td><td>tableau aloué, non initialisé servant à calculer la la probabilité de chaque ville d'être tirée. </td></tr>
-    <tr><td class="paramname">deja_visite</td><td>tableau contenant la liste des villes dejà visitées durant ce parcourt </td></tr>
-  </table>
-  </dd>
-</dl>
-<p>&lt; valeur permettant la normalisation des probabilités</p>
-<p>&lt; valeur courante de la fonction de répartition </p>
-
-<p>Définition à la ligne <a class="el" href="a00009_source.html#l00047">47</a> du fichier <a class="el" href="a00009_source.html">fourmi.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00010_source.html#l00054">54</a> du fichier <a class="el" href="a00010_source.html">graph.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 20:29:24 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

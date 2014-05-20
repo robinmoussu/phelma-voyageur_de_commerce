@@ -33,10 +33,11 @@ struct Ville;
  *  \note Un arc est bi-directionnel, et donc la ville de départ et d'arrivée est arbitraire
  */
 typedef struct {
-    double distance;        ///< Distance entre les villes i et j
-    double pheromones;      ///< La quantitée de phéromone actuelement sur l'arc
-    struct Ville *depart;   ///< Sommet de départ (ville i)
-    struct Ville *arrivee;  ///< Sommet d'arrivée (ville j)
+    double distance;        ///< Distance entre les villes A et B
+    double pheromonesAB;    ///< La quantitée de phéromone actuelement sur l'arc reliant la ville A à la ville B
+    double pheromonesBA;    ///< La quantitée de phéromone actuelement sur l'arc reliant la ville B à la ville A
+    struct Ville *ville_A;  //< Sommet de départ (ville i)
+    struct Ville *ville_B;  ///< Sommet d'arrivée (ville j)
 } Arc;
 
 /** Contient les données relative à une ville
@@ -60,5 +61,10 @@ Arc* get_arc(Ville *depart, Ville *arrivee);
  *  \note Les arcs sont bi-directionels
  */
 Ville* get_arrivee(Ville *depart, Arc *arc);
+
+/** Renvoie les phéromone de l'Arc arc partant de la Ville depart
+ *  \note Les arcs sont bi-directionels. Permet de récupérer les phéromones uniquement pour une direction donnée
+ */
+double* get_pheromones(Ville *depart, Arc *arc);
 
 #endif // SOMMET_H

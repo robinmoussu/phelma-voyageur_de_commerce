@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Voyageur de commerce: Référence du fichier graph.c</title>
+<title>Voyageur de commerce: Référence du fichier graph.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,25 +82,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
-<div class="title">Référence du fichier graph.c</div>  </div>
+<div class="title">Référence du fichier graph.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00012_source.html">graph.h</a>&quot;</code><br />
+
+<p>Contient les définitions des stuctures <a class="el" href="a00005.html" title="Contient les données relative à une ville. ">Sommet</a> (Ville) et <a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a>, ainsi que les fonctions permettant de manipuler les arcs.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00013_source.html">main.h</a>&quot;</code><br />
 </div>
 <p><a href="a00011_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">Arc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contient les données relative à un arc.  <a href="a00003.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html">Sommet</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contient les données relative à une ville.  <a href="a00005.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a295b1c44b26fe1ed9f477b9958d051e5"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00005.html">Sommet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a></td></tr>
+<tr class="separator:a295b1c44b26fe1ed9f477b9958d051e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
-<tr class="memitem:a52d808c750faefa77883b665d40bb46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00003.html">Arc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a52d808c750faefa77883b665d40bb46a">get_arc</a> (<a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *arrivee)</td></tr>
+<tr class="memitem:a52d808c750faefa77883b665d40bb46a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00003.html">Arc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a52d808c750faefa77883b665d40bb46a">get_arc</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *arrivee)</td></tr>
 <tr class="memdesc:a52d808c750faefa77883b665d40bb46a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée.  <a href="#a52d808c750faefa77883b665d40bb46a">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a52d808c750faefa77883b665d40bb46a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accbee5a502a3adca2de7e0d8236f1dd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a> (<a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00003.html">Arc</a> *arc)</td></tr>
+<tr class="memitem:accbee5a502a3adca2de7e0d8236f1dd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00003.html">Arc</a> *arc)</td></tr>
 <tr class="memdesc:accbee5a502a3adca2de7e0d8236f1dd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Donne la ville d'arrivée, en partant de la ville départ, et en passant par l'arc arc.  <a href="#accbee5a502a3adca2de7e0d8236f1dd6">Plus de détails...</a><br /></td></tr>
 <tr class="separator:accbee5a502a3adca2de7e0d8236f1dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26aaa91862251e8a76e2b5b95a5066cc"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00011.html#a26aaa91862251e8a76e2b5b95a5066cc">get_pheromones</a> (<a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *depart, <a class="el" href="a00003.html">Arc</a> *arc)</td></tr>
+<tr class="memdesc:a26aaa91862251e8a76e2b5b95a5066cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie les phéromone de l'<a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a> arc partant de la Ville depart.  <a href="#a26aaa91862251e8a76e2b5b95a5066cc">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a26aaa91862251e8a76e2b5b95a5066cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les définitions des stuctures <a class="el" href="a00005.html" title="Contient les données relative à une ville. ">Sommet</a> (Ville) et <a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a>, ainsi que les fonctions permettant de manipuler les arcs. </p>
+
+<p>Définition dans le fichier <a class="el" href="a00011_source.html">graph.h</a>.</p>
+</div><h2 class="groupheader">Documentation des définitions de type</h2>
+<a class="anchor" id="a295b1c44b26fe1ed9f477b9958d051e5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00005.html">Sommet</a> <a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="a00011_source.html#l00054">54</a> du fichier <a class="el" href="a00011_source.html">graph.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Documentation des fonctions</h2>
 <a class="anchor" id="a52d808c750faefa77883b665d40bb46a"></a>
 <div class="memitem">
@@ -109,13 +149,13 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="a00003.html">Arc</a>* get_arc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
           <td class="paramname"><em>depart</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
           <td class="paramname"><em>arrivee</em>&#160;</td>
         </tr>
         <tr>
@@ -128,7 +168,7 @@ Fonctions</h2></td></tr>
 
 <p>Renvoie l'arc qui permet de relier la ville départ avec la ville d'arrivée. </p>
 
-<p>Définition à la ligne <a class="el" href="a00011_source.html#l00023">23</a> du fichier <a class="el" href="a00011_source.html">graph.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00010_source.html#l00023">23</a> du fichier <a class="el" href="a00010_source.html">graph.c</a>.</p>
 
 </div>
 </div>
@@ -137,9 +177,9 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>* get_arrivee </td>
+          <td class="memname"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>* get_arrivee </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
           <td class="paramname"><em>depart</em>, </td>
         </tr>
         <tr>
@@ -159,14 +199,45 @@ Fonctions</h2></td></tr>
 <p>Donne la ville d'arrivée, en partant de la ville départ, et en passant par l'arc arc. </p>
 <dl class="section note"><dt>Note</dt><dd>Les arcs sont bi-directionels </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="a00011_source.html#l00038">38</a> du fichier <a class="el" href="a00011_source.html">graph.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00010_source.html#l00039">39</a> du fichier <a class="el" href="a00010_source.html">graph.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26aaa91862251e8a76e2b5b95a5066cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* get_pheromones </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td>
+          <td class="paramname"><em>depart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00003.html">Arc</a> *&#160;</td>
+          <td class="paramname"><em>arc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie les phéromone de l'<a class="el" href="a00003.html" title="Contient les données relative à un arc. ">Arc</a> arc partant de la Ville depart. </p>
+<dl class="section note"><dt>Note</dt><dd>Les arcs sont bi-directionels. Permet de récupérer les phéromones uniquement pour une direction donnée </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="a00010_source.html#l00054">54</a> du fichier <a class="el" href="a00010_source.html">graph.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 20:29:24 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

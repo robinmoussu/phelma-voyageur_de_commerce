@@ -111,32 +111,39 @@ int main (int argc, const char *argv[])
     Sommet  *villes;
     Arc     *arcs;
     Fourmi  *meilleure_fourmi;
-    Fourmi  *fourmi_actuelle;
+    Fourmi  *(*fourmis[NB_FOURMIS]);
     bool    *ville_visitees;
     float   *proba_ville;
     int     nb_villes;
     int     nb_voisins;
-    int i;
+    int i,j;
 
     if (argc != 2) {
         fprintf(stderr, "Syntax error. You have to specifie the filename of the file that contains the data.\n");
         return EXIT_FAILURE;
     }
 
-    // Initiale le générateur pseudo-aléatoir
+    // Initiale le générateur pseudo-aléatoire
     srand(time(NULL));
 
     // Initialise les données du graphe, et alloue la mémoire
-    memory_pool = creation_graph(argv[1], &villes, &arcs, &meilleure_fourmi, &fourmi_actuelle, &ville_visitees, &proba_ville, &nb_villes, &nb_voisins);
+    memory_pool = creation_graph(argv[1], &villes, &arcs, (Fourmi***) &fourmis, &meilleure_fourmi, &ville_visitees, &proba_ville, &nb_villes, &nb_voisins, NB_FOURMIS);
     if (!memory_pool) {
         return EXIT_FAILURE;
     }
 
     for (i = 0; i < MAX_C; i++) {
-        parcourt(fourmi_actuelle, villes, nb_villes, ville_visitees, ALPHA, BETA, proba_ville);
-        ON_DEBUG(printf("\nThat ant have made a travel of %lf km throught :\n", meilleure_fourmi->L));
-        ON_DEBUG(affiche_parcourt(fourmi_actuelle, nb_villes, ville_visitees));
-        parcourt_update(&fourmi_actuelle, &meilleure_fourmi, nb_villes, ville_visitees);
+        // Les NB_FOURMIS parcourent le graph
+        for (j = 0; j < NB_FOURMIS; j++) {
+            Fourmi *fourmi_courante = (*fourmis)[j];
+            parcourt(fourmi_courante, villes, nb_villes, ville_visitees, ALPHA, BETA, proba_ville);
+            ON_DEBUG(printf("\nThat ant have made a travel of %lf km throught :\n", meilleure_fourmi->L));
+            ON_DEBUG(affiche_parcourt(fourmi_courante, nb_villes, ville_visitees));
+        }
+        // On actualise le graph
+        for (j = 0; j < NB_FOURMIS; j++) {
+            parcourt_update(&((*fourmis)[j]), &meilleure_fourmi, nb_villes, ville_visitees, EVAPORATION, DEPOT_PHEROMONES);
+        }
     }
 
     // affichage du meilleur parcourt

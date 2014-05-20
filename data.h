@@ -74,7 +74,7 @@ void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_ville, int nb_arc);
  * 
  * \note Comme les arcs sont bi-directionnel, la ville de départ et d'arrivée d'un graph est arbitraire         
  */
-void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc);
+void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc, int nb_fourmis);
 
 /** Affiche les données d'un arc
  */

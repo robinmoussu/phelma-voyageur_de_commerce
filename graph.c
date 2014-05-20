@@ -38,12 +38,27 @@ Arc* get_arc(Ville *depart, Ville *arrivee)
 // Les arcs étant bi-directionnels, on ne sait pas si le Sommet courant (=la Ville courante) est au début ou à la fin de l'arc
 Ville* get_arrivee(Ville *depart, Arc *arc)
 {
-    if (depart != (Ville*) arc->depart) {
-        return (Ville*) arc->depart;
-    } else if (depart != (Ville*) arc->arrivee) {
-        return (Ville*) arc->arrivee;
+    if (depart == (Ville*) arc->ville_A) {
+        return (Ville*) arc->ville_B;
+    } else if (depart == (Ville*) arc->ville_B) {
+        return (Ville*) arc->ville_A;
     } else {
         fprintf(stderr, "error: problem of cohenrence inside graph\n");
         return 0;
+    }
+}
+
+
+
+// Les arcs étant bi-directionnels, on ne sait pas si le Sommet courant (=la Ville courante) est au début ou à la fin de l'arc
+double* get_pheromones(Ville *depart, Arc *arc)
+{
+    if (depart == (Ville*) arc->ville_A) {
+        return &(arc->pheromonesAB);
+    } else if (depart == (Ville*) arc->ville_B) {
+        return &(arc->pheromonesBA);
+    } else {
+        fprintf(stderr, "error: problem of cohenrence inside graph\n");
+        return false;
     }
 }

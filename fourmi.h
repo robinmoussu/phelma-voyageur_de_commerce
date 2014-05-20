@@ -36,9 +36,9 @@ typedef struct {
 } Fourmi;
 
 /** Initialise la structure fourmi
- *  \param point_depart la ville de depart pour la fourmi
+ *  \param villes la liste des villes (la ville de départ est tirée aléatoirement dans ce tableau)
  */
-void init_fourmi(Fourmi *f, Ville *point_depart);
+void init_fourmi(Fourmi *f, Ville villes[], int nb_villes, bool deja_visite[]);
 
 /** Indique si la ville a déjà été visité par la fourmi
  */
@@ -82,11 +82,13 @@ bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[]);
  *  \param meilleure_fourmi La fourmi possédant pour l'instant le meilleur parcourt
  *  \param nb_villes nombre de villes contenues dans le graph
  *  \param deja_visite tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt
+ *  \param evaporation coeficiant déterminant la vitesse à laquelle les phéromones s'évaporent
+ *  \param depot_pheromones quantitée de phéromones déposés à chaques passage
  *
  *  \note Avant l'appel de cette fonction, le champ L (la distance du parcourt) de la meilleur fourmi doit etre initialisé
  *  \note Après l'appel de cette fonction, les données de fourmi_actuelle peuvent avoir changée et etre incohérente
  */
-void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[]);
+void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[], float evaporation, float depot_pheromones);
 
 /** Affiche le parcourt d'une fourmie
  *  \note Avant de l'afficher, vérifie si le parcourt est valide

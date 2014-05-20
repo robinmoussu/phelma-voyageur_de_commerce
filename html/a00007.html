@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Voyageur de commerce: Référence du fichier data.c</title>
+<title>Voyageur de commerce: Référence du fichier data.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,38 +84,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div class="summary">
 <a href="#func-members">Fonctions</a>  </div>
   <div class="headertitle">
-<div class="title">Référence du fichier data.c</div>  </div>
+<div class="title">Référence du fichier data.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;float.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00008_source.html">data.h</a>&quot;</code><br />
+
+<p>Contient les fonctions relative à la lectures des données du graph et à son affichage.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00013_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00009_source.html">fourmi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00011_source.html">graph.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00015_source.html">memory.h</a>&quot;</code><br />
 </div>
 <p><a href="a00007_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
 <tr class="memitem:a8693ae9c2a4e9e47880d5036a1460ebd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a8693ae9c2a4e9e47880d5036a1460ebd">flush_line</a> (FILE *fp)</td></tr>
-<tr class="memdesc:a8693ae9c2a4e9e47880d5036a1460ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">passe à la ligne suivante  <a href="#a8693ae9c2a4e9e47880d5036a1460ebd">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a8693ae9c2a4e9e47880d5036a1460ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Passe à la ligne suivante.  <a href="#a8693ae9c2a4e9e47880d5036a1460ebd">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a8693ae9c2a4e9e47880d5036a1460ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef9fd8eb38389961de16a60ed0b242f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aef9fd8eb38389961de16a60ed0b242f2">read_villes</a> (FILE *fp, <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_ville)</td></tr>
+<tr class="memitem:aef9fd8eb38389961de16a60ed0b242f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aef9fd8eb38389961de16a60ed0b242f2">read_villes</a> (FILE *fp, <a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_ville)</td></tr>
 <tr class="memdesc:aef9fd8eb38389961de16a60ed0b242f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit la liste des villes dans le fichier fp, et l'ajoute à la liste des villes.  <a href="#aef9fd8eb38389961de16a60ed0b242f2">Plus de détails...</a><br /></td></tr>
 <tr class="separator:aef9fd8eb38389961de16a60ed0b242f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d5676a11a28beecab6d80298fc99782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a6d5676a11a28beecab6d80298fc99782">read_arcs</a> (FILE *fp, <a class="el" href="a00003.html">Arc</a> arcs[], <a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_ville, int nb_arc)</td></tr>
+<tr class="memitem:a6d5676a11a28beecab6d80298fc99782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a6d5676a11a28beecab6d80298fc99782">read_arcs</a> (FILE *fp, <a class="el" href="a00003.html">Arc</a> arcs[], <a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int nb_ville, int nb_arc)</td></tr>
 <tr class="memdesc:a6d5676a11a28beecab6d80298fc99782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lit la liste des arcs dans le fichier fp, et l'ajoute à la liste des arcs.  <a href="#a6d5676a11a28beecab6d80298fc99782">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6d5676a11a28beecab6d80298fc99782"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46e03d3b5d713ba916c66410ec47db3f"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#a46e03d3b5d713ba916c66410ec47db3f">creation_graph</a> (const char *data_graph, <a class="el" href="a00006.html">Sommet</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), <a class="el" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="el" href="a00004.html">Fourmi</a> **fourmi_actuelle, <a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc)</td></tr>
-<tr class="memdesc:a46e03d3b5d713ba916c66410ec47db3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le graph à partir des données contenu dans le fichier data_graph (et alloue la mémoire necessaire)  <a href="#a46e03d3b5d713ba916c66410ec47db3f">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a46e03d3b5d713ba916c66410ec47db3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea148fb00e9e061a62549c31ba0d2af6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#aea148fb00e9e061a62549c31ba0d2af6">creation_graph</a> (const char *data_graph, <a class="el" href="a00005.html">Sommet</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), <a class="el" href="a00004.html">Fourmi</a> *(*fourmis[]), <a class="el" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc, int nb_fourmis)</td></tr>
+<tr class="memdesc:aea148fb00e9e061a62549c31ba0d2af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise le graph à partir des données contenu dans le fichier data_graph (et alloue la mémoire necessaire)  <a href="#aea148fb00e9e061a62549c31ba0d2af6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aea148fb00e9e061a62549c31ba0d2af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5839f28d255e4a3db2ca4890f721995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#ac5839f28d255e4a3db2ca4890f721995">print_arc</a> (<a class="el" href="a00003.html">Arc</a> *p_arc)</td></tr>
 <tr class="memdesc:ac5839f28d255e4a3db2ca4890f721995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les données d'un arc.  <a href="#ac5839f28d255e4a3db2ca4890f721995">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ac5839f28d255e4a3db2ca4890f721995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af95827d301c21b0954d0667ae50cfa0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#af95827d301c21b0954d0667ae50cfa0f">print_graph</a> (<a class="el" href="a00006.html">Sommet</a> villes[], <a class="el" href="a00003.html">Arc</a> arcs[], int nb_villes, int nb_voisins)</td></tr>
+<tr class="memitem:af95827d301c21b0954d0667ae50cfa0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html#af95827d301c21b0954d0667ae50cfa0f">print_graph</a> (<a class="el" href="a00005.html">Sommet</a> villes[], <a class="el" href="a00003.html">Arc</a> arcs[], int nb_villes, int nb_voisins)</td></tr>
 <tr class="memdesc:af95827d301c21b0954d0667ae50cfa0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Affiche les données du graph.  <a href="#af95827d301c21b0954d0667ae50cfa0f">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af95827d301c21b0954d0667ae50cfa0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="a46e03d3b5d713ba916c66410ec47db3f"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les fonctions relative à la lectures des données du graph et à son affichage. </p>
+
+<p>Définition dans le fichier <a class="el" href="a00007_source.html">data.h</a>.</p>
+</div><h2 class="groupheader">Documentation des fonctions</h2>
+<a class="anchor" id="aea148fb00e9e061a62549c31ba0d2af6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -128,7 +137,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00006.html">Sommet</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00005.html">Sommet</a> *&#160;</td>
           <td class="paramname"><em>villes</em>[], </td>
         </tr>
         <tr>
@@ -140,19 +149,19 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **[]&#160;</td>
+          <td class="paramname"><em>fourmis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **&#160;</td>
           <td class="paramname"><em>meilleure_fourmi</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00004.html">Fourmi</a> **&#160;</td>
-          <td class="paramname"><em>fourmi_actuelle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00014.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *&#160;</td>
           <td class="paramname"><em>ville_visitees</em>[], </td>
         </tr>
         <tr>
@@ -171,7 +180,13 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>nb_arc</em>&#160;</td>
+          <td class="paramname"><em>nb_arc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_fourmis</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -188,13 +203,13 @@ Fonctions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="a00016.html" title="Contient les fonctions relative à la gestion de la mémoire. ">memory.h</a> pour la liste des zones mémoires à allouer (les autres paramètres)</dd></dl>
+<dl class="section see"><dt>Voir également</dt><dd><a class="el" href="a00015.html" title="Contient les fonctions relative à la gestion de la mémoire. ">memory.h</a> pour la liste des zones mémoires à allouer (les autres paramètres)</dd></dl>
 <p>Les données doivent etre formatées de la manière suivante : Une première ligne contenant le nombre de ville et le nombre d'arc Une ligne de commentaires La liste de toutes les données relatives aux villes (une par ligne) avec les données suivantes : numéro de la ville (identifiant unique, de 0 à nombre de ville - 1) coordonée x de la ville coordonée y de la ville nom de la ville (max 64 caractères) Une ligne de commentaires La liste de toutes les données relatives aux arcs (un par ligne) avec les données suivantes : identifiant de la ville de départ identifiant de la ville d'arrivée distance séparant les deux villes</p>
 <dl class="section note"><dt>Note</dt><dd>Comme les arcs sont bi-directionnel, la ville de départ et d'arrivée d'un graph est arbitraire </dd></dl>
 <p>pointeur sur la zone qui va contenir l'intégralité de la mémoire necessaire pour la simulation</p>
 <p>fichier contenant les informations sur le graph </p>
 
-<p>Définition à la ligne <a class="el" href="a00007_source.html#l00073">73</a> du fichier <a class="el" href="a00007_source.html">data.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00006_source.html#l00073">73</a> du fichier <a class="el" href="a00006_source.html">data.c</a>.</p>
 
 </div>
 </div>
@@ -212,10 +227,11 @@ Fonctions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>passe à la ligne suivante </p>
+<p>Passe à la ligne suivante. </p>
+<dl class="section note"><dt>Note</dt><dd>Permet de passer les lignes de commentaires</dd></dl>
 <p>Passe à la ligne suivante. </p>
 
-<p>Définition à la ligne <a class="el" href="a00007_source.html#l00026">26</a> du fichier <a class="el" href="a00007_source.html">data.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00006_source.html#l00026">26</a> du fichier <a class="el" href="a00006_source.html">data.c</a>.</p>
 
 </div>
 </div>
@@ -235,7 +251,7 @@ Fonctions</h2></td></tr>
 
 <p>Affiche les données d'un arc. </p>
 
-<p>Définition à la ligne <a class="el" href="a00007_source.html#l00104">104</a> du fichier <a class="el" href="a00007_source.html">data.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00006_source.html#l00103">103</a> du fichier <a class="el" href="a00006_source.html">data.c</a>.</p>
 
 </div>
 </div>
@@ -246,7 +262,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="memname">void print_graph </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00006.html">Sommet</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00005.html">Sommet</a>&#160;</td>
           <td class="paramname"><em>villes</em>[], </td>
         </tr>
         <tr>
@@ -277,7 +293,7 @@ Fonctions</h2></td></tr>
 
 <p>Affiche les données du graph. </p>
 
-<p>Définition à la ligne <a class="el" href="a00007_source.html#l00113">113</a> du fichier <a class="el" href="a00007_source.html">data.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00006_source.html#l00112">112</a> du fichier <a class="el" href="a00006_source.html">data.c</a>.</p>
 
 </div>
 </div>
@@ -300,7 +316,7 @@ Fonctions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
           <td class="paramname"><em>villes</em>[], </td>
         </tr>
         <tr>
@@ -338,7 +354,7 @@ Comme les arcs sont bi-directionnel, la ville de départ et d'arrivée d'un grap
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="a00007_source.html#l00046">46</a> du fichier <a class="el" href="a00007_source.html">data.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00006_source.html#l00046">46</a> du fichier <a class="el" href="a00006_source.html">data.c</a>.</p>
 
 </div>
 </div>
@@ -355,7 +371,7 @@ Comme les arcs sont bi-directionnel, la ville de départ et d'arrivée d'un grap
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00012.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00011.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a>&#160;</td>
           <td class="paramname"><em>villes</em>[], </td>
         </tr>
         <tr>
@@ -382,14 +398,14 @@ Comme les arcs sont bi-directionnel, la ville de départ et d'arrivée d'un grap
   </dd>
 </dl>
 
-<p>Définition à la ligne <a class="el" href="a00007_source.html#l00032">32</a> du fichier <a class="el" href="a00007_source.html">data.c</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00006_source.html#l00032">32</a> du fichier <a class="el" href="a00006_source.html">data.c</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 20:29:24 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

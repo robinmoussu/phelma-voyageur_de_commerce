@@ -74,7 +74,7 @@ size_t sizeof_ville_visitees(int nb_ville);
 
 /** Espace mémoire occupé par une fourmi
  */
-size_t sizeof_fourmi(int nb_ville);
+size_t sizeof_one_fourmi(int nb_ville);
 
 /** Espace mémoire occupé par le tableau qui contient la probabilitée pour chaque ville d'etre choisie
  */
@@ -91,6 +91,12 @@ Arc*   get_in_arcs(Arc arcs[], int i);
  * \param i indice de la ville auquel on veut accéder
  */
 Ville* get_in_villes(Ville villes[], int i, int nb_ville);
+
+/** Permet d'accéder à la fourmi numéro i
+ * \param villes pointeur vers la zone mémoire contenant tout les fourmis
+ * \param i indice de la fourmi auquel on veut accéder
+ */
+Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_ville);
 
 /** Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contigue
  *
@@ -110,8 +116,8 @@ Ville* get_in_villes(Ville villes[], int i, int nb_ville);
  *  \param nb_ville nombre de ville dans le graph
  *  \param nb_arc nombre d'arc total dans le graph
  */
-void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle,
-    bool *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc);
+void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi,
+    bool *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc, int nb_fourmis);
 
 /** Échange le contenue de deux pointeurs
  */

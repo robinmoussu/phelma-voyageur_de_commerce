@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Voyageur de commerce: Référence du fichier main.c</title>
+<title>Voyageur de commerce: Référence du fichier main.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,74 +82,212 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Fonctions</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Énumérations</a>  </div>
   <div class="headertitle">
-<div class="title">Référence du fichier main.c</div>  </div>
+<div class="title">Référence du fichier main.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>fonction main du programme  
+<p>contient les paramètres de la simulation  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00014_source.html">main.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00008_source.html">data.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00010_source.html">fourmi.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00012_source.html">graph.h</a>&quot;</code><br />
-</div>
+
 <p><a href="a00013_source.html">Aller au code source de ce fichier.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Fonctions</h2></td></tr>
-<tr class="memitem:ac0f2228420376f4db7e1274f2b41667c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#ac0f2228420376f4db7e1274f2b41667c">main</a> (int argc, const char *argv[])</td></tr>
-<tr class="separator:ac0f2228420376f4db7e1274f2b41667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af541ed3a9f6f8e88a12634dd73317ee5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a>(instruction)</td></tr>
+<tr class="separator:af541ed3a9f6f8e88a12634dd73317ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96790af840411f551cdcd1317865b4ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a96790af840411f551cdcd1317865b4ac">MAX_C</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a96790af840411f551cdcd1317865b4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre maximum de cycles autorisés.  <a href="#a96790af840411f551cdcd1317865b4ac">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a96790af840411f551cdcd1317865b4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ae486100e435cf1b8c799f82842f40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a74ae486100e435cf1b8c799f82842f40">NB_FOURMIS</a>&#160;&#160;&#160;300</td></tr>
+<tr class="memdesc:a74ae486100e435cf1b8c799f82842f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de fourmis parcourant le graph en meme temps.  <a href="#a74ae486100e435cf1b8c799f82842f40">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a74ae486100e435cf1b8c799f82842f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5abd28c44c29b7397c84f1fec4b1d84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:af5abd28c44c29b7397c84f1fec4b1d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient régulant l'importance des phéromones pour le choix d'une ville.  <a href="#af5abd28c44c29b7397c84f1fec4b1d84">Plus de détails...</a><br /></td></tr>
+<tr class="separator:af5abd28c44c29b7397c84f1fec4b1d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b996515309fc3c03449912bb33046e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a1b996515309fc3c03449912bb33046e3">BETA</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a1b996515309fc3c03449912bb33046e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient régulant l'importance de la visibilité pour le choix d'une ville.  <a href="#a1b996515309fc3c03449912bb33046e3">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a1b996515309fc3c03449912bb33046e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4b514c478ae505a3ceb89eed08a436"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a4d4b514c478ae505a3ceb89eed08a436">EPSILON_PHEROMONES</a>&#160;&#160;&#160;0.00001</td></tr>
+<tr class="memdesc:a4d4b514c478ae505a3ceb89eed08a436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valeur initiale non nulle de phéromones sur les arc (epsilon dans le sujet)  <a href="#a4d4b514c478ae505a3ceb89eed08a436">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4d4b514c478ae505a3ceb89eed08a436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15784e1e075bab0ca6077264158f3542"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a15784e1e075bab0ca6077264158f3542">DEPOT_PHEROMONES</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a15784e1e075bab0ca6077264158f3542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quantitée de phéromones ajoutés à chaque passage (Q dans le sujet)  <a href="#a15784e1e075bab0ca6077264158f3542">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a15784e1e075bab0ca6077264158f3542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262a4366c9827518bacf220bb5cde52b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a262a4366c9827518bacf220bb5cde52b">EVAPORATION</a>&#160;&#160;&#160;0.4</td></tr>
+<tr class="memdesc:a262a4366c9827518bacf220bb5cde52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coeficiant d'évaporation (rho dans le sujet)  <a href="#a262a4366c9827518bacf220bb5cde52b">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a262a4366c9827518bacf220bb5cde52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:af6a258d8f3ee5206d682d799316314b1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a> { <a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c">false</a>, 
+<a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">true</a>
+ }</td></tr>
+<tr class="separator:af6a258d8f3ee5206d682d799316314b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>fonction main du programme </p>
+<div class="textblock"><p>contient les paramètres de la simulation </p>
+<dl class="section note"><dt>Note</dt><dd>doit etre inclu dans tout les fichirs du projet </dd></dl>
 
-<p>Définition dans le fichier <a class="el" href="a00013_source.html">main.c</a>.</p>
-</div><h2 class="groupheader">Documentation des fonctions</h2>
-<a class="anchor" id="ac0f2228420376f4db7e1274f2b41667c"></a>
+<p>Définition dans le fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a class="anchor" id="af5abd28c44c29b7397c84f1fec4b1d84"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define ALPHA&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Paramètres</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">argc</td><td>nombre de graph passé en entrée. Doit être égal à 1. </td></tr>
-    <tr><td class="paramname">argv</td><td>nom du graph passé en entrée </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Renvoie</dt><dd>0 si le program s'est bien passé. </dd></dl>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00108">108</a> du fichier <a class="el" href="a00013_source.html">main.c</a>.</p>
+<p>Coefficient régulant l'importance des phéromones pour le choix d'une ville. </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00041">41</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b996515309fc3c03449912bb33046e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BETA&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coefficient régulant l'importance de la visibilité pour le choix d'une ville. </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00042">42</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a15784e1e075bab0ca6077264158f3542"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEPOT_PHEROMONES&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Quantitée de phéromones ajoutés à chaque passage (Q dans le sujet) </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00045">45</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d4b514c478ae505a3ceb89eed08a436"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EPSILON_PHEROMONES&#160;&#160;&#160;0.00001</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valeur initiale non nulle de phéromones sur les arc (epsilon dans le sujet) </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00044">44</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a262a4366c9827518bacf220bb5cde52b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EVAPORATION&#160;&#160;&#160;0.4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coeficiant d'évaporation (rho dans le sujet) </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00046">46</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96790af840411f551cdcd1317865b4ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_C&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nombre maximum de cycles autorisés. </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00038">38</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74ae486100e435cf1b8c799f82842f40"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_FOURMIS&#160;&#160;&#160;300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nombre de fourmis parcourant le graph en meme temps. </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00039">39</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af541ed3a9f6f8e88a12634dd73317ee5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ON_DEBUG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">instruction</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00030">30</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a class="anchor" id="af6a258d8f3ee5206d682d799316314b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a class="anchor" id="af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c"></a>false&#160;</td><td class="fielddoc">
+</td></tr>
+<tr><td class="fieldname"><a class="anchor" id="af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b"></a>true&#160;</td><td class="fielddoc">
+</td></tr>
+</table>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00035">35</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 20:29:25 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

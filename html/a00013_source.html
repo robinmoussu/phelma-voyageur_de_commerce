@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Voyageur de commerce:  Fichier source de main.c</title>
+<title>Voyageur de commerce:  Fichier source de main.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">main.c</div>  </div>
+<div class="title">main.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00013.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -102,80 +102,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *    You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00014.html">main.h</a>&quot;</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00008.html">data.h</a>&quot;</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00010.html">fourmi.h</a>&quot;</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00012.html">graph.h</a>&quot;</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="a00013.html#ac0f2228420376f4db7e1274f2b41667c">  108</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="a00013.html#ac0f2228420376f4db7e1274f2b41667c">main</a> (<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> *argv[])</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span>    *memory_pool;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">char</span>    *data_graph;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="a00006.html">Sommet</a>  *villes;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="a00003.html">Arc</a>     *arcs;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="a00004.html">Fourmi</a>  *meilleure_fourmi;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="a00004.html">Fourmi</a>  *fourmi_actuelle;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">bool</span>    *ville_visitees;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">float</span>   *proba_ville;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">int</span>     nb_villes;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">int</span>     nb_voisins;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">if</span> (argc != 2) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Syntax error. You have to specifie the filename of the file that contains the data.\n&quot;</span>);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// Initiale le générateur pseudo-aléatoir</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    srand(time(NULL));</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment">// Initialise les données du graphe, et alloue la mémoire</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    memory_pool = <a class="code" href="a00007.html#a46e03d3b5d713ba916c66410ec47db3f">creation_graph</a>(argv[1], &amp;villes, &amp;arcs, &amp;meilleure_fourmi, &amp;fourmi_actuelle, &amp;ville_visitees, &amp;proba_ville, &amp;nb_villes, &amp;nb_voisins);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">if</span> (!memory_pool) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">return</span> EXIT_FAILURE;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="a00014.html#a96790af840411f551cdcd1317865b4ac">MAX_C</a>; i++) {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="a00009.html#aacc4a9cedb86e13e01028735c141621c">parcourt</a>(fourmi_actuelle, meilleure_fourmi, villes, nb_villes, ville_visitees, <a class="code" href="a00014.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>, <a class="code" href="a00014.html#a1b996515309fc3c03449912bb33046e3">BETA</a>, proba_ville);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <a class="code" href="a00014.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a>(printf(<span class="stringliteral">&quot;\nThat ant have made a travel of %lf km throught :\n&quot;</span>, meilleure_fourmi-&gt;<a class="code" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">L</a>));</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <a class="code" href="a00014.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a>(<a class="code" href="a00009.html#acd42d5bc73f5e75a66177c974fda6dd8">affiche_parcourt</a>(fourmi_actuelle, villes, nb_villes, ville_visitees));</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <a class="code" href="a00009.html#a0d89a8dbfe33427c0684b434b45c4335">graph_update</a>(&amp;fourmi_actuelle, &amp;meilleure_fourmi, villes, nb_villes, ville_visitees);</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">// affichage du meilleur parcourt</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    printf(<span class="stringliteral">&quot;\nThe best ant have made a travel of %lf km throught :\n&quot;</span>, meilleure_fourmi-&gt;<a class="code" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">L</a>);</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="a00009.html#acd42d5bc73f5e75a66177c974fda6dd8">affiche_parcourt</a>(meilleure_fourmi, villes, nb_villes, ville_visitees);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">// On libère toute la mémoire du programme</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    free(memory_pool);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">return</span> EXIT_SUCCESS;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
-<div class="ttc" id="a00013_html_ac0f2228420376f4db7e1274f2b41667c"><div class="ttname"><a href="a00013.html#ac0f2228420376f4db7e1274f2b41667c">main</a></div><div class="ttdeci">int main(int argc, const char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00108">main.c:108</a></div></div>
-<div class="ttc" id="a00010_html"><div class="ttname"><a href="a00010.html">fourmi.h</a></div><div class="ttdoc">Tout ce qui relatif au parcourt des fourmis. </div></div>
-<div class="ttc" id="a00003_html"><div class="ttname"><a href="a00003.html">Arc</a></div><div class="ttdoc">Contient les données relative à un arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00035">graph.h:35</a></div></div>
-<div class="ttc" id="a00004_html_ab6100b60862fd12824ea97ac2e1f3d20"><div class="ttname"><a href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">Fourmi::L</a></div><div class="ttdeci">float L</div><div class="ttdoc">Longueur d&#39;un chemin, somme des longueurs de chaque arc constituant le chemin. </div><div class="ttdef"><b>Definition:</b> <a href="a00010_source.html#l00033">fourmi.h:33</a></div></div>
-<div class="ttc" id="a00007_html_a46e03d3b5d713ba916c66410ec47db3f"><div class="ttname"><a href="a00007.html#a46e03d3b5d713ba916c66410ec47db3f">creation_graph</a></div><div class="ttdeci">void * creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc)</div><div class="ttdoc">Initialise le graph à partir des données contenu dans le fichier data_graph (et alloue la mémoire nec...</div><div class="ttdef"><b>Definition:</b> <a href="a00007_source.html#l00073">data.c:73</a></div></div>
-<div class="ttc" id="a00014_html_af5abd28c44c29b7397c84f1fec4b1d84"><div class="ttname"><a href="a00014.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a></div><div class="ttdeci">#define ALPHA</div><div class="ttdoc">Coefficient régulant l&#39;importance des phéromones pour le choix d&#39;une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00048">main.h:48</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="a00006.html">Sommet</a></div><div class="ttdoc">Contient les données relative à une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00045">graph.h:45</a></div></div>
-<div class="ttc" id="a00009_html_aacc4a9cedb86e13e01028735c141621c"><div class="ttname"><a href="a00009.html#aacc4a9cedb86e13e01028735c141621c">parcourt</a></div><div class="ttdeci">void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])</div><div class="ttdoc">Détermine le parcourt de la fourmie fourmie actuelle, valide ce parcourt puis met à jour le graph...</div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00096">fourmi.c:96</a></div></div>
-<div class="ttc" id="a00014_html"><div class="ttname"><a href="a00014.html">main.h</a></div><div class="ttdoc">contient les paramètres de la simulation </div></div>
-<div class="ttc" id="a00012_html"><div class="ttname"><a href="a00012.html">graph.h</a></div><div class="ttdoc">Contient les définitions des stuctures Sommet (Ville) et Arc, ainsi que les fonctions permettant de m...</div></div>
-<div class="ttc" id="a00014_html_a1b996515309fc3c03449912bb33046e3"><div class="ttname"><a href="a00014.html#a1b996515309fc3c03449912bb33046e3">BETA</a></div><div class="ttdeci">#define BETA</div><div class="ttdoc">Coefficient régulant l&#39;importance de la visibilité pour le choix d&#39;une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00049">main.h:49</a></div></div>
-<div class="ttc" id="a00014_html_af541ed3a9f6f8e88a12634dd73317ee5"><div class="ttname"><a href="a00014.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a></div><div class="ttdeci">#define ON_DEBUG(instruction)</div><div class="ttdoc">MACRO to activate advanced debug message. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00029">main.h:29</a></div></div>
-<div class="ttc" id="a00014_html_a96790af840411f551cdcd1317865b4ac"><div class="ttname"><a href="a00014.html#a96790af840411f551cdcd1317865b4ac">MAX_C</a></div><div class="ttdeci">#define MAX_C</div><div class="ttdoc">Constante, nombre maximum de cycles autorisés. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00046">main.h:46</a></div></div>
-<div class="ttc" id="a00008_html"><div class="ttname"><a href="a00008.html">data.h</a></div><div class="ttdoc">Contient les fonctions relative à la lectures des données du graph et à son affichage. </div></div>
-<div class="ttc" id="a00009_html_a0d89a8dbfe33427c0684b434b45c4335"><div class="ttname"><a href="a00009.html#a0d89a8dbfe33427c0684b434b45c4335">graph_update</a></div><div class="ttdeci">void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromo...</div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00154">fourmi.c:154</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">Fourmi</a></div><div class="ttdoc">Données relative au parcourt d&#39;une fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00010_source.html#l00032">fourmi.h:32</a></div></div>
-<div class="ttc" id="a00009_html_acd42d5bc73f5e75a66177c974fda6dd8"><div class="ttname"><a href="a00009.html#acd42d5bc73f5e75a66177c974fda6dd8">affiche_parcourt</a></div><div class="ttdeci">void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Affiche le parcourt d&#39;une fourmie. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00184">fourmi.c:184</a></div></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef MAIN_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define MAIN_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// Les lignes suivantes permettent d&#39;activer le débug.</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// Pour cela, on peut utiliser la commande &quot;make debug&quot; ou définir DEBUG à une valeur non nulle</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#if (DEBUG == 0)</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00013.html#af541ed3a9f6f8e88a12634dd73317ee5">   30</a></span>&#160;<span class="preprocessor">#define ON_DEBUG(instruction)</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define ON_DEBUG(instruction) instruction</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif // DEBUG</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00013.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {<span class="keyword">false</span>,<span class="keyword">true</span>} <a class="code" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00013.html#a96790af840411f551cdcd1317865b4ac">   38</a></span>&#160;<span class="preprocessor">#define MAX_C               100        </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00013.html#a74ae486100e435cf1b8c799f82842f40">   39</a></span>&#160;<span class="preprocessor">#define NB_FOURMIS          300         </span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a00013.html#af5abd28c44c29b7397c84f1fec4b1d84">   41</a></span>&#160;<span class="preprocessor">#define ALPHA               1           </span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00013.html#a1b996515309fc3c03449912bb33046e3">   42</a></span>&#160;<span class="preprocessor">#define BETA                10          </span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00013.html#a4d4b514c478ae505a3ceb89eed08a436">   44</a></span>&#160;<span class="preprocessor">#define EPSILON_PHEROMONES  0.00001     </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00013.html#a15784e1e075bab0ca6077264158f3542">   45</a></span>&#160;<span class="preprocessor">#define DEPOT_PHEROMONES    10          </span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00013.html#a262a4366c9827518bacf220bb5cde52b">   46</a></span>&#160;<span class="preprocessor">#define EVAPORATION         0.4         </span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MAIN_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a00013_html_af6a258d8f3ee5206d682d799316314b1"><div class="ttname"><a href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a></div><div class="ttdeci">bool</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00035">main.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 20:29:24 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

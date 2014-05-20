@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.7"/>
-<title>Voyageur de commerce:  Fichier source de fourmi.c</title>
+<title>Voyageur de commerce:  Fichier source de fourmi.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">fourmi.c</div>  </div>
+<div class="title">fourmi.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="a00009.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
@@ -103,216 +103,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span>     <span class="comment">/* srand, rand */</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"># include &quot;<a class="code" href="a00010.html">fourmi.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="a00010.html#a3750aa9d8ea79aae39bdc851b1a6fd19">   27</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#a3750aa9d8ea79aae39bdc851b1a6fd19">init_fourmi</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <a class="code" href="a00006.html">Ville</a> *point_depart)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    f-&gt;<a class="code" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">L</a> = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    f-&gt;<a class="code" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">nb_villes_deja_visite</a> = 1;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    f-&gt;<a class="code" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">tabu</a>[0] = (<a class="code" href="a00006.html">Ville</a>*) point_depart;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00010.html#a29d1912ba7ed6858ceb0a5be60eede80">   34</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>(<a class="code" href="a00006.html">Ville</a> *a_visiter, <a class="code" href="a00006.html">Ville</a> *<a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>[], <span class="keywordtype">int</span> nb_villes_deja_visite)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef FOURMI_H</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define FOURMI_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00013.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="a00011.html">graph.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="a00004.html">   32</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">   33</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">L</a>;            </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">nb_villes_deja_visite</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">   35</a></span>&#160;    <a class="code" href="a00005.html">Ville</a> *tabu[];      </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;} <a class="code" href="a00004.html">Fourmi</a>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">for</span> (i = 0; i&lt; nb_villes_deja_visite; i++){</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (a_visiter == deja_visite[i]) { <span class="comment">// On compare les adresses des villes</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#ab5670c146fd4171f352849be903116fe">init_fourmi</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <a class="code" href="a00005.html">Ville</a> villes[], <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> <a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>[]);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>(<a class="code" href="a00005.html">Ville</a> *a_visiter, <a class="code" href="a00005.html">Ville</a> *<a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>[], <span class="keywordtype">int</span> nb_villes_deja_visite);</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="a00010.html#a26341ea71e1ae7ade0c490226c6658b8">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#a26341ea71e1ae7ade0c490226c6658b8">ville_suivante</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">int</span> alpha, <span class="keywordtype">int</span> beta, <span class="keywordtype">float</span> proba_ville[], <span class="keywordtype">bool</span> <a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>[])</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">float</span> tirage;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">float</span> cumul_proba;  </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">float</span> fx;           </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="a00006.html">Ville</a> *ville_courante;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    ville_courante = f-&gt;<a class="code" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">tabu</a>[f-&gt;<a class="code" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">nb_villes_deja_visite</a> - 1];</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// On calule la probabilitée de tirer chacune des ville à visiter</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    cumul_proba = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; ville_courante-&gt;<a class="code" href="a00006.html#a6667b830a665da501a163301fec6323d">nb_voisins</a>; i++) {</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <a class="code" href="a00003.html">Arc</a>   *arc_courant  = ville_courante-&gt;<a class="code" href="a00006.html#a6c84e8994c2213870441265291b1f48b">voisins</a>[i];</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">if</span> (deja_visite[<a class="code" href="a00011.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a>(ville_courante, arc_courant)-&gt;<a class="code" href="a00006.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">id_ville</a>]) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            proba_ville[i] = 0;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            proba_ville[i] = pow(arc_courant-&gt;<a class="code" href="a00003.html#a15ec8c17c3ffac83d28810673d43398d">pheromones</a>,alpha) / pow(arc_courant-&gt;<a class="code" href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">distance</a>,beta);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        cumul_proba += proba_ville[i];</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (cumul_proba == 0) {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        fprintf(stderr,<span class="stringliteral">&quot;error: All cities were already visited, no path found\n&quot;</span>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// On selectionne aléatoirement une ville parmi la liste de ville (en la normalisant)</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    tirage = rand() * cumul_proba / (float) RAND_MAX;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    fx = 0;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; ville_courante-&gt;<a class="code" href="a00006.html#a6667b830a665da501a163301fec6323d">nb_voisins</a>; i++) {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        fx += proba_ville[i];</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">if</span> ((tirage &lt; fx) &amp;&amp; (proba_ville[i] != 0)) {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment">// C&#39;est cette ville qui a été selectionnée</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <a class="code" href="a00006.html">Ville</a> *ville_arrivee = <a class="code" href="a00011.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a>(ville_courante, ville_courante-&gt;<a class="code" href="a00006.html#a6c84e8994c2213870441265291b1f48b">voisins</a>[i]);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            f-&gt;<a class="code" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">tabu</a>[f-&gt;<a class="code" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">nb_villes_deja_visite</a>++] = ville_arrivee;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            f-&gt;<a class="code" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">L</a> += <a class="code" href="a00011.html#a52d808c750faefa77883b665d40bb46a">get_arc</a>(ville_courante, ville_arrivee)-&gt;<a class="code" href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">distance</a>; <span class="comment">// On actualise la distance parcouru</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            deja_visite[ville_arrivee-&gt;<a class="code" href="a00006.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">id_ville</a>] = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <a class="code" href="a00014.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a>(printf(<span class="stringliteral">&quot;City chosen : %s\n&quot;</span>, ville_arrivee-&gt;<a class="code" href="a00006.html#a4cde2f9aa497984732f03935cb5de70f">nom</a>);)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#ab88807a73bb0e1f13c202fdc48ac0b3c">ville_suivante</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <span class="keywordtype">int</span> alpha, <span class="keywordtype">int</span> beta, <span class="keywordtype">float</span> proba_ville[], <span class="keywordtype">bool</span> <a class="code" href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a>[]);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#a650c502fd0a65806d3dd3015a2a146b8">parcourt</a>(<a class="code" href="a00004.html">Fourmi</a> *fourmi_actuelle, <a class="code" href="a00005.html">Ville</a> villes[], <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[], <span class="keywordtype">int</span> alpha, <span class="keywordtype">int</span> beta, <span class="keywordtype">float</span> proba_ville[]);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="a00009.html#a4b42a631faa8bb8b58c6a7707fae94b0">parcourt_valide</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[]);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#acac1b2f4fce02ad682caf166e126d29d">parcourt_update</a>(<a class="code" href="a00004.html">Fourmi</a> **fourmi_actuelle, <a class="code" href="a00004.html">Fourmi</a> **meilleure_fourmi, <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[], <span class="keywordtype">float</span> evaporation, <span class="keywordtype">float</span> depot_pheromones);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="a00010.html#aacc4a9cedb86e13e01028735c141621c">   96</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#aacc4a9cedb86e13e01028735c141621c">parcourt</a>(<a class="code" href="a00004.html">Fourmi</a> *fourmi_actuelle, <a class="code" href="a00004.html">Fourmi</a> *meilleure_fourmi, <a class="code" href="a00006.html">Ville</a> villes[], <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[], <span class="keywordtype">int</span> alpha, <span class="keywordtype">int</span> beta, <span class="keywordtype">float</span> proba_ville[])</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;{</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <a class="code" href="a00009.html#a3750aa9d8ea79aae39bdc851b1a6fd19">init_fourmi</a>(fourmi_actuelle, &amp;villes[0]);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="comment">// seule la premiere ville est visitee</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    ville_visitees[0] = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    memset(ville_visitees + 1, <span class="keyword">false</span>, nb_villes*<span class="keyword">sizeof</span>(<span class="keywordtype">bool</span>));</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="comment">// On commence à 1, vu que la ville de départ est déjà compté</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">for</span> (i = 1; i &lt; nb_villes; i++) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="a00009.html#a26341ea71e1ae7ade0c490226c6658b8">ville_suivante</a>(fourmi_actuelle, nb_villes, alpha, beta, proba_ville, ville_visitees);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="a00010.html#a9ba88ced422a1fdba2cb68dac8e9aadf">  111</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="a00009.html#a9ba88ced422a1fdba2cb68dac8e9aadf">parcourt_valide</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <a class="code" href="a00006.html">Ville</a> villes[], <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[])</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">int</span> i, j;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">double</span> distance = 0;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="comment">// on s&#39;assure que la fourmi semble avoir visiter toutes les villes</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">if</span> (f-&gt;<a class="code" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">nb_villes_deja_visite</a> != nb_villes) {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Error : All cities are not visited (%d cities visited instead of %d)\n&quot;</span>,f-&gt;<a class="code" href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">nb_villes_deja_visite</a>, nb_villes);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">// On initialise la liste des villes visitées</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    ville_visitees[0] = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    memset(ville_visitees + 1, <span class="keyword">false</span>, nb_villes*<span class="keyword">sizeof</span>(<span class="keywordtype">bool</span>));</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// On refait le parcourt de la fourmi (de la ville 0 à l&#39;avant-dernière ville vu qu&#39;on calcule la distance entre la ville n et n+1)</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">for</span> (i = 0; i &lt; (nb_villes - 1); i++) {</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="a00006.html">Ville</a> *ville_courante = f-&gt;<a class="code" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">tabu</a>[i];</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <a class="code" href="a00006.html">Ville</a> *<a class="code" href="a00009.html#a26341ea71e1ae7ade0c490226c6658b8">ville_suivante</a> = f-&gt;<a class="code" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">tabu</a>[i + 1];</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="comment">// On s&#39;assure que la fourmi n&#39;était pas déjà passé par cette ville</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">if</span> (ville_visitees[ville_suivante-&gt;<a class="code" href="a00006.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">id_ville</a>]) {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            fprintf(stderr, <span class="stringliteral">&quot;Error : City visited twice (%s)\n&quot;</span>, ville_suivante-&gt;<a class="code" href="a00006.html#a4cde2f9aa497984732f03935cb5de70f">nom</a>);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            ville_visitees[ville_suivante-&gt;<a class="code" href="a00006.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">id_ville</a>] = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        }</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="comment">// on calcule la distance jusqu&#39;à la prochaine ville</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        distance += <a class="code" href="a00011.html#a52d808c750faefa77883b665d40bb46a">get_arc</a>(ville_courante, ville_suivante)-&gt;<a class="code" href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">distance</a>;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="comment">// on vérifie que la distance était correctement calculée</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">// vu que ce sont des flotants, on ne peut pas faire (distance == f-&gt;L)</span></div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">if</span> ((distance - f-&gt;<a class="code" href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">L</a>) &gt; 0.00001) {</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;error : Distance invalid\n&quot;</span>);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
-<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="a00010.html#a0d89a8dbfe33427c0684b434b45c4335">  154</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#a0d89a8dbfe33427c0684b434b45c4335">graph_update</a>(<a class="code" href="a00004.html">Fourmi</a> **fourmi_actuelle, <a class="code" href="a00004.html">Fourmi</a> **meilleure_fourmi, <a class="code" href="a00006.html">Ville</a> villes[], <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[])</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;{</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="a00006.html">Ville</a> *depart, *arrivee;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// on s&#39;assure que le parcourt de la fourmi est valide</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="a00009.html#a9ba88ced422a1fdba2cb68dac8e9aadf">parcourt_valide</a>(*fourmi_actuelle, villes, nb_villes, ville_visitees)) {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Error : Invalid path.\n&quot;</span>);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    depart  = (*fourmi_actuelle)-&gt;tabu[0];</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">for</span>(i = 1; i &lt; nb_villes; i++) { <span class="comment">// nb : on commence avec la ville numéro 1 (soit l&#39;arc de la ville 0 vers la ville 1)</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        arrivee = (*fourmi_actuelle)-&gt;tabu[i];</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment">// on met à jour les phéromones sur les arcs</span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <a class="code" href="a00011.html#a52d808c750faefa77883b665d40bb46a">get_arc</a>(depart, arrivee)-&gt;<a class="code" href="a00003.html#a15ec8c17c3ffac83d28810673d43398d">pheromones</a> += <a class="code" href="a00014.html#a1624d6bf6e6c5292fa204d74b3d54e29">PARCOURT_PHEROMONES</a>;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="comment">// on actualise la ville de départ</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        depart = arrivee;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="comment">// On regarde si la nouvelle fourmi a un trajet plus performant que l&#39;ancienne (et que l&#39;ancien était initialisé)</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">// Si c&#39;est le cas, (plutot que de copier toutes les données de la fourmi actuelle dans la meilleure fourmi,</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="comment">// ce qui est long), on les swap.</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordflow">if</span> ((*fourmi_actuelle)-&gt;L &lt; (*meilleure_fourmi)-&gt;L) {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <a class="code" href="a00015.html#a32441c408b24566841ae6903f684c26b">swap</a>(fourmi_actuelle,meilleure_fourmi);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;}</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;</div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="a00010.html#acd42d5bc73f5e75a66177c974fda6dd8">  184</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#acd42d5bc73f5e75a66177c974fda6dd8">affiche_parcourt</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <a class="code" href="a00006.html">Ville</a> villes[], <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[])</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;{</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="a00006.html">Ville</a> *ville_courante;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">// on s&#39;assure que le parcourt de la fourmi est valide</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span> (!<a class="code" href="a00009.html#a9ba88ced422a1fdba2cb68dac8e9aadf">parcourt_valide</a>(f, villes, nb_villes, ville_visitees)) {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        fprintf(stderr, <span class="stringliteral">&quot;Error : Invalid path.\n&quot;</span>);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">for</span>(i = 0; i &lt; nb_villes; i++) {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        printf(<span class="stringliteral">&quot;\t%s\n&quot;</span>, f-&gt;<a class="code" href="a00004.html#aa6690778e3986432f839d85d0b5cf386">tabu</a>[i]-&gt;<a class="code" href="a00006.html#a4cde2f9aa497984732f03935cb5de70f">nom</a>);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
-<div class="ttc" id="a00010_html"><div class="ttname"><a href="a00010.html">fourmi.h</a></div><div class="ttdoc">Tout ce qui relatif au parcourt des fourmis. </div></div>
-<div class="ttc" id="a00011_html_accbee5a502a3adca2de7e0d8236f1dd6"><div class="ttname"><a href="a00011.html#accbee5a502a3adca2de7e0d8236f1dd6">get_arrivee</a></div><div class="ttdeci">Ville * get_arrivee(Ville *depart, Arc *arc)</div><div class="ttdoc">Donne la ville d&#39;arrivée, en partant de la ville départ, et en passant par l&#39;arc arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00038">graph.c:38</a></div></div>
-<div class="ttc" id="a00004_html_a3176d24f6a101f2c737975cd0c89b630"><div class="ttname"><a href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">Fourmi::nb_villes_deja_visite</a></div><div class="ttdeci">int nb_villes_deja_visite</div><div class="ttdef"><b>Definition:</b> <a href="a00010_source.html#l00034">fourmi.h:34</a></div></div>
-<div class="ttc" id="a00006_html_a4cde2f9aa497984732f03935cb5de70f"><div class="ttname"><a href="a00006.html#a4cde2f9aa497984732f03935cb5de70f">Sommet::nom</a></div><div class="ttdeci">char nom[64]</div><div class="ttdoc">Nom de la ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00048">graph.h:48</a></div></div>
-<div class="ttc" id="a00003_html"><div class="ttname"><a href="a00003.html">Arc</a></div><div class="ttdoc">Contient les données relative à un arc. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00035">graph.h:35</a></div></div>
-<div class="ttc" id="a00004_html_ab6100b60862fd12824ea97ac2e1f3d20"><div class="ttname"><a href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">Fourmi::L</a></div><div class="ttdeci">float L</div><div class="ttdoc">Longueur d&#39;un chemin, somme des longueurs de chaque arc constituant le chemin. </div><div class="ttdef"><b>Definition:</b> <a href="a00010_source.html#l00033">fourmi.h:33</a></div></div>
-<div class="ttc" id="a00011_html_a52d808c750faefa77883b665d40bb46a"><div class="ttname"><a href="a00011.html#a52d808c750faefa77883b665d40bb46a">get_arc</a></div><div class="ttdeci">Arc * get_arc(Ville *depart, Ville *arrivee)</div><div class="ttdoc">Renvoie l&#39;arc qui permet de relier la ville départ avec la ville d&#39;arrivée. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00023">graph.c:23</a></div></div>
-<div class="ttc" id="a00015_html_a32441c408b24566841ae6903f684c26b"><div class="ttname"><a href="a00015.html#a32441c408b24566841ae6903f684c26b">swap</a></div><div class="ttdeci">void swap(void **p1, void **p2)</div><div class="ttdoc">Échange le contenue de deux pointeurs. </div><div class="ttdef"><b>Definition:</b> <a href="a00015_source.html#l00096">memory.c:96</a></div></div>
-<div class="ttc" id="a00006_html"><div class="ttname"><a href="a00006.html">Sommet</a></div><div class="ttdoc">Contient les données relative à une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00045">graph.h:45</a></div></div>
-<div class="ttc" id="a00006_html_a6c84e8994c2213870441265291b1f48b"><div class="ttname"><a href="a00006.html#a6c84e8994c2213870441265291b1f48b">Sommet::voisins</a></div><div class="ttdeci">Arc * voisins[]</div><div class="ttdoc">La liste d&#39;adjacence, liste de pointeurs vers les arcs sortant de cette ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00050">graph.h:50</a></div></div>
-<div class="ttc" id="a00009_html_aacc4a9cedb86e13e01028735c141621c"><div class="ttname"><a href="a00009.html#aacc4a9cedb86e13e01028735c141621c">parcourt</a></div><div class="ttdeci">void parcourt(Fourmi *fourmi_actuelle, Fourmi *meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])</div><div class="ttdoc">Détermine le parcourt de la fourmie fourmie actuelle, valide ce parcourt puis met à jour le graph...</div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00096">fourmi.c:96</a></div></div>
-<div class="ttc" id="a00014_html_af541ed3a9f6f8e88a12634dd73317ee5"><div class="ttname"><a href="a00014.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a></div><div class="ttdeci">#define ON_DEBUG(instruction)</div><div class="ttdoc">MACRO to activate advanced debug message. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00029">main.h:29</a></div></div>
-<div class="ttc" id="a00009_html_a9ba88ced422a1fdba2cb68dac8e9aadf"><div class="ttname"><a href="a00009.html#a9ba88ced422a1fdba2cb68dac8e9aadf">parcourt_valide</a></div><div class="ttdeci">bool parcourt_valide(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Valide le parcourt d&#39;une fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00111">fourmi.c:111</a></div></div>
-<div class="ttc" id="a00009_html_a3750aa9d8ea79aae39bdc851b1a6fd19"><div class="ttname"><a href="a00009.html#a3750aa9d8ea79aae39bdc851b1a6fd19">init_fourmi</a></div><div class="ttdeci">void init_fourmi(Fourmi *f, Ville *point_depart)</div><div class="ttdoc">Initialise la structure fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00027">fourmi.c:27</a></div></div>
-<div class="ttc" id="a00009_html_a26341ea71e1ae7ade0c490226c6658b8"><div class="ttname"><a href="a00009.html#a26341ea71e1ae7ade0c490226c6658b8">ville_suivante</a></div><div class="ttdeci">void ville_suivante(Fourmi *f, int nb_villes, int alpha, int beta, float proba_ville[], bool deja_visite[])</div><div class="ttdoc">Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l&#39;arc...</div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00047">fourmi.c:47</a></div></div>
-<div class="ttc" id="a00003_html_a15ec8c17c3ffac83d28810673d43398d"><div class="ttname"><a href="a00003.html#a15ec8c17c3ffac83d28810673d43398d">Arc::pheromones</a></div><div class="ttdeci">double pheromones</div><div class="ttdoc">Distance entre les villes i et j. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00037">graph.h:37</a></div></div>
-<div class="ttc" id="a00009_html_a29d1912ba7ed6858ceb0a5be60eede80"><div class="ttname"><a href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a></div><div class="ttdeci">bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visite)</div><div class="ttdoc">Indique si la ville a déjà été visité par la fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00034">fourmi.c:34</a></div></div>
-<div class="ttc" id="a00009_html_a0d89a8dbfe33427c0684b434b45c4335"><div class="ttname"><a href="a00009.html#a0d89a8dbfe33427c0684b434b45c4335">graph_update</a></div><div class="ttdeci">void graph_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, Ville villes[], int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromo...</div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00154">fourmi.c:154</a></div></div>
-<div class="ttc" id="a00014_html_a1624d6bf6e6c5292fa204d74b3d54e29"><div class="ttname"><a href="a00014.html#a1624d6bf6e6c5292fa204d74b3d54e29">PARCOURT_PHEROMONES</a></div><div class="ttdeci">#define PARCOURT_PHEROMONES</div><div class="ttdoc">Quantitée de phéromones ajoutés à chaque passage. </div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00052">main.h:52</a></div></div>
-<div class="ttc" id="a00006_html_a4c1c9a651ee416d8fc83f3f8089a4dd9"><div class="ttname"><a href="a00006.html#a4c1c9a651ee416d8fc83f3f8089a4dd9">Sommet::id_ville</a></div><div class="ttdeci">int id_ville</div><div class="ttdoc">Identifiant de la ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00046">graph.h:46</a></div></div>
-<div class="ttc" id="a00004_html_aa6690778e3986432f839d85d0b5cf386"><div class="ttname"><a href="a00004.html#aa6690778e3986432f839d85d0b5cf386">Fourmi::tabu</a></div><div class="ttdeci">Ville * tabu[]</div><div class="ttdoc">Liste des villes déjà parcourues par la fourmi k. La plus plus récente est enregistré dans tabu[nb_vi...</div><div class="ttdef"><b>Definition:</b> <a href="a00010_source.html#l00035">fourmi.h:35</a></div></div>
-<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">Fourmi</a></div><div class="ttdoc">Données relative au parcourt d&#39;une fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00010_source.html#l00032">fourmi.h:32</a></div></div>
-<div class="ttc" id="a00009_html_acd42d5bc73f5e75a66177c974fda6dd8"><div class="ttname"><a href="a00009.html#acd42d5bc73f5e75a66177c974fda6dd8">affiche_parcourt</a></div><div class="ttdeci">void affiche_parcourt(Fourmi *f, Ville villes[], int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Affiche le parcourt d&#39;une fourmie. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00184">fourmi.c:184</a></div></div>
-<div class="ttc" id="a00006_html_a6667b830a665da501a163301fec6323d"><div class="ttname"><a href="a00006.html#a6667b830a665da501a163301fec6323d">Sommet::nb_voisins</a></div><div class="ttdeci">int nb_voisins</div><div class="ttdoc">Les sommets reliés à ce sommet. </div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00049">graph.h:49</a></div></div>
-<div class="ttc" id="a00003_html_a79b8e036dca6911e3295a47d99f21f43"><div class="ttname"><a href="a00003.html#a79b8e036dca6911e3295a47d99f21f43">Arc::distance</a></div><div class="ttdeci">double distance</div><div class="ttdef"><b>Definition:</b> <a href="a00012_source.html#l00036">graph.h:36</a></div></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keywordtype">void</span> <a class="code" href="a00009.html#ae2b70df6d545656a13f18a270e801e4f">affiche_parcourt</a>(<a class="code" href="a00004.html">Fourmi</a> *f, <span class="keywordtype">int</span> nb_villes, <span class="keywordtype">bool</span> ville_visitees[]);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FOURMI_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a00004_html_a3176d24f6a101f2c737975cd0c89b630"><div class="ttname"><a href="a00004.html#a3176d24f6a101f2c737975cd0c89b630">Fourmi::nb_villes_deja_visite</a></div><div class="ttdeci">int nb_villes_deja_visite</div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00034">fourmi.h:34</a></div></div>
+<div class="ttc" id="a00004_html_ab6100b60862fd12824ea97ac2e1f3d20"><div class="ttname"><a href="a00004.html#ab6100b60862fd12824ea97ac2e1f3d20">Fourmi::L</a></div><div class="ttdeci">float L</div><div class="ttdoc">Longueur d&#39;un chemin, somme des longueurs de chaque arc constituant le chemin. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00033">fourmi.h:33</a></div></div>
+<div class="ttc" id="a00009_html_acac1b2f4fce02ad682caf166e126d29d"><div class="ttname"><a href="a00009.html#acac1b2f4fce02ad682caf166e126d29d">parcourt_update</a></div><div class="ttdeci">void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[], float evaporation, float depot_pheromones)</div><div class="ttdoc">Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromo...</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00159">fourmi.c:159</a></div></div>
+<div class="ttc" id="a00009_html_ae2b70df6d545656a13f18a270e801e4f"><div class="ttname"><a href="a00009.html#ae2b70df6d545656a13f18a270e801e4f">affiche_parcourt</a></div><div class="ttdeci">void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Affiche le parcourt d&#39;une fourmie. </div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00193">fourmi.c:193</a></div></div>
+<div class="ttc" id="a00009_html_a650c502fd0a65806d3dd3015a2a146b8"><div class="ttname"><a href="a00009.html#a650c502fd0a65806d3dd3015a2a146b8">parcourt</a></div><div class="ttdeci">void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])</div><div class="ttdoc">Détermine le parcourt de la fourmie fourmie actuelle, valide ce parcourt puis met à jour le graph...</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00100">fourmi.c:100</a></div></div>
+<div class="ttc" id="a00009_html_ab5670c146fd4171f352849be903116fe"><div class="ttname"><a href="a00009.html#ab5670c146fd4171f352849be903116fe">init_fourmi</a></div><div class="ttdeci">void init_fourmi(Fourmi *f, Ville villes[], int nb_villes, bool deja_visite[])</div><div class="ttdoc">Initialise la structure fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00028">fourmi.c:28</a></div></div>
+<div class="ttc" id="a00009_html_ab88807a73bb0e1f13c202fdc48ac0b3c"><div class="ttname"><a href="a00009.html#ab88807a73bb0e1f13c202fdc48ac0b3c">ville_suivante</a></div><div class="ttdeci">void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool deja_visite[])</div><div class="ttdoc">Déplace la fourmi dans la nouvelle ville, en fonction de sa visibilité et des phéromones sur l&#39;arc...</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00050">fourmi.c:50</a></div></div>
+<div class="ttc" id="a00005_html"><div class="ttname"><a href="a00005.html">Sommet</a></div><div class="ttdoc">Contient les données relative à une ville. </div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00046">graph.h:46</a></div></div>
+<div class="ttc" id="a00009_html_a4b42a631faa8bb8b58c6a7707fae94b0"><div class="ttname"><a href="a00009.html#a4b42a631faa8bb8b58c6a7707fae94b0">parcourt_valide</a></div><div class="ttdeci">bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])</div><div class="ttdoc">Valide le parcourt d&#39;une fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00116">fourmi.c:116</a></div></div>
+<div class="ttc" id="a00013_html"><div class="ttname"><a href="a00013.html">main.h</a></div><div class="ttdoc">contient les paramètres de la simulation </div></div>
+<div class="ttc" id="a00011_html"><div class="ttname"><a href="a00011.html">graph.h</a></div><div class="ttdoc">Contient les définitions des stuctures Sommet (Ville) et Arc, ainsi que les fonctions permettant de m...</div></div>
+<div class="ttc" id="a00009_html_a29d1912ba7ed6858ceb0a5be60eede80"><div class="ttname"><a href="a00009.html#a29d1912ba7ed6858ceb0a5be60eede80">deja_visite</a></div><div class="ttdeci">bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visite)</div><div class="ttdoc">Indique si la ville a déjà été visité par la fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00037">fourmi.c:37</a></div></div>
+<div class="ttc" id="a00004_html"><div class="ttname"><a href="a00004.html">Fourmi</a></div><div class="ttdoc">Données relative au parcourt d&#39;une fourmi. </div><div class="ttdef"><b>Definition:</b> <a href="a00009_source.html#l00032">fourmi.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 19 Mai 2014 20:29:24 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

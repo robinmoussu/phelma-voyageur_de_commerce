@@ -55,24 +55,24 @@ void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_ville, int nb_arc)
         Ville *p_ville;
 
         fscanf(fp,"%d %d %lf", &noeud1, &noeud2, &(p_arc->distance));
-        p_arc->pheromones = EPSILON_PHEROMONES;
+        p_arc->pheromonesAB = p_arc->pheromonesBA = EPSILON_PHEROMONES;
 
         // on cherche la ville de départ et d'arrivée à partir de leurs identifiants
         // et on ajoute l'arc courant dans la liste des voisins
         // NB : les arcs sont supposé bi-directionnels
         p_ville = get_in_villes(villes,noeud1,nb_ville); // ville de départ
         p_ville->voisins[(p_ville->nb_voisins)++] = p_arc;
-        p_arc->depart = (struct Ville*) p_ville;
+        p_arc->ville_A = (struct Ville*) p_ville;
         p_ville = get_in_villes(villes,noeud2,nb_ville); // ville d'arrivée
         p_ville->voisins[(p_ville->nb_voisins)++] = p_arc;
-        p_arc->arrivee = (struct Ville*) p_ville;
+        p_arc->ville_B = (struct Ville*) p_ville;
     }
 }
 
 //Dans ce fichier on crÃ©e une graphe en lisant des texts GRAPHE donnÃ©s et ajouter des donner dans le tableau allouÃ©
-void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc)
+void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc, int nb_fourmis)
 {
-    void  *memory_pool;   /// pointeur sur la zone qui va contenir l'intégralité de la mémoire necessaire pour la simulation
+    void  *memory_pool;     /// pointeur sur la zone qui va contenir l'intégralité de la mémoire necessaire pour la simulation
     FILE  *fp;              /// fichier contenant les informations sur le graph
 
     fp = fopen(data_graph,"r");
@@ -85,14 +85,13 @@ void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), 
 
     // Désormais, on connait l'espace mémoire total à allouer
     // Du coup, on peut allouer toutes les données de manière contigues
-    memory_pool = memory_allocator(villes, arcs, meilleure_fourmi, fourmi_actuelle, ville_visitees, proba_ville, *nb_villes, *nb_arc);
+    memory_pool = memory_allocator(villes, arcs, fourmis, meilleure_fourmi, ville_visitees, proba_ville, *nb_villes, *nb_arc, nb_fourmis);
     if (memory_pool==NULL) { return 0; }
 
     read_villes(fp, *villes, *nb_villes);
     read_arcs(fp, *arcs, *villes, *nb_villes, *nb_arc);
 
-    init_fourmi(*fourmi_actuelle , &((*villes)[0]));
-    init_fourmi(*meilleure_fourmi, &((*villes)[0]));
+    // La distance parcouru par la meilleure fourmie doit etre initialisée
     (*meilleure_fourmi)->L = FLT_MAX; // distance infinie
 
     print_graph(*villes, *arcs, *nb_villes, *nb_arc);
@@ -103,11 +102,11 @@ void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), 
 
 void print_arc(Arc *p_arc)
 {
-    Ville *p_depart = (Ville*) p_arc->depart;
+    Ville *p_depart = (Ville*) p_arc->ville_A;
     const char *nom_depart = p_depart->nom;
-    Ville *p_arrivee = (Ville*) p_arc->arrivee;
+    Ville *p_arrivee = (Ville*) p_arc->ville_B;
     const char *nom_arrivee = p_arrivee->nom;
-    printf("\t%lf\t%lf\t%s\t\t%s\n", p_arc->distance, p_arc->pheromones, nom_depart, nom_arrivee);
+    printf("\t%lf\t%lf\t%s\t\t%s\n", p_arc->distance, p_arc->pheromonesAB, nom_depart, nom_arrivee);
 }
 
 void print_graph(Sommet villes[], Arc arcs[], int nb_villes, int nb_voisins)
