@@ -18,7 +18,7 @@
  */
  
 #include <stdlib.h>
-#include <double.h>
+#include <float.h>
 
 #include "data.h"
 
