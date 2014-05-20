@@ -18,7 +18,7 @@
  */
  
 #include <stdlib.h>
-#include <float.h>
+#include <double.h>
 
 #include "data.h"
 
@@ -70,7 +70,7 @@ void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_villes, int nb_arcs)
 }
 
 //Dans ce fichier on crÃ©e une graphe en lisant des texts GRAPHE donnÃ©s et ajouter des donner dans le tableau allouÃ©
-void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arcs, int nb_fourmis)
+void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), double *(proba_ville[]), int *nb_villes, int *nb_arcs, int nb_fourmis)
 {
     void  *memory_pool;     /// pointeur sur la zone qui va contenir l'intégralité de la mémoire necessaire pour la simulation
     FILE  *fp;              /// fichier contenant les informations sur le graph

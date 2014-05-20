@@ -50,7 +50,7 @@ size_t sizeof_one_fourmi(int nb_villes)
 
 size_t sizeof_proba_ville(int nb_voisins_max)
 {
-    return nb_voisins_max*sizeof(float);
+    return nb_voisins_max*sizeof(double);
 }
 
 Arc* get_in_arcs (Arc arcs[], int i)
@@ -70,7 +70,7 @@ Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_villes)
 
 
 void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi,
-    bool *(ville_visitees[]), float *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis)
+    bool *(ville_visitees[]), double *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis)
 {
     void   **memory_pool;
     Fourmi *fourmis_pool;
@@ -99,7 +99,7 @@ void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), F
      fourmis_pool     = (Fourmi*)      ( (void*) *fourmis            + nb_fourmis*sizeof(Fourmi*));
     *meilleure_fourmi = (Fourmi*)      ( (void*)  fourmis_pool       + nb_fourmis*sizeof_one_fourmi(nb_villes));
     *ville_visitees   = (bool*)        ( (void*) *meilleure_fourmi   + sizeof_one_fourmi(nb_villes));
-    *proba_ville      = (float*)       ( (void*) *ville_visitees     + sizeof_villes_visitee(nb_villes));
+    *proba_ville      = (double*)       ( (void*) *ville_visitees     + sizeof_villes_visitee(nb_villes));
 
     // On initialise les pointeurs sur les fourmis
     for (i = 0; i < NB_FOURMIS; ++i) {

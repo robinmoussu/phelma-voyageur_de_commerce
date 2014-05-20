@@ -48,11 +48,11 @@ bool deja_visite(Ville *a_visiter, Ville *deja_visite[], int nb_villes_deja_visi
     return false;
 }
 
-void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool deja_visite[])
+void ville_suivante(Fourmi *f, int alpha, int beta, double proba_ville[], bool deja_visite[])
 {
-    float tirage;
-    float cumul_proba;  /// < valeur permettant la normalisation des probabilités
-    float fx;           /// < valeur courante de la fonction de répartition
+    double tirage;
+    double cumul_proba;  /// < valeur permettant la normalisation des probabilités
+    double fx;           /// < valeur courante de la fonction de répartition
     Ville *ville_courante;
     int i;
 
@@ -80,7 +80,7 @@ void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool de
     }
 
     // On selectionne aléatoirement une ville parmi la liste de ville (en la normalisant)
-    tirage = rand() * cumul_proba / (float) RAND_MAX;
+    tirage = rand() * cumul_proba / (double) RAND_MAX;
     fx = 0;
     for (i = 0; i < ville_courante->nb_voisins; i++) {
         fx += proba_ville[i];
@@ -99,7 +99,7 @@ void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool de
 }
 
 
-void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, float proba_ville[])
+void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, double proba_ville[])
 {
     int i;
 
@@ -157,7 +157,7 @@ bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])
     return true;
 }
 
-void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[], float evaporation, float depot_pheromones)
+void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb_villes, bool ville_visitees[], double evaporation, double depot_pheromones)
 {
     Ville *depart, *arrivee;
     int i;
@@ -208,7 +208,7 @@ void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[])
 }
 
 void explore_graph(Ville villes[], Arc arcs[], Fourmi *(*fourmis[])
-    , Fourmi *meilleure_fourmi, bool ville_visitees[], float proba_ville[]
+    , Fourmi *meilleure_fourmi, bool ville_visitees[], double proba_ville[]
     , int nb_villes, int nb_fourmis
     , int max_cycle, double alpha, double beta, double evaporation, double depot_pheromones)
 {

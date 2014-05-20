@@ -147,7 +147,7 @@ int main (int argc, const char *argv[])
     Fourmi  *(*fourmis[NB_FOURMIS]);
     Fourmi  *meilleure_fourmi;
     bool    *ville_visitees;
-    float   *proba_ville;
+    double   *proba_ville;
     int     nb_villes;
     int     nb_arcs;
 

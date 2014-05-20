@@ -57,8 +57,8 @@ int g_variable_globale;
  * nom des elements d'une enum : comme les constantes
  */
 typedef struct {
-    float x;
-    float y;
+    double x;
+    double y;
     const char *chaine_de_caracteres;
 } Ma_stucture, *Adresse_structure;
 union {

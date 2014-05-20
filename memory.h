@@ -117,7 +117,7 @@ Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_villes);
  *  \param nb_arcs nombre d'arc total dans le graph
  */
 void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi,
-    bool *(ville_visitees[]), float *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis);
+    bool *(ville_visitees[]), double *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis);
 
 /** Échange le contenue de deux pointeurs
  */
