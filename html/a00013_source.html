@@ -106,33 +106,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef MAIN_H</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define MAIN_H</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// Les lignes suivantes permettent d&#39;activer le débug.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// Pour cela, on peut utiliser la commande &quot;make debug&quot; ou définir DEBUG à une valeur non nulle</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#if (DEBUG == 0)</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="a00013.html#af541ed3a9f6f8e88a12634dd73317ee5">   30</a></span>&#160;<span class="preprocessor">#define ON_DEBUG(instruction)</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#define ON_DEBUG(instruction) instruction</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif // DEBUG</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="a00013.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">   35</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {<span class="keyword">false</span>,<span class="keyword">true</span>} <a class="code" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="a00013.html#a96790af840411f551cdcd1317865b4ac">   38</a></span>&#160;<span class="preprocessor">#define MAX_C               100        </span></div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="a00013.html#a74ae486100e435cf1b8c799f82842f40">   39</a></span>&#160;<span class="preprocessor">#define NB_FOURMIS          300         </span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="a00013.html#af5abd28c44c29b7397c84f1fec4b1d84">   41</a></span>&#160;<span class="preprocessor">#define ALPHA               1           </span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="a00013.html#a1b996515309fc3c03449912bb33046e3">   42</a></span>&#160;<span class="preprocessor">#define BETA                10          </span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="a00013.html#a4d4b514c478ae505a3ceb89eed08a436">   44</a></span>&#160;<span class="preprocessor">#define EPSILON_PHEROMONES  0.00001     </span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="a00013.html#a15784e1e075bab0ca6077264158f3542">   45</a></span>&#160;<span class="preprocessor">#define DEPOT_PHEROMONES    10          </span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00013.html#a262a4366c9827518bacf220bb5cde52b">   46</a></span>&#160;<span class="preprocessor">#define EVAPORATION         0.4         </span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MAIN_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="a00013_html_af6a258d8f3ee5206d682d799316314b1"><div class="ttname"><a href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a></div><div class="ttdeci">bool</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00035">main.h:35</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">// Les lignes suivantes permettent d&#39;activer le débug.</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// Pour cela, on peut utiliser la commande &quot;make debug&quot; ou définir DEBUG à une valeur non nulle</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">// En mode debug, le programme est également bavard !</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#if (DEBUG == 0)</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="a00013.html#af541ed3a9f6f8e88a12634dd73317ee5">   46</a></span>&#160;<span class="preprocessor">#define ON_DEBUG(instruction)</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#define ON_DEBUG(instruction) instruction</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define VERBOSE 1</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // DEBUG</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#if (VERBOSE == 0)</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="a00013.html#a2c95a322a705c791035dacde10a56159">   53</a></span>&#160;<span class="preprocessor">#define ON_VERBOSE(instruction)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#define ON_VERBOSE(instruction) instruction</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif // VERBOSE</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// Pour l&#39;utilisation en c89</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#ifndef bool</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="a00013.html#af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b">   60</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span> {<span class="keyword">false</span>,<span class="keyword">true</span>} <a class="code" href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="a00013.html#a74ae486100e435cf1b8c799f82842f40">   64</a></span>&#160;<span class="preprocessor">#define NB_FOURMIS          300         </span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="a00013.html#a96790af840411f551cdcd1317865b4ac">   65</a></span>&#160;<span class="preprocessor">#define MAX_C               100         </span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="a00013.html#af5abd28c44c29b7397c84f1fec4b1d84">   67</a></span>&#160;<span class="preprocessor">#define ALPHA               1           </span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="a00013.html#a1b996515309fc3c03449912bb33046e3">   68</a></span>&#160;<span class="preprocessor">#define BETA                10          </span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="a00013.html#a4d4b514c478ae505a3ceb89eed08a436">   70</a></span>&#160;<span class="preprocessor">#define EPSILON_PHEROMONES  0.00001     </span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="a00013.html#a15784e1e075bab0ca6077264158f3542">   71</a></span>&#160;<span class="preprocessor">#define DEPOT_PHEROMONES    10          </span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="a00013.html#a262a4366c9827518bacf220bb5cde52b">   72</a></span>&#160;<span class="preprocessor">#define EVAPORATION         0.4         </span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MAIN_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a00013_html_af6a258d8f3ee5206d682d799316314b1"><div class="ttname"><a href="a00013.html#af6a258d8f3ee5206d682d799316314b1">bool</a></div><div class="ttdeci">bool</div><div class="ttdef"><b>Definition:</b> <a href="a00013_source.html#l00060">main.h:60</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 14:18:38 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

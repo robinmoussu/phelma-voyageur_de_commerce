@@ -77,7 +77,7 @@ void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville
 bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[]);
 
 /** Vérifie si le parcourt de la fourmi est valide, et met à jour le graph (évaporation + nouveau phéromones)
- *  \note avant de mettre à jour le graph, le parcourt de fourmi_actuelle est vérifié
+ *  \note avant de mettre à jour le graph, le parcourt de fourmi_actuelle est vérifié en mode débug
  *
  *  \param fourmi_actuelle Fourmi qui vient de terminer sont parcourt
  *  \param meilleure_fourmi La fourmi possédant pour l'instant le meilleur parcourt
@@ -100,4 +100,26 @@ void parcourt_update(Fourmi **fourmi_actuelle, Fourmi **meilleure_fourmi, int nb
  */
 void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[]);
 
+/* Explore le graph à l'aide d'une colonie de fourmis
+ *
+ *  \param villes           Tableau contenant la liste de toutes les villes du graph
+ *  \param arcs             Tableau contenant la liste de toutes les arcs du graph
+ *  \param fourmis          Pointeur sur un tableau pointant sur l'espace mémoire reservé aux fourmis parcourant le graph
+ *  \param meilleure_fourmi La fourmi possédant pour l'instant le meilleur parcourt
+ *  \param ville_visitees   Tableau alloué, non initialisé servant à mémoriser la liste des villes visitées dans ce parcourt
+ *  \param proba_ville      Tableau aloué, non initialisé servant à calculer la la probabilité de chaque ville d'être tirée.
+ *  \param nb_villes        Nombre de villes contenues dans le graph
+ *  \param nb_fourmis       Nombre de fourmis
+ *  \param max_cycle        Nombre de cycles maximum à éxécuter
+ *  \param alpha            Coefficient régulant l'importance des phéromones pour le choix d'une ville
+ *  \param beta             Coefficient régulant l'importance de la visibilité pour le choix d'une ville
+ *  \param evaporation      Coeficiant d'évaporation (rho dans le sujet)
+ *  \param depot_pheromones Quantitée de phéromones ajoutés à chaque passage (Q dans le sujet)
+
+
+ */
+void explore_graph(Ville villes[], Arc arcs[], Fourmi *(*fourmis[])
+    , Fourmi *meilleure_fourmi, bool ville_visitees[], float proba_ville[]
+    , int nb_villes, int nb_fourmis
+    , int max_cycle, double alpha, double beta, double evaporation, double depot_pheromones);
 #endif /* FOURMI_H */

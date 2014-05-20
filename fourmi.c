@@ -74,7 +74,7 @@ void ville_suivante(Fourmi *f, int alpha, int beta, float proba_ville[], bool de
     }
 
     if (cumul_proba == 0) {
-        fprintf(stderr,"error: All cities were already visited, no path found\n");
+        ON_VERBOSE(fprintf(stderr,"error: All cities were already visited, no path found (it's normal in incomplete graph)\n"));
         f->parcourt_valide = false;
         return;
     }
@@ -205,4 +205,39 @@ void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[])
         printf("\t%s\n", f->tabu[i]->nom);
     }
     printf("\n");
+}
+
+void explore_graph(Ville villes[], Arc arcs[], Fourmi *(*fourmis[])
+    , Fourmi *meilleure_fourmi, bool ville_visitees[], float proba_ville[]
+    , int nb_villes, int nb_fourmis
+    , int max_cycle, double alpha, double beta, double evaporation, double depot_pheromones)
+{
+    int i,j;
+    
+    for (i = 0; i < max_cycle; i++) {
+        // Les nb_fourmis parcourent le graph
+        for (j = 0; j < nb_fourmis; j++) {
+            Fourmi *fourmi_courante = (*fourmis)[j];
+            parcourt(fourmi_courante, villes, nb_villes, ville_visitees, alpha, beta, proba_ville);
+            ON_DEBUG(printf("\nThat ant have made a travel of %lf km throught :\n", meilleure_fourmi->L));
+            ON_DEBUG(affiche_parcourt(fourmi_courante, nb_villes, ville_visitees));
+            ON_VERBOSE(printf("."));
+        }
+        // On actualise le graph
+        for (j = 0; j < nb_fourmis; j++) {
+            Fourmi *fourmi_courante = (*fourmis)[j];
+            if (fourmi_courante->parcourt_valide) {
+                parcourt_update(&fourmi_courante, &meilleure_fourmi, nb_villes, ville_visitees, evaporation, depot_pheromones);
+            }
+        }
+    }
+
+    // affichage du meilleur parcourt
+    if (meilleure_fourmi->parcourt_valide) {
+        printf("\nThe best ant have made a travel throught :\n");
+        affiche_parcourt(meilleure_fourmi, nb_villes, ville_visitees);
+        printf("That was a trip of  %lf km.\n", meilleure_fourmi->L);
+    } else {
+        fprintf(stderr, "Aucun chemin n'a été trouvé.\n");
+    }
 }

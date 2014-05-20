@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!--header-->
 <div class="contents">
 
-<p>contient les paramètres de la simulation  
+<p>Contient les paramètres de la simulation, ainsi que les options de tests.  
 <a href="#details">Plus de détails...</a></p>
 
 <p><a href="a00013_source.html">Aller au code source de ce fichier.</a></p>
@@ -97,13 +97,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af541ed3a9f6f8e88a12634dd73317ee5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#af541ed3a9f6f8e88a12634dd73317ee5">ON_DEBUG</a>(instruction)</td></tr>
+<tr class="memdesc:af541ed3a9f6f8e88a12634dd73317ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ligne de code exécutée uniquement si le débug est actif.  <a href="#af541ed3a9f6f8e88a12634dd73317ee5">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af541ed3a9f6f8e88a12634dd73317ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96790af840411f551cdcd1317865b4ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a96790af840411f551cdcd1317865b4ac">MAX_C</a>&#160;&#160;&#160;100</td></tr>
-<tr class="memdesc:a96790af840411f551cdcd1317865b4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre maximum de cycles autorisés.  <a href="#a96790af840411f551cdcd1317865b4ac">Plus de détails...</a><br /></td></tr>
-<tr class="separator:a96790af840411f551cdcd1317865b4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c95a322a705c791035dacde10a56159"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a2c95a322a705c791035dacde10a56159">ON_VERBOSE</a>(instruction)</td></tr>
+<tr class="memdesc:a2c95a322a705c791035dacde10a56159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ligne de code exécutée uniquement si le le programme est bavard.  <a href="#a2c95a322a705c791035dacde10a56159">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a2c95a322a705c791035dacde10a56159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74ae486100e435cf1b8c799f82842f40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a74ae486100e435cf1b8c799f82842f40">NB_FOURMIS</a>&#160;&#160;&#160;300</td></tr>
 <tr class="memdesc:a74ae486100e435cf1b8c799f82842f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre de fourmis parcourant le graph en meme temps.  <a href="#a74ae486100e435cf1b8c799f82842f40">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a74ae486100e435cf1b8c799f82842f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96790af840411f551cdcd1317865b4ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#a96790af840411f551cdcd1317865b4ac">MAX_C</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a96790af840411f551cdcd1317865b4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nombre maximum de cycles autorisés.  <a href="#a96790af840411f551cdcd1317865b4ac">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a96790af840411f551cdcd1317865b4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5abd28c44c29b7397c84f1fec4b1d84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00013.html#af5abd28c44c29b7397c84f1fec4b1d84">ALPHA</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:af5abd28c44c29b7397c84f1fec4b1d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient régulant l'importance des phéromones pour le choix d'une ville.  <a href="#af5abd28c44c29b7397c84f1fec4b1d84">Plus de détails...</a><br /></td></tr>
 <tr class="separator:af5abd28c44c29b7397c84f1fec4b1d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,8 +132,8 @@ Macros</h2></td></tr>
 <tr class="separator:af6a258d8f3ee5206d682d799316314b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>contient les paramètres de la simulation </p>
-<dl class="section note"><dt>Note</dt><dd>doit etre inclu dans tout les fichirs du projet </dd></dl>
+<div class="textblock"><p>Contient les paramètres de la simulation, ainsi que les options de tests. </p>
+<dl class="section note"><dt>Note</dt><dd>Doit etre inclu dans tout les fichirs du projet. </dd></dl>
 
 <p>Définition dans le fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 </div><h2 class="groupheader">Documentation des macros</h2>
@@ -145,7 +149,7 @@ Macros</h2></td></tr>
 
 <p>Coefficient régulant l'importance des phéromones pour le choix d'une ville. </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00041">41</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00067">67</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -161,7 +165,7 @@ Macros</h2></td></tr>
 
 <p>Coefficient régulant l'importance de la visibilité pour le choix d'une ville. </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00042">42</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00068">68</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -177,7 +181,7 @@ Macros</h2></td></tr>
 
 <p>Quantitée de phéromones ajoutés à chaque passage (Q dans le sujet) </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00045">45</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00071">71</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +197,7 @@ Macros</h2></td></tr>
 
 <p>Valeur initiale non nulle de phéromones sur les arc (epsilon dans le sujet) </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00044">44</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00070">70</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -209,7 +213,7 @@ Macros</h2></td></tr>
 
 <p>Coeficiant d'évaporation (rho dans le sujet) </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00046">46</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00072">72</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -225,7 +229,7 @@ Macros</h2></td></tr>
 
 <p>Nombre maximum de cycles autorisés. </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00038">38</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00065">65</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -241,7 +245,7 @@ Macros</h2></td></tr>
 
 <p>Nombre de fourmis parcourant le graph en meme temps. </p>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00039">39</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00064">64</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -259,7 +263,43 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00030">30</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Ligne de code exécutée uniquement si le débug est actif. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instuction</td><td>Instruction à exécuter</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>La constante DEBUG permet d'activer toutes les options de débug si elle est définie à une valeur autre que 0. </p>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00046">46</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2c95a322a705c791035dacde10a56159"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ON_VERBOSE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">instruction</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ligne de code exécutée uniquement si le le programme est bavard. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instuction</td><td>Instruction à exécuter</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>La constante VERBOSE permet de rendre le programme bavard si elle est définie à une valeur autre que 0. </p><dl class="section note"><dt>Note</dt><dd>DEBUG active également cette macro. </dd></dl>
+
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00053">53</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
@@ -280,14 +320,14 @@ Macros</h2></td></tr>
 </td></tr>
 </table>
 
-<p>Définition à la ligne <a class="el" href="a00013_source.html#l00035">35</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
+<p>Définition à la ligne <a class="el" href="a00013_source.html#l00060">60</a> du fichier <a class="el" href="a00013_source.html">main.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 14:18:38 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

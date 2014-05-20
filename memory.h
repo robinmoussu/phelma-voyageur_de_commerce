@@ -60,9 +60,9 @@
  *  car il peut y avoir moins de nombre de villes dans le graphe - 1 villes
  *  relié à chaque sommet.
  *  Comme ce n'est pas le cas ici, cela n'a pas été implémenté pour des raisons
- *  de facilitéessize_t sizeof_villes(int nb_ville).
+ *  de facilitéessize_t sizeof_villes(int nb_villes).
  */
-size_t sizeof_one_ville(int nb_ville);
+size_t sizeof_one_ville(int nb_villes);
 
 /** Espace mémoire occupé par un arc
  */
@@ -70,11 +70,11 @@ size_t sizeof_one_arc();
 
 /** Espace mémoire occupé par le tableau qui contient les villes qui ont étées visitées lors du parcourt
  */
-size_t sizeof_ville_visitees(int nb_ville);
+size_t sizeof_ville_visitees(int nb_villes);
 
 /** Espace mémoire occupé par une fourmi
  */
-size_t sizeof_one_fourmi(int nb_ville);
+size_t sizeof_one_fourmi(int nb_villes);
 
 /** Espace mémoire occupé par le tableau qui contient la probabilitée pour chaque ville d'etre choisie
  */
@@ -90,13 +90,13 @@ Arc*   get_in_arcs(Arc arcs[], int i);
  * \param villes pointeur vers la zone mémoire contenant tout les villes
  * \param i indice de la ville auquel on veut accéder
  */
-Ville* get_in_villes(Ville villes[], int i, int nb_ville);
+Ville* get_in_villes(Ville villes[], int i, int nb_villes);
 
 /** Permet d'accéder à la fourmi numéro i
  * \param villes pointeur vers la zone mémoire contenant tout les fourmis
  * \param i indice de la fourmi auquel on veut accéder
  */
-Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_ville);
+Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_villes);
 
 /** Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contigue
  *
@@ -113,11 +113,11 @@ Ville* get_in_fourmis(Fourmi fourmis[], int i, int nb_ville);
  *  \param meilleure_fourmi pointeur sur la zone mémoire à alouer pour la meilleure_fourmi
  *  \param ville_visitees pointeur sur la zone mémoire à alouer pour le tableau référançant les ville_visitees
  *  \param proba_ville pointeur sur la zone mémoire à alouer pour le tableau qui va contiendra les probabilitées de chaque ville d'etre choisie
- *  \param nb_ville nombre de ville dans le graph
- *  \param nb_arc nombre d'arc total dans le graph
+ *  \param nb_villes nombre de ville dans le graph
+ *  \param nb_arcs nombre d'arc total dans le graph
  */
 void* memory_allocator(Ville *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi,
-    bool *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc, int nb_fourmis);
+    bool *(ville_visitees[]), float *(proba_ville[]), int nb_villes, int nb_arcs, int nb_fourmis);
 
 /** Échange le contenue de deux pointeurs
  */

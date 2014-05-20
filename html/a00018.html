@@ -99,7 +99,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a4103efd8de1803018c128cff79ff4e98"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a4103efd8de1803018c128cff79ff4e98">sizeof_one_ville</a> (int nb_ville)</td></tr>
 <tr class="memdesc:a4103efd8de1803018c128cff79ff4e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace mémoire occupé par une seule ville NB : si le graph n'est pas complet on pourrait économiser de la mémoire car il peut y avoir moins de nombre de villes dans le graphe - 1 villes relié à chaque sommet.  <a href="#a4103efd8de1803018c128cff79ff4e98">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4103efd8de1803018c128cff79ff4e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6aec76018717bd8118f73332f77c905e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a6aec76018717bd8118f73332f77c905e">sizeof_one_arc</a> (int nb_arc)</td></tr>
+<tr class="memitem:a6aec76018717bd8118f73332f77c905e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a6aec76018717bd8118f73332f77c905e">sizeof_one_arc</a> (int nb_arcs)</td></tr>
 <tr class="memdesc:a6aec76018717bd8118f73332f77c905e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace mémoire occupé par un arc.  <a href="#a6aec76018717bd8118f73332f77c905e">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a6aec76018717bd8118f73332f77c905e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d43efeb477cd7d111311edde201904"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a37d43efeb477cd7d111311edde201904">sizeof_ville_visitees</a> (int nb_ville)</td></tr>
@@ -117,7 +117,7 @@ Fonctions</h2></td></tr>
 <tr class="memitem:a843daba163423b978ef08a59e4b27909"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00014.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a843daba163423b978ef08a59e4b27909">get_in_villes</a> (<a class="el" href="a00014.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> villes[], int i, int nb_ville)</td></tr>
 <tr class="memdesc:a843daba163423b978ef08a59e4b27909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permet d'accéder à la ville numéro i.  <a href="#a843daba163423b978ef08a59e4b27909">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a843daba163423b978ef08a59e4b27909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f524556335e39ecd30c59d8f0e2aec"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a64f524556335e39ecd30c59d8f0e2aec">memory_allocator</a> (<a class="el" href="a00014.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, <a class="el" href="a00016.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arc)</td></tr>
+<tr class="memitem:a64f524556335e39ecd30c59d8f0e2aec"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a64f524556335e39ecd30c59d8f0e2aec">memory_allocator</a> (<a class="el" href="a00014.html#a295b1c44b26fe1ed9f477b9958d051e5">Ville</a> *(villes[]), <a class="el" href="a00003.html">Arc</a> *(arcs[]), Fourmi **meilleure_fourmi, Fourmi **fourmi_actuelle, <a class="el" href="a00016.html#af6a258d8f3ee5206d682d799316314b1">bool</a> *(ville_visitees[]), float *(proba_ville[]), int nb_ville, int nb_arcs)</td></tr>
 <tr class="memdesc:a64f524556335e39ecd30c59d8f0e2aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aloue la totalité de la mémoire necessaire au programme en une seule fois, dans une seule zone contigue.  <a href="#a64f524556335e39ecd30c59d8f0e2aec">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a64f524556335e39ecd30c59d8f0e2aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32441c408b24566841ae6903f684c26b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html#a32441c408b24566841ae6903f684c26b">swap</a> (void **p1, void **p2)</td></tr>
@@ -259,7 +259,7 @@ Fonctions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_arc</em>&#160;</td>
+          <td class="paramname"><em>nb_arcs</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -282,7 +282,7 @@ Fonctions</h2></td></tr>
     <tr><td class="paramname">ville_visitees</td><td>pointeur sur la zone mémoire à alouer pour le tableau référançant les ville_visitees </td></tr>
     <tr><td class="paramname">proba_ville</td><td>pointeur sur la zone mémoire à alouer pour le tableau qui va contiendra les probabilitées de chaque ville d'etre choisie </td></tr>
     <tr><td class="paramname">nb_ville</td><td>nombre de ville dans le graph </td></tr>
-    <tr><td class="paramname">nb_arc</td><td>nombre d'arc total dans le graph </td></tr>
+    <tr><td class="paramname">nb_arcs</td><td>nombre d'arc total dans le graph </td></tr>
   </table>
   </dd>
 </dl>
@@ -319,7 +319,7 @@ Fonctions</h2></td></tr>
           <td class="memname">size_t sizeof_one_arc </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_arc</em></td><td>)</td>
+          <td class="paramname"><em>nb_arcs</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

@@ -45,7 +45,7 @@ git clone http://github.com/robinmoussu/voyageur_de_commerce
 
 \verbatim
 cd voyageur_de_commerce
-make
+make install
 ./voyageur nom_du_graph_contenant_les_donnees.txt
 \endverbatim
 
@@ -59,7 +59,38 @@ make
  * - graphe14.txt
  * - kroA100.txt
  * - Quatar194.txt
+ * 
+ * Ainsi que trois graphs incomplets :
+ * - graphe_11_incomplet.txt
+ * - graphe_12_incomplet.txt
+ * - graphe_13_incomplet.txt
+ * 
+ * Un graph incomplet est un graph dans lequel certaines villes ne sont pas reliées entre elles. Le graphe graphe_11_incomplet.txt
+ * est particulièrement incomplet, et ne donne pas toujours de solutions valides.
  *
+ * \subsection subsec_time Temps d'exécution
+ * 
+ * La vitesse d'exécution de cet algorithme été particulièrement travaillé. Pour le tester vous pouvez la commande suivante :
+
+\verbatim
+make clean && make install && time ./voyageur nom_du_graph_contenant_les_donnees.txt
+\endverbatim
+
+ * \section test_section test
+ *
+ * Les tests de validité de l'algorithme sont effectués directement dans le programme si les options de compilation ont été choisit correctement.
+ * \see ON_DEBUG
+ * \see ON_VERBOSE
+ * \note Toutes les erreurs sont écritent dans la sortie d'erreur standard (stderr).
+ *
+ * Vous pouvez spécifier toutes les options de débug en modifiant les paramètre dans main.h, ou plus simplement toutes les activer à la compilation
+ * avec la commande suivante (attention, le programme devient alors très bavard !) :
+
+\verbatim
+make debug
+./voyageur nom_du_graph_contenant_les_donnees.txt
+\endverbatim
+
  * \section copyright Copyright and License
  *
  * Ce logiciel est distribué sous la licence GNU GPL v3.
@@ -83,6 +114,9 @@ make
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 \endverbatim
+
+
+ *
  */
 
 
@@ -110,13 +144,12 @@ int main (int argc, const char *argv[])
     void    *memory_pool;
     Sommet  *villes;
     Arc     *arcs;
-    Fourmi  *meilleure_fourmi;
     Fourmi  *(*fourmis[NB_FOURMIS]);
+    Fourmi  *meilleure_fourmi;
     bool    *ville_visitees;
     float   *proba_ville;
     int     nb_villes;
-    int     nb_voisins;
-    int i,j;
+    int     nb_arcs;
 
     if (argc != 2) {
         fprintf(stderr, "Syntax error. You have to specifie the filename of the file that contains the data.\n");
@@ -127,32 +160,17 @@ int main (int argc, const char *argv[])
     srand(time(NULL));
 
     // Initialise les données du graphe, et alloue la mémoire
-    memory_pool = creation_graph(argv[1], &villes, &arcs, (Fourmi***) &fourmis, &meilleure_fourmi, &ville_visitees, &proba_ville, &nb_villes, &nb_voisins, NB_FOURMIS);
+    memory_pool = creation_graph(argv[1], &villes, &arcs, (Fourmi***) &fourmis, &meilleure_fourmi, &ville_visitees, &proba_ville, &nb_villes, &nb_arcs, NB_FOURMIS);
     if (!memory_pool) {
         return EXIT_FAILURE;
     }
 
-    for (i = 0; i < MAX_C; i++) {
-        // Les NB_FOURMIS parcourent le graph
-        for (j = 0; j < NB_FOURMIS; j++) {
-            Fourmi *fourmi_courante = (*fourmis)[j];
-            parcourt(fourmi_courante, villes, nb_villes, ville_visitees, ALPHA, BETA, proba_ville);
-            ON_DEBUG(printf("\nThat ant have made a travel of %lf km throught :\n", meilleure_fourmi->L));
-            ON_DEBUG(affiche_parcourt(fourmi_courante, nb_villes, ville_visitees));
-        }
-        // On actualise le graph
-        for (j = 0; j < NB_FOURMIS; j++) {
-            Fourmi *fourmi_courante = (*fourmis)[j];
-            if (fourmi_courante->parcourt_valide) {
-                parcourt_update(&fourmi_courante, &meilleure_fourmi, nb_villes, ville_visitees, EVAPORATION, DEPOT_PHEROMONES);
-            }
-        }
-    }
+    // On explore le graph
+    explore_graph(villes, arcs, fourmis
+        , meilleure_fourmi, ville_visitees, proba_ville
+        , nb_villes, NB_FOURMIS
+        , MAX_C, ALPHA, BETA, EVAPORATION, DEPOT_PHEROMONES);
 
-    // affichage du meilleur parcourt
-    printf("\nThe best ant have made a travel throught :\n");
-    affiche_parcourt(meilleure_fourmi, nb_villes, ville_visitees);
-    printf("That was a trip of  %lf km.\n", meilleure_fourmi->L);
 
     // On libère toute la mémoire du programme
     free(memory_pool);

@@ -98,7 +98,7 @@ Téléchargement des sources</h2>
 </ul>
 <p>Éxécutez les commandes suivantes :</p>
 <pre class="fragment">cd voyageur_de_commerce
-make
+make install
 ./voyageur nom_du_graph_contenant_les_donnees.txt
 </pre><p>Les graphs suivants sont fournis :</p><ul>
 <li>berlin52.txt</li>
@@ -110,7 +110,26 @@ make
 <li>kroA100.txt</li>
 <li>Quatar194.txt</li>
 </ul>
-<h1><a class="anchor" id="copyright"></a>
+<p>Ainsi que trois graphs incomplets :</p><ul>
+<li>graphe_11_incomplet.txt</li>
+<li>graphe_12_incomplet.txt</li>
+<li>graphe_13_incomplet.txt</li>
+</ul>
+<p>Un graph incomplet est un graph dans lequel certaines villes ne sont pas reliées entre elles. Le graphe graphe_11_incomplet.txt est particulièrement incomplet, et ne donne pas toujours de solutions valides.</p>
+<h2><a class="anchor" id="subsec_time"></a>
+Temps d'exécution</h2>
+<p>La vitesse d'exécution de cet algorithme été particulièrement travaillé. Pour le tester vous pouvez la commande suivante :</p>
+<pre class="fragment">make clean &amp;&amp; make install &amp;&amp; time ./voyageur nom_du_graph_contenant_les_donnees.txt
+</pre><h1><a class="anchor" id="test_section"></a>
+test</h1>
+<p>Les tests de validité de l'algorithme sont effectués directement dans le programme si les options de compilation ont été choisit correctement. </p><dl class="section see"><dt>Voir également</dt><dd><a class="el" href="a00013.html#af541ed3a9f6f8e88a12634dd73317ee5" title="Ligne de code exécutée uniquement si le débug est actif. ">ON_DEBUG</a> </dd>
+<dd>
+<a class="el" href="a00013.html#a2c95a322a705c791035dacde10a56159" title="Ligne de code exécutée uniquement si le le programme est bavard. ">ON_VERBOSE</a> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Toutes les erreurs sont écritent dans la sortie d'erreur standard (stderr).</dd></dl>
+<p>Vous pouvez spécifier toutes les options de débug en modifiant les paramètre dans <a class="el" href="a00013.html" title="Contient les paramètres de la simulation, ainsi que les options de tests. ">main.h</a>, ou plus simplement toutes les activer à la compilation avec la commande suivante (attention, le programme devient alors très bavard !) :</p>
+<pre class="fragment">make debug
+./voyageur nom_du_graph_contenant_les_donnees.txt
+</pre><h1><a class="anchor" id="copyright"></a>
 Copyright and License</h1>
 <p>Ce logiciel est distribué sous la licence GNU GPL v3.</p>
 <pre class="fragment">    Voyageur de commerce
@@ -130,7 +149,7 @@ Copyright and License</h1>
     along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</pre> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi 20 Mai 2014 03:05:12 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi 20 Mai 2014 14:18:38 pour Voyageur de commerce par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.7
 </small></address>

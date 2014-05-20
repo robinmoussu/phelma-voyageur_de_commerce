@@ -1,4 +1,4 @@
-6 9
+6 7
 Sommets du graphe
 0 0.000008 0.131538 sommet0
 1 0.755605 0.458650 sommet1
@@ -7,10 +7,8 @@ Sommets du graphe
 4 0.679296 0.934693 sommet4
 5 0.383502 0.519416 sommet5
 Arêtes du graphe : noeud1 noeud2 valeur
-0 5 0.545452
 0 3 0.549344
 0 2 0.539884
-0 1 0.823365
 1 4 0.482120
 1 2 0.327274
 2 5 0.335492

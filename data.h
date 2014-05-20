@@ -41,7 +41,7 @@ void flush_line(FILE *fp);
  *  \param villes espace mémoire dans lequel les villes doivent etre enregistrées
  *  \param nb_villes nombre de villes contenues dans le graph
  */
-void read_villes(FILE *fp, Ville villes[], int nb_ville);
+void read_villes(FILE *fp, Ville villes[], int nb_villes);
 
 /** Lit la liste des arcs dans le fichier fp, et l'ajoute à la liste des arcs
  *  \note Ajoute pour chacunes des villes du graph la liste des arcs qui les relient
@@ -50,9 +50,9 @@ void read_villes(FILE *fp, Ville villes[], int nb_ville);
  *  \param arcs espace mémoire dans lequel les arcs doivent etre enregistrés
  *  \param villes espace mémoire dans lequel les villes sont enregistrées
  *  \param nb_villes nombre de villes contenues dans le graph
- *  \param nb_arc nombre d'arc dans le graph
+ *  \param nb_arcs nombre d'arc dans le graph
  */
-void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_ville, int nb_arc);
+void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_villes, int nb_arcs);
 
 /** Initialise le graph à partir des données contenu dans le fichier data_graph (et alloue la mémoire necessaire)
  *  \param data_graph nom du fichier contenant les données
@@ -74,7 +74,7 @@ void read_arcs(FILE *fp, Arc arcs[], Ville villes[], int nb_ville, int nb_arc);
  * 
  * \note Comme les arcs sont bi-directionnel, la ville de départ et d'arrivée d'un graph est arbitraire         
  */
-void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arc, int nb_fourmis);
+void* creation_graph(const char *data_graph, Sommet *(villes[]), Arc *(arcs[]), Fourmi *(*fourmis[]), Fourmi **meilleure_fourmi, bool *(ville_visitees[]), float *(proba_ville[]), int *nb_villes, int *nb_arcs, int nb_fourmis);
 
 /** Affiche les données d'un arc
  */
