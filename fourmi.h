@@ -110,6 +110,7 @@ void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[]);
  *  \param proba_ville      Tableau aloué, non initialisé servant à calculer la la probabilité de chaque ville d'être tirée.
  *  \param nb_villes        Nombre de villes contenues dans le graph
  *  \param nb_fourmis       Nombre de fourmis
+ *  \param nb_voisins       Nombre d’arcs dans le graph
  *  \param max_cycle        Nombre de cycles maximum à éxécuter
  *  \param alpha            Coefficient régulant l'importance des phéromones pour le choix d'une ville
  *  \param beta             Coefficient régulant l'importance de la visibilité pour le choix d'une ville
@@ -120,6 +121,6 @@ void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[]);
  */
 void explore_graph(Ville villes[], Arc arcs[], Fourmi *(*fourmis[])
     , Fourmi *meilleure_fourmi, bool ville_visitees[], double proba_ville[]
-    , int nb_villes, int nb_fourmis
+    , int nb_villes, int nb_fourmis, int nb_voisins
     , int max_cycle, double alpha, double beta, double evaporation, double depot_pheromones);
 #endif /* FOURMI_H */

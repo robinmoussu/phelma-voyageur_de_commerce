@@ -30,7 +30,7 @@ Arc* get_arc(Ville *depart, Ville *arrivee)
 			return depart->voisins[i];
 		}
 	}
-	fprintf(stderr, "error: No path found from %s to %s\n", depart->nom, arrivee->nom);
+	ON_VERBOSE(fprintf(stderr, "error: No path found from %s to %s\n", depart->nom, arrivee->nom));
 	return 0; // la ville d'arrivee ne peux pas etre atteinte en partant de la ville de départ
 }
 
