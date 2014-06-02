@@ -23,7 +23,7 @@
 
 #include "fourmi.h"
 #include "memory.h"
-
+#include "data.h"
 
 void init_fourmi(Fourmi *f, Ville villes[], int nb_villes, bool deja_visite[])
 {
@@ -101,8 +101,6 @@ void ville_suivante(Fourmi *f, int alpha, int beta, double proba_ville[], bool d
 
 void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville_visitees[], int alpha, int beta, double proba_ville[])
 {
-    int i;
-
     // On réinitialise le tableau des villes visitées avant toutes choses
     memset(ville_visitees, false, nb_villes*sizeof(bool));
 
@@ -112,10 +110,22 @@ void parcourt(Fourmi *fourmi_actuelle, Ville villes[], int nb_villes, bool ville
     while (fourmi_actuelle->parcourt_valide && (fourmi_actuelle->nb_villes_deja_visite < nb_villes)) {
         ville_suivante(fourmi_actuelle, alpha, beta, proba_ville, ville_visitees);
     }
+
+    // On s’assure que l’on peut revenir au départ
+    if(fourmi_actuelle->parcourt_valide) {
+        Arc *retour_ville_depart = get_arc(fourmi_actuelle->tabu[nb_villes - 1], fourmi_actuelle->tabu[0]);
+        if (!retour_ville_depart) {
+            fourmi_actuelle->parcourt_valide = false;
+            ON_VERBOSE(fprintf(stderr, "Cannot going back home.\n"));
+        } else {
+            fourmi_actuelle->L += retour_ville_depart->distance;
+        }
+    }
 }
 
 bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])
 {
+    Arc *retour_ville_depart;
     int i;
     double distance = 0;
 
@@ -145,6 +155,14 @@ bool parcourt_valide(Fourmi *f, int nb_villes, bool ville_visitees[])
 
         // on calcule la distance jusqu'à la prochaine ville
         distance += get_arc(ville_courante, ville_suivante)->distance;
+    }
+
+    // Il reste la distance entre la dernière ville et la ville de départ
+    retour_ville_depart = get_arc(f->tabu[nb_villes - 1], f->tabu[0]);
+    if (!retour_ville_depart) {
+        return false;
+    } else {
+        distance += retour_ville_depart->distance;
     }
 
     // on vérifie que la distance était correctement calculée
@@ -209,11 +227,11 @@ void affiche_parcourt(Fourmi *f, int nb_villes, bool ville_visitees[])
 
 void explore_graph(Ville villes[], Arc arcs[], Fourmi *(*fourmis[])
     , Fourmi *meilleure_fourmi, bool ville_visitees[], double proba_ville[]
-    , int nb_villes, int nb_fourmis
+    , int nb_villes, int nb_fourmis, int nb_voisins
     , int max_cycle, double alpha, double beta, double evaporation, double depot_pheromones)
 {
     int i,j;
-    
+
     for (i = 0; i < max_cycle; i++) {
         // Les nb_fourmis parcourent le graph
         for (j = 0; j < nb_fourmis; j++) {
@@ -232,12 +250,19 @@ void explore_graph(Ville villes[], Arc arcs[], Fourmi *(*fourmis[])
         }
     }
 
+    printf("\nEnd of simulation\n");
+    printf("\nList of arcs in graph\n");
+    printf("\tDISTANCE\tPHEROMONE\tCITY A\t\tCITY B\n");
+    for (i = 0; i < nb_voisins; i++) {
+        print_arc(get_in_arcs(arcs, i));
+    }
+
     // affichage du meilleur parcourt
     if (meilleure_fourmi->parcourt_valide) {
         printf("\nThe best ant have made a travel throught :\n");
         affiche_parcourt(meilleure_fourmi, nb_villes, ville_visitees);
-        printf("That was a trip of  %lf km.\n", meilleure_fourmi->L);
+        printf("That was a trip of  %lf km (including the return to the first city).\n", meilleure_fourmi->L);
     } else {
-        fprintf(stderr, "Aucun chemin n'a été trouvé.\n");
+        fprintf(stderr, "No path found, sorry.\n");
     }
 }

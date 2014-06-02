@@ -178,7 +178,7 @@ int main (int argc, const char *argv[])
     // On explore le graph
     explore_graph(villes, arcs, fourmis
         , meilleure_fourmi, ville_visitees, proba_ville
-        , nb_villes, NB_FOURMIS
+        , nb_villes, NB_FOURMIS, nb_arcs
         , MAX_C, ALPHA, BETA, EVAPORATION, DEPOT_PHEROMONES);
 
 

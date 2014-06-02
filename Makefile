@@ -34,10 +34,12 @@ OPTION = graphe11.txt
 
 install: release
 
-debug:   CFLAGS =-Wextra -Wall -fdiagnostics-color=auto -ggdb -DDEBUG
+#À n’utiliser que sur les versions récentes de gcc : -fdiagnostics-color=auto 
+debug:   CFLAGS =-Wextra -Wall -ggdb -DDEBUG
 debug:   voyageur
 
-release: CFLAGS =-fdiagnostics-color=auto -O2
+#À n’utiliser que sur les versions récentes de gcc : -fdiagnostics-color=auto 
+release: CFLAGS =-O2
 release: voyageur
 
 run:	 release
